@@ -843,13 +843,18 @@ html, body {
   .stat-card {
     width: 100%;
   }
-  .carousel-track {
-    flex-direction: column;
-    align-items: center;
+  .carousel-container {
+    padding: 16px 8px 24px;
+    gap: 12px;
   }
-  .carousel-item {
+  .carousel-photo {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 380px;
+    object-fit: cover;
+  }
+  .carousel-btn {
+    font-size: 28px;
+    padding: 2px 12px 4px;
   }
   .por-que-title {
     font-size: 28px;
