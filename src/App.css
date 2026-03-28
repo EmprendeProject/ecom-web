@@ -774,12 +774,18 @@ html, body {
     height: 30px;
   }
   .hero-banner {
-     height: 50vh;
-     min-height: 300px;
+     height: auto;
+     width: 100%;
+     aspect-ratio: 3074 / 470;
+     min-height: unset;
+     background-size: contain;
+     background-position: center top;
+     padding: 0;
   }
   .headline-section {
-    padding: 40px 20px;
-    flex-direction: column; /* Stack rocket and text */
+     padding: 0 20px 20px;
+     margin-top: 10px;
+     flex-direction: column; /* Stack rocket and text */
   }
   .headline-wrapper {
     padding-left: 0;
@@ -788,6 +794,7 @@ html, body {
     position: static;
     width: 60px;
     margin-bottom: 20px;
+    display: none; /* Rocket was removed from App.jsx earlier */
   }
   .headline-text {
     max-width: 100%;
