@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import ecomLogoWhite from './assets/Elementos graficos/11.png';
 import projectLogo from './assets/Elementos graficos/1.png';
 import bannerBg from './assets/Elementos graficos/2.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
-import rocketIcon from './assets/Elementos graficos/4.png';
+
 import stat1 from './assets/Elementos graficos/5.png';
 import stat2 from './assets/Elementos graficos/6.png';
 import stat3 from './assets/Elementos graficos/7.png';
 import stat4 from './assets/Elementos graficos/8.png';
 import standsAnterioresTitle from './assets/Elementos graficos/9.png';
 import marcasTitle from './assets/Elementos graficos/10.png';
+import stand1Foto from './assets/stands/stands 1.jpeg';
+import stand2Foto from './assets/stands/stands 2.jpeg';
+import stand3Foto from './assets/stands/stands 3.jpeg';
+import stand4Foto from './assets/stands/stands 4.jpeg';
 import razon1 from './assets/Elementos graficos/12.png';
 import razon2 from './assets/Elementos graficos/13.png';
 import razon3 from './assets/Elementos graficos/14.png';
@@ -21,6 +25,50 @@ import stand6x2 from './assets/Elementos graficos/19.png';
 import precioTitle from './assets/Elementos graficos/20.png';
 import precioTable from './assets/Elementos graficos/21.png';
 import './App.css';
+
+const STANDS_PHOTOS = [stand1Foto, stand2Foto, stand3Foto, stand4Foto];
+
+function Carousel() {
+  const [current, setCurrent] = useState(0);
+  const total = STANDS_PHOTOS.length;
+
+  const prev = useCallback(() => setCurrent(c => (c - 1 + total) % total), [total]);
+  const next = useCallback(() => setCurrent(c => (c + 1) % total), [total]);
+
+  return (
+    <div className="carousel-container">
+      <div className="carousel-row">
+        <button className="carousel-btn prev-btn" onClick={prev} aria-label="Anterior">&#8249;</button>
+
+        <div className="carousel-viewport">
+          <div
+            className="carousel-track"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {STANDS_PHOTOS.map((src, i) => (
+              <div className="carousel-slide" key={i}>
+                <img src={src} alt={`Stand anterior ${i + 1}`} className="carousel-photo" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button className="carousel-btn next-btn" onClick={next} aria-label="Siguiente">&#8250;</button>
+      </div>
+
+      <div className="carousel-dots">
+        {STANDS_PHOTOS.map((_, i) => (
+          <button
+            key={i}
+            className={`carousel-dot${i === current ? ' active' : ''}`}
+            onClick={() => setCurrent(i)}
+            aria-label={`Ir a foto ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -50,7 +98,6 @@ function App() {
       <main className="main-content">
         {/* Headline & Rocket */}
         <div className="headline-section" id="inicio">
-          <img src={rocketIcon} alt="Rocket" className="rocket-icon" />
           <div className="headline-wrapper">
             <img src={headlineText} alt="El evento de ecommerce más grande de Venezuela" className="headline-text" />
           </div>
@@ -100,15 +147,7 @@ function App() {
             <img src={standsAnterioresTitle} alt="Stands que se sumaron a la versión anterior" className="stands-title-img" />
           </div>
           
-          <div className="carousel-container">
-            <button className="carousel-btn prev-btn">‹</button>
-            <div className="carousel-track">
-              <div className="carousel-item"></div>
-              <div className="carousel-item"></div>
-              <div className="carousel-item"></div>
-            </div>
-            <button className="carousel-btn next-btn">›</button>
-          </div>
+          <Carousel />
 
           <div className="stands-cta-wrapper">
             <button className="btn-secondary">Quiero mas información de stands</button>
