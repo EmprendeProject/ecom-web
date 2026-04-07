@@ -256,7 +256,7 @@ function App() {
           <h2 className="google-form-title">
             ¿LISTO PARA <span className="purple">PARTICIPAR?</span>
           </h2>
-          <p className="google-form-subtitle">Completa el formulario y un asesor se pondrá en contacto contigo.</p>
+          <p className="google-form-subtitle">Completa el formulario y unete a la lista de espera, para ser de los primeros en adquirir entradas de Ecom 2026.</p>
           <div className="google-form-wrapper">
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLScNnVixZ3oe7lrlRuxqgEiRxRiZhUAX_iZHaZ3G5Wf3vizHJw/viewform?embedded=true"
