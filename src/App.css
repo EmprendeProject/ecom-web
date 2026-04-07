@@ -839,6 +839,67 @@ html, body {
   }
 }
 
+/* 12. Google Form Section */
+.google-form-section {
+  background: linear-gradient(180deg, #1a082b 0%, #0b0213 100%);
+  padding: 80px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.google-form-title {
+  color: #ffffff;
+  font-size: 44px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.google-form-title .purple {
+  color: #b14cf7;
+}
+
+.google-form-subtitle {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 500px;
+}
+
+.google-form-wrapper {
+  width: 100%;
+  max-width: 740px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(177, 76, 247, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow:
+    0 0 60px rgba(154, 42, 241, 0.2),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.google-form-wrapper iframe {
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .google-form-title {
+    font-size: 32px;
+  }
+  .google-form-wrapper iframe {
+    width: 100%;
+    height: 600px;
+  }
+}
+
 @media (max-width: 480px) {
   .stat-card {
     width: 100%;

@@ -251,8 +251,29 @@ function App() {
           </div>
         </section>
 
-        {/* 12. Footer */}
-        <footer className="footer-section" id="contacto">
+        {/* 12. Google Form Contact */}
+        <section className="google-form-section" id="contacto">
+          <h2 className="google-form-title">
+            ¿LISTO PARA <span className="purple">PARTICIPAR?</span>
+          </h2>
+          <p className="google-form-subtitle">Completa el formulario y un asesor se pondrá en contacto contigo.</p>
+          <div className="google-form-wrapper">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScNnVixZ3oe7lrlRuxqgEiRxRiZhUAX_iZHaZ3G5Wf3vizHJw/viewform?embedded=true"
+              width="700"
+              height="520"
+              frameBorder="0"
+              marginHeight="0"
+              marginWidth="0"
+              title="Formulario de contacto eCom 2026"
+            >
+              Cargando…
+            </iframe>
+          </div>
+        </section>
+
+        {/* 13. Footer */}
+        <footer className="footer-section" id="footer">
           <div className="footer-content">
             <img src={projectLogo} alt="eCom 2026 logo" className="footer-logo" />
             <div className="footer-contact">

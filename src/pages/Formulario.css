@@ -1,0 +1,232 @@
+/* ===========================
+   Formulario Page Styles
+   =========================== */
+
+.form-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0b0213 0%, #1a082b 40%, #0b0213 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  border-bottom: 1px solid rgba(177, 76, 247, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.form-header-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.form-header-logo {
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+.form-back-btn {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 1px solid rgba(177, 76, 247, 0.4);
+  border-radius: 30px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.form-back-btn:hover {
+  color: #ffffff;
+  background: rgba(177, 76, 247, 0.15);
+  border-color: rgba(177, 76, 247, 0.8);
+  box-shadow: 0 0 20px rgba(177, 76, 247, 0.2);
+}
+
+/* Banner */
+.form-banner {
+  width: 100%;
+  line-height: 0; /* remove any bottom gap from inline img */
+}
+
+.form-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Hero */
+.form-hero {
+  text-align: center;
+  padding: 72px 24px 48px;
+}
+
+.form-hero-title {
+  color: #ffffff;
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.form-purple {
+  color: #b14cf7;
+  text-shadow: 0 0 40px rgba(177, 76, 247, 0.4);
+}
+
+.form-hero-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 17px;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Form Body */
+.form-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 24px 80px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(177, 76, 247, 0.25);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow:
+    0 0 80px rgba(154, 42, 241, 0.18),
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.form-card iframe {
+  border-radius: 14px;
+  max-width: 100%;
+  background: #fff;
+  height: 1400px;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 14px 20px 14px 16px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease;
+  animation: whatsapp-pulse 2.5s infinite;
+}
+
+.whatsapp-fab svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.whatsapp-fab-label {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55), 0 4px 12px rgba(0,0,0,0.3);
+  animation: none;
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.3); }
+  50%       { box-shadow: 0 6px 32px rgba(37, 211, 102, 0.75), 0 2px 8px rgba(0,0,0,0.3); }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-fab {
+    bottom: 20px;
+    right: 16px;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .whatsapp-fab-label {
+    display: none;
+  }
+}
+
+.form-footer {
+  text-align: center;
+  padding: 24px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-header {
+    padding: 16px 24px;
+  }
+
+  .form-hero-title {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .form-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .form-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .form-card iframe {
+    width: 100%;
+    height: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-hero {
+    padding: 48px 16px 36px;
+  }
+
+  .form-hero-title {
+    font-size: 28px;
+  }
+
+  .form-back-btn {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+}
