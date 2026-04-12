@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import titulo1 from '../assets/entradas/1.png';
@@ -27,6 +27,18 @@ import img23 from '../assets/entradas/23.png';
 import './Entradas.css';
 
 export default function Entradas() {
+  useEffect(() => {
+    // Inject the VSL script when the component mounts
+    const scriptId = 'niuvixtool-vsl-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = "https://vsl.niuvixtool.com/embed/vsl-engine.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <div className="entradas-page">
       {/* App Bar */}
@@ -44,31 +56,8 @@ export default function Entradas() {
         </div>
 
         {/* Video VSL */}
-        <div className="vsl-section">
-          <div className="video-player">
-             <div className="play-button-overlay">
-               <div className="play-button-circle">
-                 <div className="play-triangle"></div>
-               </div>
-             </div>
-             
-             {/* Fake Video Controls for UI accuracy */}
-             <div className="video-controls">
-                <div className="controls-left">
-                  <span className="control-icon play-small">▶</span>
-                  <span className="control-icon next">⏭</span>
-                  <div className="progress-bar">
-                    <div className="progress-fill"></div>
-                    <div className="progress-handle"></div>
-                  </div>
-                </div>
-                <div className="controls-right">
-                  <span className="control-icon volume">🔊</span>
-                  <span className="control-icon settings">⚙</span>
-                  <span className="control-icon fullscreen">⛶</span>
-                </div>
-             </div>
-          </div>
+        <div className="vsl-section" style={{ width: '100%', maxWidth: '900px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+          <vsl-player data-id="9fef7564-d1bc-46c7-9a73-62f0f508fb2b"></vsl-player>
         </div>
 
         {/* Call to Action */}
