@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import titulo1 from '../assets/entradas/1.png';
@@ -25,6 +25,50 @@ import img21 from '../assets/entradas/21.png';
 import img22 from '../assets/entradas/22.png';
 import img23 from '../assets/entradas/23.png';
 import './Entradas.css';
+
+function CountdownTimer() {
+  const TARGET_DATE = new Date('2026-08-28T23:59:59');
+
+  const calcTimeLeft = () => {
+    const diff = TARGET_DATE - new Date();
+    if (diff <= 0) return { days: 0, hours: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  return (
+    <div className="countdown-wrapper">
+      <div className="countdown-inner">
+        <div className="countdown-left">
+          <p className="countdown-label">estas preparado?</p>
+          <div className="countdown-grid">
+            <div className="countdown-block">
+              <span className="countdown-number">{pad(timeLeft.days)}</span>
+              <span className="countdown-unit">DÍAS</span>
+            </div>
+            <span className="countdown-colon">:</span>
+            <div className="countdown-block">
+              <span className="countdown-number">{pad(timeLeft.hours)}</span>
+              <span className="countdown-unit">HORAS</span>
+            </div>
+          </div>
+        </div>
+        <a href="#tickets" className="countdown-buy-btn">COMPRAR ENTRADAS</a>
+      </div>
+    </div>
+  );
+}
 
 export default function Entradas() {
   useEffect(() => {
@@ -59,6 +103,7 @@ export default function Entradas() {
         <div className="vsl-section" style={{ width: '100%', maxWidth: '900px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
           <vsl-player data-id="9fef7564-d1bc-46c7-9a73-62f0f508fb2b"></vsl-player>
         </div>
+
 
         {/* Call to Action */}
         <div className="entradas-cta-wrapper">
@@ -156,6 +201,11 @@ export default function Entradas() {
           </a>
         </div>
       </footer>
+
+      {/* Floating Countdown Bar */}
+      <div className="countdown-float-bar">
+        <CountdownTimer />
+      </div>
     </div>
   );
 }
