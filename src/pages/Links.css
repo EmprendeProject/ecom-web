@@ -1,0 +1,229 @@
+/* ===========================
+   Links Page (Neon Dark Theme)
+   =========================== */
+
+.links-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #111111;
+  padding-bottom: 60px;
+}
+
+/* Navbar */
+.links-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  max-width: 600px;
+}
+
+.nav-icon-btn {
+  background: transparent;
+  border: none;
+  color: #555555;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-title-img {
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+/* Container */
+.links-container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Header Image (Cabecera) */
+.links-header-img-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.links-header-img {
+  width: 100%;
+  max-width: 300px; /* Base size */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 20px rgba(177, 76, 247, 0.2));
+}
+
+
+
+/* Header Text */
+.links-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.links-title {
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0 0 12px;
+  letter-spacing: 1px;
+}
+
+.cyan-text {
+  color: #aa00ff; /* Purple for visibility on white */
+}
+
+.links-subtitle {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Buttons */
+.links-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.link-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  transition: all 0.2s ease;
+}
+
+.btn-neon-cyan {
+  background-color: #be4cf7;
+  color: #111111;
+  box-shadow: 0 4px 15px rgba(190, 76, 247, 0.2);
+}
+
+.btn-neon-cyan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(190, 76, 247, 0.4);
+}
+
+.btn-dark-purple {
+  background-color: #271f30;
+  color: #cba8f0;
+}
+
+.btn-dark-purple:hover {
+  background-color: #31263c;
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  flex-shrink: 0;
+}
+
+/* List Links (Divider style) */
+.links-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.list-link {
+  color: #1a082b;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: color 0.2s;
+}
+
+.list-link:hover {
+  color: #aa00ff;
+}
+
+.list-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #eaeaea;
+}
+
+/* Bottom Icons */
+.bottom-icons {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.icon-action-btn {
+  background: transparent;
+  border: none;
+  color: #888888;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.icon-action-btn:hover {
+  color: #111111;
+}
+
+/* Footer Section */
+.links-footer {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+  padding-top: 30px;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #777777;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #111111;
+}
+
+.footer-copy {
+  color: #666666;
+  font-size: 10px;
+  letter-spacing: 1px;
+}

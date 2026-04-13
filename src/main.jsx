@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Formulario from './pages/Formulario.jsx'
 import Entradas from './pages/Entradas.jsx'
+import Links from './pages/Links.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Formulario />} />
         <Route path="/stands" element={<App />} />
         <Route path="/entradas" element={<Entradas />} />
+        <Route path="/links" element={<Links />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
