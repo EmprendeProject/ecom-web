@@ -226,8 +226,10 @@
 
 .stats-grid {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 0;
   max-width: 1000px;
   width: 100%;
 }
@@ -235,9 +237,8 @@
 .stat-card {
   width: 100%;
   height: auto;
-  border-radius: 20px;
+  display: block;
   object-fit: contain;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* 6. Stands Anteriores */
@@ -369,6 +370,27 @@
 .btn-secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn-black {
+  background-color: #0b0213;
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 15px 50px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.btn-black:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background-color: #1a082b;
 }
 
 /* 7. Marcas */
@@ -710,11 +732,10 @@ html, body {
 
 @media (max-width: 900px) {
   .stats-grid {
-    flex-wrap: wrap;
-    gap: 15px;
+    width: 100%;
   }
   .stat-card {
-    width: calc(50% - 15px);
+    width: 100%;
   }
   .razones-title {
     font-size: 36px;
