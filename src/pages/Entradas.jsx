@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
+import footerLogo from '../assets/Elementos graficos/2.png';
 import titulo1 from '../assets/entradas/1.png';
 import img2 from '../assets/entradas/2.png';
 import img3 from '../assets/entradas/3.png';
+import entradasGif from '../assets/entradas/entradas ecom gif.gif';
 import img4 from '../assets/entradas/4.png';
 import img5 from '../assets/entradas/5.png';
 import img6 from '../assets/entradas/6.png';
@@ -13,15 +15,16 @@ import img9 from '../assets/entradas/9.png';
 import img10 from '../assets/entradas/10.png';
 import img11 from '../assets/entradas/11.png';
 import img12 from '../assets/entradas/12.png';
-import img13 from '../assets/entradas/13.png';
 import img14 from '../assets/entradas/14.png';
+import etapaFieles from '../assets/entradas/Etapa Fieles.png';
+import img19 from '../assets/entradas/19.png';
+import img20 from '../assets/entradas/20.png';
 import img15 from '../assets/entradas/15.png';
 import img16 from '../assets/entradas/16.png';
 import img17 from '../assets/entradas/17.png';
 import img18 from '../assets/entradas/18.png';
-import img19 from '../assets/entradas/19.png';
-import img20 from '../assets/entradas/20.png';
-import img21 from '../assets/entradas/21.png';
+import img13 from '../assets/entradas/13.png';
+
 import img22 from '../assets/entradas/22.png';
 import img23 from '../assets/entradas/23.png';
 import './Entradas.css';
@@ -117,6 +120,10 @@ export default function Entradas() {
         <div className="entradas-image-container">
           <img src={img3} alt="Entradas 3" className="entradas-imagen" />
         </div>
+        
+        <div className="entradas-image-container margin-top-large">
+          <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" />
+        </div>
       </main>
 
       {/* Sección Blanca */}
@@ -134,18 +141,18 @@ export default function Entradas() {
         </div>
       </section>
 
-      {/* Sección Púrpura */}
+      {/* Sección Púrpura - Tickets */}
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
-          <img src={img13} alt="Entradas 13" className="entradas-imagen" />
           <img src={img14} alt="Entradas 14" className="entradas-imagen" />
+          <img src={img19} alt="Entradas 19" className="entradas-imagen" />
+          <img src={img20} alt="Entradas 20" className="entradas-imagen" />
           <img src={img15} alt="Entradas 15" className="entradas-imagen" />
           <img src={img16} alt="Entradas 16" className="entradas-imagen" />
           <img src={img17} alt="Entradas 17" className="entradas-imagen" />
           <img src={img18} alt="Entradas 18" className="entradas-imagen" />
-          <img src={img19} alt="Entradas 19" className="entradas-imagen" />
-          <img src={img20} alt="Entradas 20" className="entradas-imagen" />
-          <img src={img21} alt="Entradas 21" className="entradas-imagen" />
+          <img src={etapaFieles} alt="Etapa Fieles" className="entradas-imagen" />
+          <img src={img13} alt="Entradas 13" className="entradas-imagen" />
         </div>
       </section>
 
@@ -159,16 +166,6 @@ export default function Entradas() {
 
       {/* Footer Contacto */}
       <footer className="entradas-footer">
-        <h2 className="footer-title">CONTACTO</h2>
-        
-        <div className="footer-info">
-          <p style={{ margin: '0' }}><span>CORREO:</span> ecomvenezuelaa@gmail.com</p>
-          <p style={{ margin: '0' }}><span>NÚMERO:</span> +57 3028403257</p>
-        </div>
-
-        <p className="footer-copy">
-          © 2026 ECOM S.A.S – Todos los<br/>derechos reservados.
-        </p>
 
         <div className="footer-socials">
           <a href="#" className="footer-social-btn" aria-label="Facebook">
@@ -201,6 +198,10 @@ export default function Entradas() {
           </a>
         </div>
       </footer>
+
+      <div className="entradas-image-container" style={{ margin: '0 auto', paddingTop: '40px' }}>
+        <img src={footerLogo} alt="Logo Footer" className="entradas-imagen-1" />
+      </div>
 
       {/* Floating Countdown Bar */}
       <div className="countdown-float-bar">
