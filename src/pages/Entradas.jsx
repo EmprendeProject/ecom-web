@@ -4,12 +4,13 @@ import projectLogo from '../assets/Elementos graficos/1.png';
 import footerLogo from '../assets/Elementos graficos/2.png';
 import titulo1 from '../assets/entradas/1.png';
 import entradasGif from '../assets/entradas/entradas ecom gif.gif';
+import ubicacionImg from '../assets/entradas/ubicacion.png';
 import img4 from '../assets/entradas/4.png';
-import img14 from '../assets/entradas/14.png';
 import etapaFieles from '../assets/entradas/Etapa Fieles.png';
 import img19 from '../assets/entradas/19.png';
 import img20 from '../assets/entradas/20.png';
 import img13 from '../assets/entradas/13.png';
+import img21 from '../assets/entradas/21.png';
 import './Entradas.css';
 
 function CountdownTimer() {
@@ -50,7 +51,7 @@ function CountdownTimer() {
             </div>
           </div>
         </div>
-        <a href="#tickets" className="countdown-buy-btn">COMPRAR ENTRADAS</a>
+        <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="countdown-buy-btn">COMPRAR ENTRADAS</a>
       </div>
     </div>
   );
@@ -82,11 +83,11 @@ export default function Entradas() {
       <main className="entradas-main">
         {/* Imagen 1 */}
         <div className="entradas-image-container">
-          <img src={titulo1} alt="Entradas" className="entradas-imagen-1" />
+          <img src={titulo1} alt="Entradas" className="entradas-imagen-1" style={{ maxWidth: '600px', width: '90%' }} />
         </div>
 
         {/* Video VSL */}
-        <div className="vsl-section" style={{ width: '100%', maxWidth: '900px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
+        <div className="vsl-section" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
           <vsl-player data-id="9fef7564-d1bc-46c7-9a73-62f0f508fb2b"></vsl-player>
         </div>
 
@@ -96,14 +97,17 @@ export default function Entradas() {
           <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
         </div>
         <div className="entradas-image-container margin-top-large">
-          <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" />
+          <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
+        </div>
+        <div className="entradas-image-container margin-top-large">
+          <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
       </main>
 
       {/* Sección Blanca */}
       <section className="entradas-white-section" id="ecom-es-para-ti-si">
         <div className="entradas-white-content">
-          <img src={img4} alt="Entradas 4" className="entradas-imagen" />
+          <img src={img4} alt="Entradas 4" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '30px' }} />
           
           <div className="entradas-benefits-list">
             <div className="entradas-benefit-item">
@@ -145,7 +149,7 @@ export default function Entradas() {
       {/* Sección Púrpura - Tickets */}
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
-          <img src={img14} alt="Entradas 14" className="entradas-imagen" />
+          <h2 className="entradas-tickets-title">ADQUIERE TUS ENTRADAS!👇🏻</h2>
           
           <img src={img19} alt="Entradas 19" className="entradas-imagen" />
           <div className="entradas-cta-wrapper">
@@ -157,11 +161,12 @@ export default function Entradas() {
             <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA VIP!</a>
           </div>
           
-          <img src={etapaFieles} alt="Etapa Fieles" className="entradas-imagen" />
+          <img src={etapaFieles} alt="Etapa Fieles" className="entradas-imagen" style={{ marginTop: '-15px', marginBottom: '-5px' }} />
           <p className="entradas-etapa-texto">
-            Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios.
+            Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios exclusivos!
           </p>
           <img src={img13} alt="Entradas 13" className="entradas-imagen" />
+          <img src={img21} alt="Entradas 21" className="entradas-imagen" />
         </div>
       </section>
 
@@ -200,7 +205,7 @@ export default function Entradas() {
         </div>
         
         <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
-          <img src={projectLogo} alt="Logo" style={{ width: '100%', maxWidth: '250px', filter: 'brightness(1.1)' }} />
+          <img src={projectLogo} alt="Logo" style={{ width: '100%', maxWidth: '200px', filter: 'brightness(1.1)' }} />
         </div>
       </footer>
       {/* Floating Contador */}
