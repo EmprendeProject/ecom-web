@@ -38,7 +38,7 @@ function CountdownTimer() {
     <div className="countdown-wrapper">
       <div className="countdown-inner">
         <div className="countdown-left">
-          <p className="countdown-label">estas preparado?</p>
+          <p className="countdown-label"> preparado?</p>
           <div className="countdown-grid">
             <div className="countdown-block">
               <span className="countdown-number">{pad(timeLeft.days)}</span>
@@ -103,6 +103,9 @@ export default function Entradas() {
         <div className="entradas-image-container margin-top-large">
           <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
+        <h2 className="entradas-tickets-title">
+          ¿Estás listo para la<br/>experiencia ECOM 2026?
+        </h2>
         <div className="entradas-image-container margin-top-large">
           <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
@@ -156,7 +159,7 @@ export default function Entradas() {
           <h2 className="entradas-tickets-title">ADQUIERE TUS ENTRADAS!👇🏻</h2>
           
           <img src={img19} alt="Entradas 19" className="entradas-imagen" />
-          <div className="entradas-cta-wrapper">
+          <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
             <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
           </div>
           
@@ -165,12 +168,13 @@ export default function Entradas() {
             <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA VIP!</a>
           </div>
           
+          <img src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
+
           <img src={etapaFieles} alt="Etapa Fieles" className="entradas-imagen" style={{ marginTop: '-15px', marginBottom: '-5px' }} />
           <p className="entradas-etapa-texto">
             Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios exclusivos!
           </p>
           <img src={img13} alt="Entradas 13" className="entradas-imagen" />
-          <img src={img21} alt="Entradas 21" className="entradas-imagen" />
         </div>
       </section>
 
