@@ -82,8 +82,12 @@ export default function Entradas() {
       {/* Main Content */}
       <main className="entradas-main">
         {/* Imagen 1 */}
-        <div className="entradas-image-container">
-          <img src={titulo1} alt="Entradas" className="entradas-imagen-1" style={{ maxWidth: '600px', width: '90%' }} />
+        <div className="entradas-image-container" style={{ maxWidth: '500px' }}>
+          <img src={titulo1} alt="Entradas" className="entradas-imagen-1" />
+          <p className="entradas-subtitle-text">
+            ¿Quieres saber si esto es para ti?<br/>
+            Mira el siguiente video...
+          </p>
         </div>
 
         {/* Video VSL */}
