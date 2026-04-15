@@ -2,19 +2,32 @@
    Entradas Page Styles
    =========================== */
 
+@font-face {
+  font-family: 'Garet';
+  src: url('../assets/Spacetype%20-%20Garet%20Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garet';
+  src: url('../assets/Spacetype%20-%20Garet%20Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 .entradas-page {
   min-height: 100vh;
   background: linear-gradient(160deg, #0b0213 0%, #1a082b 40%, #0b0213 100%);
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  padding-bottom: 100px;
+  font-family: 'Garet', 'Segoe UI', sans-serif;
 }
 
 /* Footer Contacto */
 .entradas-footer {
   text-align: center;
-  padding: 80px 20px;
+  padding: 80px 20px 150px; /* added extra padding at the bottom for the floating bar */
   background-color: #000000;
   color: #ffffff;
 }
@@ -280,24 +293,122 @@ vsl-player {
 }
 
 .entradas-cta-btn {
-  background: linear-gradient(90deg, #aa00ff, #5500ff);
-  color: #fff;
-  border: none;
+  background: linear-gradient(
+    135deg, 
+    #ffffff 0%, 
+    #e6e6e6 20%, 
+    #bcbcbc 45%, 
+    #ffffff 55%, 
+    #e6e6e6 80%, 
+    #ffffff 100%
+  );
+  background-size: 300% 300%;
+  color: #0b0213; /* Dark text for contrast against the light metal */
+  border: 1px solid #ffffff;
   border-radius: 50px;
-  padding: 20px 60px;
-  font-size: 20px;
-  font-weight: 800;
+  padding: 30px 110px;
+  font-size: 22px;
+  font-weight: 900;
   cursor: pointer;
-  transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  box-shadow: 0 10px 30px rgba(170, 0, 255, 0.4);
+  letter-spacing: 2px;
+  box-shadow: 
+    0 10px 25px rgba(255, 255, 255, 0.4),
+    inset 0 4px 10px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.15);
+  animation: metallicShimmer 3s infinite ease-in-out, pulseCTA 2s infinite alternate ease-in-out;
+  transition: all 0.3s ease;
+}
+
+@keyframes metallicShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseCTA {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 10px 25px rgba(255, 255, 255, 0.4),
+      inset 0 4px 10px rgba(255, 255, 255, 0.8),
+      inset 0 -4px 10px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: scale(1.04);
+    box-shadow: 
+      0 15px 40px rgba(255, 255, 255, 0.7),
+      inset 0 4px 15px rgba(255, 255, 255, 1),
+      inset 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .entradas-cta-btn:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(170, 0, 255, 0.6);
-  background: linear-gradient(90deg, #b833ff, #6a1cff);
+  transform: scale(1.08) !important;
+  filter: brightness(1.15);
+  animation-play-state: paused;
+}
+
+.entradas-cta-btn.vip-btn {
+  background: linear-gradient(
+    135deg, 
+    #ffebb3 0%, 
+    #ffcc00 20%, 
+    #b38600 45%, 
+    #ffe680 55%, 
+    #ffcc00 80%, 
+    #ffebb3 100%
+  );
+  color: #332600; /* Dark golden brown */
+  border: 1px solid #ffe680;
+  box-shadow: 
+    0 10px 25px rgba(255, 204, 0, 0.4),
+    inset 0 4px 10px rgba(255, 235, 179, 0.8),
+    inset 0 -4px 10px rgba(102, 77, 0, 0.2);
+  animation: metallicShimmer 3s infinite ease-in-out, pulseCTAVip 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseCTAVip {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 10px 25px rgba(255, 204, 0, 0.4),
+      inset 0 4px 10px rgba(255, 235, 179, 0.8),
+      inset 0 -4px 10px rgba(102, 77, 0, 0.2);
+  }
+  100% {
+    transform: scale(1.04);
+    box-shadow: 
+      0 15px 40px rgba(255, 204, 0, 0.7),
+      inset 0 4px 15px rgba(255, 255, 204, 1),
+      inset 0 -4px 10px rgba(77, 58, 0, 0.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .entradas-cta-btn {
+    padding: 24px 25px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .entradas-cta-btn {
+    padding: 20px 15px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
 }
 
 /* White Section */
@@ -316,9 +427,56 @@ vsl-player {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  line-height: 0;
-  font-size: 0;
+  line-height: normal; /* Changed from 0 so the text can be seen clearly */
+  font-size: 16px; /* Provides a base font size */
 }
+
+/* Benefits List inside White Section */
+.entradas-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto 60px;
+  font-family: 'Garet', sans-serif;
+  font-size: 36px;
+  line-height: 1.3;
+  color: #000000;
+  text-align: left;
+  font-weight: 800;
+  padding: 0 20px;
+}
+
+.entradas-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  text-transform: uppercase;
+}
+
+.benefit-emoji {
+  flex-shrink: 0;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.benefit-highlight {
+  color: #ce5cf7;
+}
+
+@media (max-width: 768px) {
+  .entradas-benefits-list {
+    margin-top: 30px;
+    font-size: 24px;
+    gap: 20px;
+  }
+  
+  .benefit-emoji {
+    font-size: 30px;
+  }
+}
+
 
 /* Purple Section */
 .entradas-purple-section {
@@ -336,6 +494,24 @@ vsl-player {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+}
+
+.entradas-etapa-texto {
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  max-width: 800px;
+  margin: 10px auto 30px;
+  line-height: 1.5;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .entradas-etapa-texto {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
 }
 
 /* ===========================

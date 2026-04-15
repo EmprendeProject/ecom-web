@@ -3,30 +3,13 @@ import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import footerLogo from '../assets/Elementos graficos/2.png';
 import titulo1 from '../assets/entradas/1.png';
-import img2 from '../assets/entradas/2.png';
-import img3 from '../assets/entradas/3.png';
 import entradasGif from '../assets/entradas/entradas ecom gif.gif';
 import img4 from '../assets/entradas/4.png';
-import img5 from '../assets/entradas/5.png';
-import img6 from '../assets/entradas/6.png';
-import img7 from '../assets/entradas/7.png';
-import img8 from '../assets/entradas/8.png';
-import img9 from '../assets/entradas/9.png';
-import img10 from '../assets/entradas/10.png';
-import img11 from '../assets/entradas/11.png';
-import img12 from '../assets/entradas/12.png';
 import img14 from '../assets/entradas/14.png';
 import etapaFieles from '../assets/entradas/Etapa Fieles.png';
 import img19 from '../assets/entradas/19.png';
 import img20 from '../assets/entradas/20.png';
-import img15 from '../assets/entradas/15.png';
-import img16 from '../assets/entradas/16.png';
-import img17 from '../assets/entradas/17.png';
-import img18 from '../assets/entradas/18.png';
 import img13 from '../assets/entradas/13.png';
-
-import img22 from '../assets/entradas/22.png';
-import img23 from '../assets/entradas/23.png';
 import './Entradas.css';
 
 function CountdownTimer() {
@@ -110,17 +93,8 @@ export default function Entradas() {
 
         {/* Call to Action */}
         <div className="entradas-cta-wrapper">
-          <button className="entradas-cta-btn">¡QUIERO MI ENTRADA!</button>
+          <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
         </div>
-
-        {/* Imágenes 2 y 3 */}
-        <div className="entradas-image-container margin-top-large">
-          <img src={img2} alt="Entradas 2" className="entradas-imagen" />
-        </div>
-        <div className="entradas-image-container">
-          <img src={img3} alt="Entradas 3" className="entradas-imagen" />
-        </div>
-        
         <div className="entradas-image-container margin-top-large">
           <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" />
         </div>
@@ -130,14 +104,41 @@ export default function Entradas() {
       <section className="entradas-white-section" id="ecom-es-para-ti-si">
         <div className="entradas-white-content">
           <img src={img4} alt="Entradas 4" className="entradas-imagen" />
-          <img src={img5} alt="Entradas 5" className="entradas-imagen" />
-          <img src={img6} alt="Entradas 6" className="entradas-imagen" />
-          <img src={img7} alt="Entradas 7" className="entradas-imagen" />
-          <img src={img8} alt="Entradas 8" className="entradas-imagen" />
-          <img src={img9} alt="Entradas 9" className="entradas-imagen" />
-          <img src={img10} alt="Entradas 10" className="entradas-imagen" />
-          <img src={img11} alt="Entradas 11" className="entradas-imagen" />
-          <img src={img12} alt="Entradas 12" className="entradas-imagen" />
+          
+          <div className="entradas-benefits-list">
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">👨‍💻</span> 
+              <span>ERES <span className="benefit-highlight">FREELANCE</span></span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">🛒</span> 
+              <span>HACES <span className="benefit-highlight">ECOMMERCE</span> O <span className="benefit-highlight">DROPSHIPPING</span></span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">🏪</span> 
+              <span>TIENES UN <span className="benefit-highlight">NEGOCIO</span> FISICO O DIGITAL</span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">🚀</span> 
+              <span>ERES <span className="benefit-highlight">EMPRENDEDOR</span></span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">❤️</span> 
+              <span>ERES AMANTE AL <span className="benefit-highlight">MARKETING</span></span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">📦</span> 
+              <span>ERES <span className="benefit-highlight">PROVEEDOR</span> O DISTRIBUIDOR</span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">🧪</span> 
+              <span>TIENES UN <span className="benefit-highlight">LABORATORIO</span></span>
+            </div>
+            <div className="entradas-benefit-item">
+              <span className="benefit-emoji">🏢</span> 
+              <span>TIENES UNA <span className="benefit-highlight">EMPRESA DE SERVICIOS</span> PARA EL ECOMMERCE</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -145,22 +146,22 @@ export default function Entradas() {
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
           <img src={img14} alt="Entradas 14" className="entradas-imagen" />
+          
           <img src={img19} alt="Entradas 19" className="entradas-imagen" />
+          <div className="entradas-cta-wrapper">
+            <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
+          </div>
+          
           <img src={img20} alt="Entradas 20" className="entradas-imagen" />
-          <img src={img15} alt="Entradas 15" className="entradas-imagen" />
-          <img src={img16} alt="Entradas 16" className="entradas-imagen" />
-          <img src={img17} alt="Entradas 17" className="entradas-imagen" />
-          <img src={img18} alt="Entradas 18" className="entradas-imagen" />
+          <div className="entradas-cta-wrapper">
+            <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA VIP!</a>
+          </div>
+          
           <img src={etapaFieles} alt="Etapa Fieles" className="entradas-imagen" />
+          <p className="entradas-etapa-texto">
+            Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios.
+          </p>
           <img src={img13} alt="Entradas 13" className="entradas-imagen" />
-        </div>
-      </section>
-
-      {/* Sección Qué Dicen Las Personas */}
-      <section className="entradas-white-section" id="que-dicen-las-personas">
-        <div className="entradas-white-content">
-          <img src={img22} alt="¿Qué dicen las personas 1?" className="entradas-imagen" />
-          <img src={img23} alt="¿Qué dicen las personas 2?" className="entradas-imagen" />
         </div>
       </section>
 
@@ -197,13 +198,12 @@ export default function Entradas() {
             </svg>
           </a>
         </div>
+        
+        <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
+          <img src={projectLogo} alt="Logo" style={{ width: '100%', maxWidth: '250px', filter: 'brightness(1.1)' }} />
+        </div>
       </footer>
-
-      <div className="entradas-image-container" style={{ margin: '0 auto', paddingTop: '40px' }}>
-        <img src={footerLogo} alt="Logo Footer" className="entradas-imagen-1" />
-      </div>
-
-      {/* Floating Countdown Bar */}
+      {/* Floating Contador */}
       <div className="countdown-float-bar">
         <CountdownTimer />
       </div>
