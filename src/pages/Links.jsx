@@ -4,7 +4,9 @@ import headerImg from '../assets/STANDS copy/2.png';
 import navLogoImg from '../assets/STANDS copy/1.png';
 import './Links.css';
 
-const WA_URL = "https://api.whatsapp.com/send?phone=584226324938&text=Hola!%20me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20sobre%20patrocinios%20y%20stands";
+const WA_URL_STANDS = "https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20de%20los%20STAND%20de%20ECOM2026";
+const WA_URL_PATROCINIOS = "https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20de%20los%20PATROCINIOS%20de%20ECOM2026";
+const WA_URL_GENERIC = "https://wa.me/584226324938?text=Hola!%20me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20sobre%20patrocinios%20y%20stands";
 
 export default function Links() {
   return (
@@ -42,11 +44,11 @@ export default function Links() {
             <span className="btn-text">COMPRAR ENTRADAS</span>
           </Link>
 
-          <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
+          <a href={WA_URL_STANDS} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
             <span className="btn-text">COMPRAR STANDS</span>
           </a>
 
-          <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
+          <a href={WA_URL_PATROCINIOS} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
             <span className="btn-text">SER PATROCINADOR</span>
           </a>
         </div>
@@ -67,7 +69,7 @@ export default function Links() {
             <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
           </svg>
         </a>
-        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="icon-action-btn" aria-label="WhatsApp">
+        <a href={WA_URL_GENERIC} target="_blank" rel="noopener noreferrer" className="icon-action-btn" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
           </svg>
