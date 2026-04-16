@@ -51,7 +51,7 @@ function CountdownTimer() {
             </div>
           </div>
         </div>
-        <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="countdown-buy-btn">COMPRAR ENTRADAS</a>
+        <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="countdown-buy-btn">COMPRAR ENTRADAS</a>
       </div>
     </div>
   );
@@ -98,7 +98,7 @@ export default function Entradas() {
 
         {/* Call to Action */}
         <div className="entradas-cta-wrapper">
-          <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
+          <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
         </div>
         <div className="entradas-image-container margin-top-large">
           <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
@@ -160,12 +160,12 @@ export default function Entradas() {
           
           <img src={img19} alt="Entradas 19" className="entradas-imagen" />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
-            <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
+            <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
           </div>
           
           <img src={img20} alt="Entradas 20" className="entradas-imagen" />
           <div className="entradas-cta-wrapper">
-            <a href="https://api.whatsapp.com/send?text=¡Hola!%20Me%20gustaría%20saber%20cómo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA VIP!</a>
+            <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA VIP!</a>
           </div>
           
           <img src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
