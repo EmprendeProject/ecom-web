@@ -523,7 +523,7 @@ vsl-player {
 
 /* Purple Section */
 .entradas-purple-section {
-  background: linear-gradient(160deg, #1a082b 0%, #0b0213 100%);
+  background: #000000;
   width: 100%;
   padding: 20px;
   display: flex;
