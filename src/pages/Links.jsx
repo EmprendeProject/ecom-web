@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import headerImg from '../assets/STANDS copy/2.png';
-import navLogoImg from '../assets/STANDS copy/1.png';
+import headerImg from '../assets/STANDS/2.png';
+import navLogoImg from '../assets/STANDS/1.png';
 import './Links.css';
 
 const WA_URL_STANDS = "https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20de%20los%20STAND%20de%20ECOM2026";
