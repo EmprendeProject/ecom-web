@@ -57,36 +57,46 @@ function Carousel() {
   const prev = useCallback(() => setCurrent(c => (c - 1 + total) % total), [total]);
   const next = useCallback(() => setCurrent(c => (c + 1) % total), [total]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(c => (c + 1) % total);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [total]);
+
   return (
     <div className="carousel-container">
-      <div className="carousel-row">
-        <button className="carousel-btn prev-btn" onClick={prev} aria-label="Anterior">&#8249;</button>
-
-        <div className="carousel-viewport">
-          <div
-            className="carousel-track"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {STANDS_PHOTOS.map((src, i) => (
-              <div className="carousel-slide" key={i}>
-                <img src={src} alt={`Stand anterior ${i + 1}`} className="carousel-photo" />
-              </div>
-            ))}
-          </div>
+      <div className="carousel-viewport">
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {STANDS_PHOTOS.map((src, i) => (
+            <div className={`carousel-slide ${i === current ? 'active-slide' : ''}`} key={i}>
+              <img src={src} alt={`Stand anterior ${i + 1}`} className="carousel-photo" />
+              <div className="carousel-overlay"></div>
+            </div>
+          ))}
         </div>
 
-        <button className="carousel-btn next-btn" onClick={next} aria-label="Siguiente">&#8250;</button>
-      </div>
+        <button className="carousel-btn prev-btn" onClick={prev} aria-label="Anterior">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
 
-      <div className="carousel-dots">
-        {STANDS_PHOTOS.map((_, i) => (
-          <button
-            key={i}
-            className={`carousel-dot${i === current ? ' active' : ''}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Ir a foto ${i + 1}`}
-          />
-        ))}
+        <button className="carousel-btn next-btn" onClick={next} aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div className="carousel-dots">
+          {STANDS_PHOTOS.map((_, i) => (
+            <button
+              key={i}
+              className={`carousel-dot${i === current ? ' active' : ''}`}
+              onClick={() => setCurrent(i)}
+              aria-label={`Ir a foto ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -111,17 +121,7 @@ function App() {
         <img src={projectLogo} alt="eCom 2026 logo" className="top-logo" />
       </div>
 
-      {/* 2. Sub Navbar (White) */}
-      <nav className="sub-navbar">
-        <ul className="nav-links">
-          <li><a href="#inicio" className="active">Inicio</a></li>
-          <li><a href="#entradas">Entradas</a></li>
-          <li><a href="#stands">Stands</a></li>
-          <li><a href="#patrocinios">Patrocinios</a></li>
-          <li><a href="#testimonios">¿Que dicen de nosotros?</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+
 
       {/* 3. Hero Banner */}
       <section className="hero-banner" style={{ backgroundImage: `url('${bannerBg}')` }}>
@@ -141,10 +141,17 @@ function App() {
           <vsl-player data-id="48239000-2fdd-47e5-9b6e-f00f2d5d67ea"></vsl-player>
         </div>
         
-        <div className="vsl-cta-wrapper" style={{ display: 'flex', justifyContent: 'center', marginTop: '30px', marginBottom: '20px', paddingBottom: '60px' }}>
-          <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-black">
+        <div className="vsl-cta-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '30px auto 0 auto', padding: '0 20px', width: '100%', maxWidth: '900px' }}>
+          <a 
+            href="#stands" 
+            onClick={(e) => { e.preventDefault(); document.getElementById('stands').scrollIntoView({ behavior: 'smooth' }); }} 
+            className="btn-vsl-cta"
+          >
             ADQUIRIR UN STAND
           </a>
+          <span style={{ marginTop: '50px', fontSize: '20px', fontFamily: '"Garet", sans-serif', fontWeight: '800', color: '#000000', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            Conoce mas de ECOM 2026
+          </span>
         </div>
 
         {/* 5. Stats Cards */}
@@ -166,55 +173,82 @@ function App() {
         </section>
 
         {/* Imagen 9 */}
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '40px 20px', backgroundColor: '#ffffff' }}>
-          <img src={imgSTANDS9} alt="Imagen 9" style={{ maxWidth: '800px', width: '100%', height: 'auto' }} />
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '10px 0 40px 0', backgroundColor: '#ffffff' }}>
+          <img src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
         {/* 7. Razones */}
-        <section className="razones-section" style={{ backgroundColor: '#2a2a2a', padding: '80px 20px' }}>
+        <section className="razones-section" style={{ backgroundColor: '#111111', padding: '80px 40px' }}>
           <div style={{
             display: 'flex',
-            flexWrap: 'wrap',
+            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'center',
-            gap: '30px',
+            gap: '50px',
             maxWidth: '1200px',
             margin: '0 auto'
           }}>
-            <img src={imgSTANDS8} alt="Razón 8" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS10} alt="Razón 10" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS11} alt="Razón 11" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS12} alt="Razón 12" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS13} alt="Razón 13" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS14} alt="Razón 14" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
+            <img src={imgSTANDS10} alt="Razón 10" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '15px',
+              width: '100%'
+            }}>
+              <img src={imgSTANDS11} alt="Razón 11" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS12} alt="Razón 12" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS13} alt="Razón 13" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS14} alt="Razón 14" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            </div>
           </div>
         </section>
 
         {/* 8. Nuestros Stands */}
-        <section className="nuestros-stands-section" style={{ backgroundColor: '#ffffff', padding: '80px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
+        <section id="stands" className="nuestros-stands-section" style={{ backgroundColor: '#ffffff', padding: '80px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
           <img src={imgSTANDS17} alt="Stand 17" style={{ width: '100%', maxWidth: '1000px', height: 'auto' }} />
-          <img src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
-          <img src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
-          <img src={imgSTANDS20} alt="Stand 20" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
-          <img src={imgSTANDS21} alt="Stand 21" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
-          <img src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
-          <img src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+          <img src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgSTANDS20} alt="Stand 20" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgSTANDS21} alt="Stand 21" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', marginTop: '10px' }}>
+            <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta">
+              ADQUIRIR UN STAND
+            </a>
+          </div>
         </section>
 
         {/* 9. Por qué participar */}
-        <section className="por-que-participar-section" style={{ backgroundColor: '#2a2a2a', padding: '80px 20px' }}>
+        <section className="por-que-participar-section" style={{ backgroundColor: '#111111', padding: '80px 40px' }}>
           <div style={{
             display: 'flex',
-            flexWrap: 'wrap',
+            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'center',
-            gap: '30px',
+            gap: '50px',
             maxWidth: '1200px',
             margin: '0 auto'
           }}>
-            <img src={imgSTANDS24} alt="Por qué 24" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS25} alt="Por qué 25" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS26} alt="Por qué 26" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS27} alt="Por qué 27" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
-            <img src={imgSTANDS28} alt="Por qué 28" style={{ width: '100%', maxWidth: '300px', height: 'auto', borderRadius: '15px' }} />
+            <img src={imgSTANDS24} alt="Por qué 24" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '20px', /* Un poquito más juntas */
+              width: '100%'
+            }}>
+              <img src={imgSTANDS25} alt="Por qué 25" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS26} alt="Por qué 26" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS27} alt="Por qué 27" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <img src={imgSTANDS28} alt="Por qué 28" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            </div>
           </div>
         </section>
       </main>

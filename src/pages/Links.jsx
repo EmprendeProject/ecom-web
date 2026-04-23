@@ -44,9 +44,9 @@ export default function Links() {
             <span className="btn-text">COMPRAR ENTRADAS</span>
           </Link>
 
-          <a href={WA_URL_STANDS} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
+          <Link to="/stands" className="link-item btn-dark-purple">
             <span className="btn-text">COMPRAR STANDS</span>
-          </a>
+          </Link>
 
           <a href={WA_URL_PATROCINIOS} target="_blank" rel="noopener noreferrer" className="link-item btn-dark-purple">
             <span className="btn-text">SER PATROCINADOR</span>
