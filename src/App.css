@@ -462,6 +462,49 @@
   text-shadow: none;
 }
 
+.plano-zoom-trigger {
+  width: 100%;
+  max-width: 900px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.plano-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2000;
+}
+
+.plano-zoom-image {
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.plano-zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 .btn-vsl-cta::after {
   content: '';
   position: absolute;

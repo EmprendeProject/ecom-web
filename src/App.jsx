@@ -103,6 +103,8 @@ function Carousel() {
 }
 
 function App() {
+  const [isPlanoZoomOpen, setIsPlanoZoomOpen] = useState(false);
+
   useEffect(() => {
     const scriptId = 'niuvixtool-vsl-script';
     if (!document.getElementById(scriptId)) {
@@ -214,11 +216,18 @@ function App() {
               ADQUIRIR UN STAND
             </a>
           </div>
-          <img
-            src={imgPlanoEcomMuestra}
-            alt="Plano ECOM muestra"
-            style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '10px', marginBottom: '10px', borderRadius: '15px' }}
-          />
+          <button
+            type="button"
+            className="plano-zoom-trigger"
+            onClick={() => setIsPlanoZoomOpen(true)}
+            aria-label="Ampliar plano ECOM"
+          >
+            <img
+              src={imgPlanoEcomMuestra}
+              alt="Plano ECOM muestra"
+              style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '10px', marginBottom: '10px', borderRadius: '15px' }}
+            />
+          </button>
         </section>
 
         {/* 9. Por qué participar */}
@@ -250,6 +259,34 @@ function App() {
           </div>
         </section>
       </main>
+
+      {isPlanoZoomOpen && (
+        <div
+          className="plano-zoom-overlay"
+          onClick={() => setIsPlanoZoomOpen(false)}
+          role="button"
+          tabIndex={0}
+          aria-label="Cerrar zoom del plano"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') setIsPlanoZoomOpen(false);
+          }}
+        >
+          <button
+            type="button"
+            className="plano-zoom-close"
+            onClick={() => setIsPlanoZoomOpen(false)}
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+          <img
+            src={imgPlanoEcomMuestra}
+            alt="Plano ECOM muestra ampliado"
+            className="plano-zoom-image"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
     </div>
   )
