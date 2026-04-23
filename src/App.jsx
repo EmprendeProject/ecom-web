@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import ecomLogoWhite from './assets/Elementos graficos/11.png';
-import projectLogo from './assets/Elementos graficos/1.png';
 import bannerBg from './assets/Elementos graficos/2.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
 
@@ -29,6 +28,7 @@ import imgSTANDS25 from './assets/STANDS/25.png';
 import imgSTANDS26 from './assets/STANDS/26.png';
 import imgSTANDS27 from './assets/STANDS/27.png';
 import imgSTANDS28 from './assets/STANDS/28.png';
+import imgPlanoEcomMuestra from './assets/STANDS/plano ecom muestra.png';
 
 import standsAnterioresTitle from './assets/Elementos graficos/9.png';
 import marcasTitle from './assets/Elementos graficos/10.png';
@@ -116,13 +116,6 @@ function App() {
 
   return (
     <div className="landing-page">
-      {/* 1. Top Navbar (Dark) */}
-      <div className="top-navbar">
-        <img src={projectLogo} alt="eCom 2026 logo" className="top-logo" />
-      </div>
-
-
-
       {/* 3. Hero Banner */}
       <section className="hero-banner" style={{ backgroundImage: `url('${bannerBg}')` }}>
       </section>
@@ -149,9 +142,9 @@ function App() {
           >
             ADQUIRIR UN STAND
           </a>
-          <span style={{ marginTop: '50px', fontSize: '20px', fontFamily: '"Garet", sans-serif', fontWeight: '800', color: '#000000', textTransform: 'uppercase', letterSpacing: '1px' }}>
+          <h2 className="stands-intro-title">
             Conoce mas de ECOM 2026
-          </span>
+          </h2>
         </div>
 
         {/* 5. Stats Cards */}
@@ -221,6 +214,11 @@ function App() {
               ADQUIRIR UN STAND
             </a>
           </div>
+          <img
+            src={imgPlanoEcomMuestra}
+            alt="Plano ECOM muestra"
+            style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '10px', marginBottom: '10px', borderRadius: '15px' }}
+          />
         </section>
 
         {/* 9. Por qué participar */}
@@ -253,18 +251,6 @@ function App() {
         </section>
       </main>
 
-      {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" 
-        className="whatsapp-float" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-      >
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.05 1.25C7.94 1.25 1.34 7.84 1.34 15.95c0 2.6.67 5.14 1.94 7.4L1.25 30.75l7.56-1.98c2.19 1.15 4.63 1.76 7.24 1.76 8.11 0 14.71-6.59 14.71-14.7S24.16 1.25 16.05 1.25zm0 24.64c-2.2 0-4.36-.59-6.26-1.71l-.45-.27-4.66 1.22 1.24-4.54-.29-.47c-1.23-1.96-1.88-4.22-1.88-6.57 0-6.83 5.56-12.4 12.39-12.4 3.31 0 6.42 1.29 8.76 3.63 2.34 2.34 3.63 5.45 3.63 8.76 0 6.83-5.56 12.4-12.39 12.4zm6.79-9.27c-.37-.19-2.21-1.09-2.56-1.21-.34-.13-.6-.19-.85.19-.25.37-.96 1.21-1.18 1.46-.22.25-.45.28-.82.09-.37-.19-1.58-.58-3-1.85-1.11-1-1.86-2.23-2.08-2.61-.22-.37-.02-.57.16-.76.17-.17.37-.43.56-.65.19-.22.25-.37.37-.62.13-.25.06-.47-.03-.65-.09-.19-.85-2.05-1.16-2.81-.31-.74-.62-.64-.85-.65-.22-.01-.47-.01-.72-.01-.25 0-.66.09-1.01.47-.35.37-1.34 1.31-1.34 3.2 0 1.89 1.37 3.72 1.56 3.97.19.25 2.71 4.14 6.56 5.8 3.32 1.43 3.86 1.15 4.56 1.08.7-.06 2.21-.9 2.53-1.77.31-.87.31-1.62.22-1.77-.09-.16-.34-.25-.71-.44z"/>
-        </svg>
-      </a>
     </div>
   )
 }
