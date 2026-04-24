@@ -30,6 +30,23 @@ import imgSTANDS27 from './assets/STANDS/27.png';
 import imgSTANDS28 from './assets/STANDS/28.png';
 import imgPlanoEcomMuestra from './assets/STANDS/plano ecom muestra.png';
 
+// Logos marcas anteriores
+import logoDHL from './assets/marcas anteriores/DHL.png';
+import logoTFHKA from './assets/marcas anteriores/TFHKA AI LOGO-02.png';
+import logoDropanas from './assets/marcas anteriores/WhatsApp Image 2025-10-11 at 5.06.13 PM.png';
+import logoAbuday from './assets/marcas anteriores/abuday.png';
+import logoCalidex from './assets/marcas anteriores/calidex.png';
+import logoCavecom from './assets/marcas anteriores/cavecom-e.png';
+import logoDropi from './assets/marcas anteriores/dropi.png';
+import logoGalanet from './assets/marcas anteriores/galanet.png';
+import logoKomvii from './assets/marcas anteriores/komvii.png';
+import logoNewEmprende from './assets/marcas anteriores/newemprende horizontal.png';
+import logoOferfly from './assets/marcas anteriores/oferfly.png';
+import logoPancakeMeta from './assets/marcas anteriores/pancake & meta.png';
+import logoR4 from './assets/marcas anteriores/r4.png';
+import logoSellibri from './assets/marcas anteriores/sellibrí Horizontal - Blanco.png';
+import logoZoom from './assets/marcas anteriores/zoom.png';
+
 import standsAnterioresTitle from './assets/Elementos graficos/9.png';
 import marcasTitle from './assets/Elementos graficos/10.png';
 import stand1Foto from './assets/fotos/stands 1.jpeg';
@@ -165,6 +182,25 @@ function App() {
             <img src={marcasConfiaronTitle} alt="Marcas que han confiado" className="marcas-title-img" />
           </div>
           <Carousel />
+
+          {/* Logos grid de marcas */}
+          <div className="marcas-logos-grid">
+            <div className="marca-logo-item"><img src={logoPancakeMeta} alt="Pancake & Meta" /></div>
+            <div className="marca-logo-item"><img src={logoDropi} alt="Dropi" /></div>
+            <div className="marca-logo-item"><img src={logoSellibri} alt="Sellibri" /></div>
+            <div className="marca-logo-item"><img src={logoR4} alt="R4" /></div>
+            <div className="marca-logo-item"><img src={logoNewEmprende} alt="New Emprende" /></div>
+            <div className="marca-logo-item"><img src={logoZoom} alt="Zoom" /></div>
+            <div className="marca-logo-item"><img src={logoKomvii} alt="Komvii" /></div>
+            <div className="marca-logo-item"><img src={logoDropanas} alt="Dropanas" /></div>
+            <div className="marca-logo-item"><img src={logoAbuday} alt="Abuday" /></div>
+            <div className="marca-logo-item"><img src={logoOferfly} alt="Oferfly" /></div>
+            <div className="marca-logo-item"><img src={logoCalidex} alt="Calidex" /></div>
+            <div className="marca-logo-item"><img src={logoGalanet} alt="Galanet" /></div>
+            <div className="marca-logo-item"><img src={logoTFHKA} alt="The Factory HKA" /></div>
+            <div className="marca-logo-item"><img src={logoCavecom} alt="Cavecom-e" /></div>
+            <div className="marca-logo-item"><img src={logoDHL} alt="DHL" /></div>
+          </div>
         </section>
 
         {/* Imagen 9 */}
