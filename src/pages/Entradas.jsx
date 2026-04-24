@@ -85,10 +85,12 @@ export default function Entradas() {
         {/* Imagen 1 */}
         <div className="entradas-image-container" style={{ maxWidth: '500px' }}>
           <img src={titulo1} alt="Entradas" className="entradas-imagen-1" />
-          <p className="entradas-subtitle-text">
-            ¿Quieres saber si esto es para ti?<br/>
-            Mira el siguiente video...
-          </p>
+        </div>
+
+        {/* Texto descriptivo antes del VSL */}
+        <div className="vsl-pre-text">
+          <p className="vsl-pre-question">¿Quieres saber si esto es para ti?</p>
+          <p className="vsl-pre-cta">MIRA ESTE VIDEO 👇</p>
         </div>
 
         {/* Video VSL */}

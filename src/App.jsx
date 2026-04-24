@@ -216,6 +216,10 @@ function App() {
               ADQUIRIR UN STAND
             </a>
           </div>
+          <div className="vsl-pre-text" style={{ maxWidth: '900px', width: '100%', marginBottom: '2px' }}>
+            <p className="vsl-pre-question" style={{ color: 'rgba(0,0,0,0.5)' }}>Toca para ver el mapa completo</p>
+            <p className="vsl-pre-cta" style={{ color: '#000000' }}>AMPLIAR PLANO 👇🏻</p>
+          </div>
           <button
             type="button"
             className="plano-zoom-trigger"
@@ -225,7 +229,7 @@ function App() {
             <img
               src={imgPlanoEcomMuestra}
               alt="Plano ECOM muestra"
-              style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '10px', marginBottom: '10px', borderRadius: '15px' }}
+              style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '0', marginBottom: '10px', borderRadius: '15px' }}
             />
           </button>
         </section>

@@ -462,6 +462,31 @@
   text-shadow: none;
 }
 
+/* Descriptive hint text above images (shared pattern) */
+.vsl-pre-text {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  margin: 4px 0 10px;
+}
+
+.vsl-pre-question {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.vsl-pre-cta {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.4;
+}
+
 .plano-zoom-trigger {
   width: 100%;
   max-width: 900px;
