@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import Navbar from '../components/Navbar';
 import './Patrocinios.css';
 
 // Import all images in order
@@ -160,6 +161,7 @@ const Patrocinios = () => {
 
   return (
     <div className="patrocinios-page">
+      <Navbar />
       <div className="patrocinios-container">
         <img src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-small" />
         

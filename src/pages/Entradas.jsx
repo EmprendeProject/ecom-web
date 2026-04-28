@@ -12,6 +12,7 @@ import img20 from '../assets/entradas/20.png';
 import img13 from '../assets/entradas/13.png';
 import img21 from '../assets/entradas/21.png';
 import imgPonentes from '../assets/entradas/ponentes.jpeg';
+import Navbar from '../components/Navbar';
 import './Entradas.css';
 
 function CountdownTimer() {
@@ -73,12 +74,9 @@ export default function Entradas() {
 
   return (
     <div className="entradas-page">
-      {/* App Bar */}
-      <header className="entradas-header">
-        <Link to="/" className="entradas-header-logo-link" aria-label="Volver al inicio">
-          <img src={projectLogo} alt="eCom 2026 logo" className="entradas-header-logo" />
-        </Link>
-      </header>
+      <Navbar />
+
+      {/* Main Content */}
 
       {/* Main Content */}
       <main className="entradas-main">
