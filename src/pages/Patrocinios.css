@@ -1,0 +1,158 @@
+.patrocinios-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.patrocinios-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 20px; /* Space between images */
+}
+
+.patrocinios-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 15px; /* Consistent with other pages */
+  display: block;
+}
+
+.patrocinios-img-1 {
+  max-width: 500px; /* Hacemos la primera imagen más pequeña */
+}
+
+.patrocinios-btn-link {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.patrocinios-btn-link:hover {
+  transform: scale(1.02);
+}
+
+.btn-img {
+  max-width: 400px; /* Make buttons slightly smaller max width if needed, or leave it full */
+}
+
+@media (max-width: 768px) {
+  .patrocinios-container {
+    padding: 20px 10px;
+    gap: 15px;
+  }
+  
+  .patrocinios-img {
+    border-radius: 10px;
+  }
+}
+
+/* Carousel Espacios */
+.carousel-espacios-container {
+  width: 100%;
+  max-width: 1000px; /* Same max-width as the images */
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-espacios-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-espacios-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-espacios-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.carousel-espacios-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1/1; /* Square aspect ratio */
+}
+
+.carousel-espacios-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-espacios-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-espacios-btn.prev-btn {
+  left: 15px;
+}
+
+.carousel-espacios-btn.next-btn {
+  right: 15px;
+}
+
+.carousel-espacios-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-espacios-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-espacios-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-espacios-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}

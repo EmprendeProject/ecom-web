@@ -6,6 +6,7 @@ import App from './App.jsx'
 import Formulario from './pages/Formulario.jsx'
 import Entradas from './pages/Entradas.jsx'
 import Links from './pages/Links.jsx'
+import Patrocinios from './pages/Patrocinios.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/entradas" element={<Entradas />} />
         <Route path="/formulario" element={<Formulario />} />
         <Route path="/links" element={<Links />} />
+        <Route path="/patrocinios" element={<Patrocinios />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
