@@ -9,6 +9,13 @@
   margin: 0;
 }
 
+.nuestros-espacios-section {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
 .patrocinios-container {
   width: 100%;
   max-width: 1200px;
@@ -29,6 +36,15 @@
 
 .patrocinios-img-small {
   max-width: 300px; /* Hacemos las imágenes seleccionadas más pequeñas */
+}
+
+.nuestros-espacios-title {
+  max-width: 350px;
+  margin-bottom: 0;
+}
+
+.patrocinios-img-tier {
+  max-width: 400px; /* Mismo tamaño y dimensión para las imágenes 8, 13, 18, 20 */
 }
 
 .patrocinios-btn-link {
@@ -155,4 +171,197 @@
 .carousel-espacios-dot.active {
   background: #fff;
   transform: scale(1.2);
+}
+
+/* Marcas Section for Patrocinios */
+.patrocinios-marcas-section {
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.patrocinios-marcas-section .marcas-title-wrapper {
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.patrocinios-marcas-section .marcas-title-img {
+  width: 100%;
+  height: auto;
+}
+
+.patrocinios-marcas-section .marcas-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px 40px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.patrocinios-marcas-section .marca-logo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+.patrocinios-marcas-section .marca-logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(0);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.patrocinios-marcas-section .marca-logo-item img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .patrocinios-marcas-section .marcas-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .patrocinios-marcas-section .marcas-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .patrocinios-marcas-section .marca-logo-item {
+    height: 40px;
+  }
+}
+
+/* --- Marcas Carousel Styles --- */
+.marcas-carousel-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  background: #000;
+}
+
+.marcas-carousel-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.marcas-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.marcas-carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.marcas-carousel-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+  transform: scale(1);
+  transition: transform 1.5s ease-out, opacity 0.8s ease;
+}
+
+.marcas-carousel-slide.active-slide .marcas-carousel-photo {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.marcas-carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+}
+
+.marcas-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.marcas-carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.marcas-carousel-btn.prev-btn {
+  left: 20px;
+}
+
+.marcas-carousel-btn.next-btn {
+  right: 20px;
+}
+
+.marcas-carousel-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.marcas-carousel-dot {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+
+.marcas-carousel-dot.active {
+  background: white;
+  width: 36px;
 }
