@@ -16,6 +16,13 @@
   justify-content: center;
 }
 
+.patrocinios-tickets-section {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
 .patrocinios-container {
   width: 100%;
   max-width: 1200px;
@@ -24,6 +31,205 @@
   align-items: center;
   padding: 40px 20px;
   gap: 20px; /* Space between images */
+}
+
+/* Modern VSL CTA Button */
+.btn-vsl-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 22px 40px;
+  background: linear-gradient(135deg, #b14cf7 0%, #760bb5 100%);
+  color: #ffffff;
+  font-size: 26px;
+  font-family: 'Garet', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 15px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(177, 76, 247, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-vsl-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+}
+
+.btn-vsl-cta:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(177, 76, 247, 0.6);
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+/* Golden VIP Button Styles */
+.patrocinios-gold-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 22px 40px;
+  font-family: 'Garet', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-size: 300% 300%;
+  
+  /* VIP Gold Colors */
+  background-image: linear-gradient(
+    135deg, 
+    #ffebb3 0%, 
+    #ffcc00 20%, 
+    #b38600 45%, 
+    #ffe680 55%, 
+    #ffcc00 80%, 
+    #ffebb3 100%
+  );
+  color: #332600; /* Dark golden brown */
+  border: 1px solid #ffe680;
+  box-shadow: 
+    0 10px 25px rgba(255, 204, 0, 0.4),
+    inset 0 4px 10px rgba(255, 235, 179, 0.8),
+    inset 0 -4px 10px rgba(102, 77, 0, 0.2);
+  animation: patrociniosShimmer 3s infinite ease-in-out, patrociniosPulseVip 2s infinite alternate ease-in-out;
+}
+
+.patrocinios-gold-btn:hover {
+  transform: scale(1.08) !important;
+  filter: brightness(1.15);
+  animation-play-state: paused;
+}
+
+@keyframes patrociniosShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes patrociniosPulseVip {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 10px 25px rgba(255, 204, 0, 0.4),
+      inset 0 4px 10px rgba(255, 235, 179, 0.8),
+      inset 0 -4px 10px rgba(102, 77, 0, 0.2);
+  }
+  100% {
+    transform: scale(1.04);
+    box-shadow: 
+      0 15px 40px rgba(255, 204, 0, 0.7),
+      inset 0 4px 15px rgba(255, 255, 204, 1),
+      inset 0 -4px 10px rgba(77, 58, 0, 0.15);
+  }
+}
+
+/* Silver Button Styles */
+.patrocinios-silver-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 22px 40px;
+  font-family: 'Garet', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background-size: 300% 300%;
+  
+  /* Silver Colors */
+  background-image: linear-gradient(
+    135deg, 
+    #ffffff 0%, 
+    #e6e6e6 20%, 
+    #bcbcbc 45%, 
+    #ffffff 55%, 
+    #e6e6e6 80%, 
+    #ffffff 100%
+  );
+  color: #0b0213;
+  border: 1px solid #ffffff;
+  box-shadow: 
+    0 10px 25px rgba(255, 255, 255, 0.4),
+    inset 0 4px 10px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.15);
+  animation: patrociniosShimmer 3s infinite ease-in-out, patrociniosPulseSilver 2s infinite alternate ease-in-out;
+}
+
+.patrocinios-silver-btn:hover {
+  transform: scale(1.08) !important;
+  filter: brightness(1.15);
+  animation-play-state: paused;
+}
+
+@keyframes patrociniosPulseSilver {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 10px 25px rgba(255, 255, 255, 0.4),
+      inset 0 4px 10px rgba(255, 255, 255, 0.8),
+      inset 0 -4px 10px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: scale(1.04);
+    box-shadow: 
+      0 15px 40px rgba(255, 255, 255, 0.7),
+      inset 0 4px 15px rgba(255, 255, 255, 1),
+      inset 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-vsl-cta {
+    font-size: 18px;
+    padding: 18px 20px;
+    letter-spacing: 1px;
+  }
+  
+  .patrocinios-gold-btn,
+  .patrocinios-silver-btn {
+    font-size: 15px;
+    padding: 22px 20px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .patrocinios-gold-btn,
+  .patrocinios-silver-btn {
+    font-size: 12px;
+    padding: 20px 10px;
+    letter-spacing: 0.5px;
+  }
 }
 
 .patrocinios-img {

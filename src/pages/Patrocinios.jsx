@@ -14,7 +14,7 @@ import img14 from '../assets/patrocinios/14.png';
 import img15 from '../assets/patrocinios/15.png';
 import img16 from '../assets/patrocinios/16.png';
 import img17 from '../assets/patrocinios/17.png';
-import img18_5 from '../assets/patrocinios/18.5.png';
+import img18 from '../assets/patrocinios/18.png';
 import img19 from '../assets/patrocinios/19.png';
 
 // Import carousel images
@@ -163,9 +163,16 @@ const Patrocinios = () => {
       <div className="patrocinios-container">
         <img src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-small" />
         
-        <a href="#contacto" className="patrocinios-btn-link" onClick={(e) => e.preventDefault()}>
-          <img src={img2Boton} alt="Botón Patrocinios" className="patrocinios-img btn-img" />
-        </a>
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '10px 0', padding: '0 30px', boxSizing: 'border-box' }}>
+          <a 
+            href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-vsl-cta"
+          >
+            SER PATROCINADOR
+          </a>
+        </div>
 
         <img src={img3} alt="Patrocinios 3" className="patrocinios-img patrocinios-img-small" />
         <img src={img4} alt="Patrocinios 4" className="patrocinios-img" />
@@ -179,15 +186,70 @@ const Patrocinios = () => {
       </section>
 
       <div className="patrocinios-container">
-        <img src={img8} alt="Patrocinios 8" className="patrocinios-img patrocinios-img-tier" />
+        <img src={img8} alt="Patrocinios 8" className="patrocinios-img patrocinios-img-tier" style={{ marginTop: '40px', marginBottom: '20px' }} />
         <img src={img9} alt="Patrocinios 9" className="patrocinios-img" />
-        <img src={img13} alt="Patrocinios 13" className="patrocinios-img patrocinios-img-tier" />
-        <img src={img14} alt="Patrocinios 14" className="patrocinios-img" />
-        <img src={img15} alt="Patrocinios 15" className="patrocinios-img" />
-        <img src={img16} alt="Patrocinios 16" className="patrocinios-img" />
-        <img src={img17} alt="Patrocinios 17" className="patrocinios-img" />
-        <img src={img18_5} alt="Patrocinios 18.5" className="patrocinios-img" />
-        <img src={img19} alt="Patrocinios 19" className="patrocinios-img" />
+      </div>
+
+      <section id="tickets" className="patrocinios-tickets-section">
+        <div className="patrocinios-container" style={{ gap: '10px' }}>
+          <img src={img13} alt="Patrocinios 13" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '280px', marginTop: '30px', marginBottom: '20px' }} />
+          <img src={img14} alt="Patrocinios 14" className="patrocinios-img" />
+          
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
+            <a 
+              href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="patrocinios-gold-btn"
+            >
+              ¡QUIERO MÁS INFORMACIÓN!
+            </a>
+          </div>
+
+          <img src={img15} alt="Patrocinios 15" className="patrocinios-img" />
+          
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
+            <a 
+              href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="patrocinios-gold-btn"
+            >
+              ¡QUIERO MÁS INFORMACIÓN!
+            </a>
+          </div>
+
+          <img src={img16} alt="Patrocinios 16" className="patrocinios-img" />
+          
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
+            <a 
+              href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="patrocinios-silver-btn"
+            >
+              ¡QUIERO MÁS INFORMACIÓN!
+            </a>
+          </div>
+
+          <img src={img17} alt="Patrocinios 17" className="patrocinios-img" />
+
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
+            <a 
+              href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="patrocinios-silver-btn"
+            >
+              ¡QUIERO MÁS INFORMACIÓN!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div className="patrocinios-container">
+        <img src={img18} alt="Patrocinios 18" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '250px', marginBottom: '25px' }} />
+        <img src={img19} alt="Patrocinios 19" className="patrocinios-img" style={{ marginBottom: '40px' }} />
       </div>
 
       <section className="patrocinios-marcas-section">
