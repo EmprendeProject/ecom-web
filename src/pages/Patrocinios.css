@@ -27,8 +27,8 @@
   display: block;
 }
 
-.patrocinios-img-1 {
-  max-width: 500px; /* Hacemos la primera imagen más pequeña */
+.patrocinios-img-small {
+  max-width: 300px; /* Hacemos las imágenes seleccionadas más pequeñas */
 }
 
 .patrocinios-btn-link {
@@ -51,7 +51,7 @@
 
 @media (max-width: 768px) {
   .patrocinios-container {
-    padding: 20px 10px;
+    padding: 20px 24px;
     gap: 15px;
   }
   

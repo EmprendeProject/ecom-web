@@ -93,13 +93,13 @@ const Patrocinios = () => {
   return (
     <div className="patrocinios-page">
       <div className="patrocinios-container">
-        <img src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-1" />
+        <img src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-small" />
         
         <a href="#contacto" className="patrocinios-btn-link" onClick={(e) => e.preventDefault()}>
           <img src={img2Boton} alt="Botón Patrocinios" className="patrocinios-img btn-img" />
         </a>
 
-        <img src={img3} alt="Patrocinios 3" className="patrocinios-img" />
+        <img src={img3} alt="Patrocinios 3" className="patrocinios-img patrocinios-img-small" />
         <img src={img4} alt="Patrocinios 4" className="patrocinios-img" />
         <img src={img5} alt="Patrocinios 5" className="patrocinios-img" />
         <img src={img6} alt="Patrocinios 6" className="patrocinios-img" />
