@@ -571,3 +571,40 @@
   background: white;
   width: 36px;
 }
+
+@media (max-width: 768px) {
+  .marcas-carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .marcas-carousel-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marcas-carousel-container {
+    border-radius: 15px;
+  }
+  .marcas-carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .marcas-carousel-btn.prev-btn {
+    left: 10px;
+  }
+  .marcas-carousel-btn.next-btn {
+    right: 10px;
+  }
+  .marcas-carousel-dots {
+    bottom: 15px;
+    padding: 6px 12px;
+  }
+  .marcas-carousel-dot {
+    width: 16px;
+  }
+  .marcas-carousel-dot.active {
+    width: 24px;
+  }
+}

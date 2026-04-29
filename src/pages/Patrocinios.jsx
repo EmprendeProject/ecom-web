@@ -65,9 +65,33 @@ function CarouselEspacios() {
     return () => clearInterval(timer);
   }, [total]);
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) next();
+    if (distance < -minSwipeDistance) prev();
+  };
+
   return (
     <div className="carousel-espacios-container">
-      <div className="carousel-espacios-viewport">
+      <div 
+        className="carousel-espacios-viewport"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <div
           className="carousel-espacios-track"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -116,9 +140,33 @@ function CarouselMarcas() {
     return () => clearInterval(timer);
   }, [total]);
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) next();
+    if (distance < -minSwipeDistance) prev();
+  };
+
   return (
     <div className="marcas-carousel-container">
-      <div className="marcas-carousel-viewport">
+      <div 
+        className="marcas-carousel-viewport"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <div
           className="marcas-carousel-track"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -228,7 +276,7 @@ const Patrocinios = () => {
               href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="patrocinios-silver-btn"
+              className="patrocinios-gold-btn"
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -241,7 +289,7 @@ const Patrocinios = () => {
               href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20patrocinios%20de%20ECOM2026" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="patrocinios-silver-btn"
+              className="patrocinios-gold-btn"
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
