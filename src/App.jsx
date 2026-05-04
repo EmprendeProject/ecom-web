@@ -203,8 +203,8 @@ function App() {
         </section>
 
         {/* Imagen 9 */}
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0', backgroundColor: '#ffffff' }}>
-          <img src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0', margin: '0', lineHeight: 0, fontSize: 0, backgroundColor: '#ffffff' }}>
+          <img src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block', margin: '0' }} />
         </div>
 
         {/* 7. Razones */}
