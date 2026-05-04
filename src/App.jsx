@@ -203,18 +203,18 @@ function App() {
         </section>
 
         {/* Imagen 9 */}
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '10px 0 40px 0', backgroundColor: '#ffffff' }}>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0', backgroundColor: '#ffffff' }}>
           <img src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
         {/* 7. Razones */}
-        <section className="razones-section" style={{ backgroundColor: '#111111', padding: '80px 40px' }}>
+        <section className="razones-section" style={{ backgroundColor: '#000000', padding: '10px 40px 80px 40px' }}>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '50px',
+            gap: '15px',
             maxWidth: '1200px',
             margin: '0 auto'
           }}>
@@ -237,7 +237,7 @@ function App() {
         </section>
 
         {/* 8. Nuestros Stands */}
-        <section id="stands" className="nuestros-stands-section" style={{ backgroundColor: '#ffffff', padding: '80px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
+        <section id="stands" className="nuestros-stands-section" style={{ backgroundColor: '#ffffff', padding: '80px 20px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
           <img src={imgSTANDS17} alt="Stand 17" style={{ width: '100%', maxWidth: '1000px', height: 'auto' }} />
           <img src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
@@ -246,27 +246,29 @@ function App() {
           <img src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           
-          <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', marginTop: '10px' }}>
-            <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta">
-              ADQUIRIR UN STAND
-            </a>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '15px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px' }}>
+              <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta">
+                ADQUIRIR UN STAND
+              </a>
+            </div>
+            <div className="vsl-pre-text" style={{ maxWidth: '900px', width: '100%', marginTop: '5px', marginBottom: '0' }}>
+              <p className="vsl-pre-question" style={{ color: 'rgba(0,0,0,0.5)', marginBottom: '0' }}>Toca para ver el mapa completo</p>
+              <p className="vsl-pre-cta" style={{ color: '#000000', marginTop: '2px' }}>AMPLIAR PLANO 👇🏻</p>
+            </div>
+            <button
+              type="button"
+              className="plano-zoom-trigger"
+              onClick={() => setIsPlanoZoomOpen(true)}
+              aria-label="Ampliar plano ECOM"
+            >
+              <img
+                src={imgPlanoEcomMuestra}
+                alt="Plano ECOM muestra"
+                style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '0', marginBottom: '0', borderRadius: '15px' }}
+              />
+            </button>
           </div>
-          <div className="vsl-pre-text" style={{ maxWidth: '900px', width: '100%', marginBottom: '2px' }}>
-            <p className="vsl-pre-question" style={{ color: 'rgba(0,0,0,0.5)' }}>Toca para ver el mapa completo</p>
-            <p className="vsl-pre-cta" style={{ color: '#000000' }}>AMPLIAR PLANO 👇🏻</p>
-          </div>
-          <button
-            type="button"
-            className="plano-zoom-trigger"
-            onClick={() => setIsPlanoZoomOpen(true)}
-            aria-label="Ampliar plano ECOM"
-          >
-            <img
-              src={imgPlanoEcomMuestra}
-              alt="Plano ECOM muestra"
-              style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '0', marginBottom: '10px', borderRadius: '15px' }}
-            />
-          </button>
         </section>
 
         {/* 9. Por qué participar */}
