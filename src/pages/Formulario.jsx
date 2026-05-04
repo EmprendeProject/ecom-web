@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
-import bannerBg from '../assets/Elementos graficos/2.png';
 import './Formulario.css';
 
 export default function Formulario() {
@@ -14,10 +13,7 @@ export default function Formulario() {
         </Link>
       </header>
 
-      {/* Banner Header */}
-      <div className="form-banner">
-        <img src={bannerBg} alt="eCom 2026 Banner" className="form-banner-img" />
-      </div>
+
 
       {/* Hero */}
       <section className="form-hero">

@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import ecomLogoWhite from './assets/Elementos graficos/11.png';
-import bannerBg from './assets/Elementos graficos/2.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
 import Navbar from './components/Navbar';
 
@@ -137,9 +136,7 @@ function App() {
   return (
     <div className="landing-page">
       <Navbar />
-      {/* 3. Hero Banner */}
-      <section className="hero-banner" style={{ backgroundImage: `url('${bannerBg}')` }}>
-      </section>
+
 
       {/* 4. Main Content Area */}
       <main className="main-content">

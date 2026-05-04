@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import projectLogo from '../assets/Elementos graficos/1.png';
-import footerLogo from '../assets/Elementos graficos/2.png';
 import titulo1 from '../assets/entradas/1.png';
 import entradasGif from '../assets/entradas/entradas ecom gif.gif';
 import ubicacionImg from '../assets/entradas/ubicacion.png';
