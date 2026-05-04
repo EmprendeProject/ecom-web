@@ -5,6 +5,9 @@ import titulo1 from '../assets/entradas/1.png';
 import entradasGif from '../assets/entradas/entradas ecom gif.gif';
 import ubicacionImg from '../assets/entradas/ubicacion.png';
 import img4 from '../assets/entradas/4.png';
+import imgParaTi from '../assets/entradas/para ti.png';
+import imgEstasListo from '../assets/entradas/estas listo.png';
+import imgAdquiereEntradas from '../assets/entradas/adquiere entradas.png';
 import etapaLeales from '../assets/entradas/ETAPA LEALES.png';
 import img19 from '../assets/entradas/19.png';
 import img20 from '../assets/entradas/20.png';
@@ -103,9 +106,9 @@ export default function Entradas() {
         <div className="entradas-image-container margin-top-large">
           <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
-        <h2 className="entradas-tickets-title">
-          ¿Estás listo para la<br/>experiencia ECOM 2026?
-        </h2>
+        <div className="entradas-image-container margin-top-large" style={{ marginTop: '30px', marginBottom: '10px' }}>
+          <img src={imgEstasListo} alt="¿Estás listo para la experiencia ECOM 2026?" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
+        </div>
         <div className="entradas-image-container margin-top-large">
           <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
@@ -115,41 +118,8 @@ export default function Entradas() {
       <section className="entradas-white-section" id="ecom-es-para-ti-si">
         <div className="entradas-white-content">
           <img src={img4} alt="Entradas 4" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '30px' }} />
-          
-          <div className="entradas-benefits-list">
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">👨‍💻</span> 
-              <span>ERES <span className="benefit-highlight">FREELANCE</span></span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">🛒</span> 
-              <span>HACES <span className="benefit-highlight">ECOMMERCE</span> O <span className="benefit-highlight">DROPSHIPPING</span></span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">🏪</span> 
-              <span>TIENES UN <span className="benefit-highlight">NEGOCIO</span> FISICO O DIGITAL</span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">🚀</span> 
-              <span>ERES <span className="benefit-highlight">EMPRENDEDOR</span></span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">❤️</span> 
-              <span>ERES AMANTE AL <span className="benefit-highlight">MARKETING</span></span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">📦</span> 
-              <span>ERES <span className="benefit-highlight">PROVEEDOR</span> O DISTRIBUIDOR</span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">🧪</span> 
-              <span>TIENES UN <span className="benefit-highlight">LABORATORIO</span></span>
-            </div>
-            <div className="entradas-benefit-item">
-              <span className="benefit-emoji">🏢</span> 
-              <span>TIENES UNA <span className="benefit-highlight">EMPRESA DE SERVICIOS</span> PARA EL ECOMMERCE</span>
-            </div>
-          </div>
+          <img src={imgParaTi} alt="Para ti" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '20px' }} />
+
         </div>
       </section>
 
@@ -157,7 +127,9 @@ export default function Entradas() {
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
           <img src={imgPonentes} alt="Ponentes" className="entradas-imagen" />
-          <h2 className="entradas-tickets-title">ADQUIERE TUS ENTRADAS!👇🏻</h2>
+          <div className="entradas-image-container" style={{ margin: '40px auto', display: 'flex', justifyContent: 'center' }}>
+            <img src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
+          </div>
           
           <img src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
