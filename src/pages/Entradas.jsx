@@ -92,14 +92,7 @@ export default function Entradas() {
 
         {/* Video VSL */}
         <div className="vsl-section" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-          <iframe 
-            src="https://player.vimeo.com/video/1187734548?autoplay=0&loop=1&autopause=0&title=0&byline=0&portrait=0&badge=0" 
-            style={{ width: '100%', aspectRatio: '16/9', borderRadius: '12px', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)', border: '1px solid rgba(177, 76, 247, 0.2)' }} 
-            frameBorder="0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowFullScreen
-            title="ECOM Video"
-          ></iframe>
+          <vsl-player data-id="9fef7564-d1bc-46c7-9a73-62f0f508fb2b"></vsl-player>
         </div>
 
 

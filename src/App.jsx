@@ -149,14 +149,7 @@ function App() {
 
         {/* VSL Video Container */}
         <div className="vsl-section" style={{ width: '100%', maxWidth: '900px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
-          <iframe 
-            src="https://player.vimeo.com/video/1187733199?autoplay=0&loop=1&autopause=0&title=0&byline=0&portrait=0&badge=0" 
-            style={{ width: '100%', aspectRatio: '16/9', borderRadius: '12px', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)', border: '1px solid rgba(177, 76, 247, 0.2)' }} 
-            frameBorder="0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowFullScreen
-            title="ECOM Video"
-          ></iframe>
+          <vsl-player data-id="48239000-2fdd-47e5-9b6e-f00f2d5d67ea"></vsl-player>
         </div>
         
         <div className="vsl-cta-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '30px auto 0 auto', padding: '0 20px', width: '100%', maxWidth: '900px' }}>
