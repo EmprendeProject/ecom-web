@@ -40,15 +40,15 @@ export default function Links() {
 
         {/* Main Buttons */}
         <div className="links-buttons">
-          <Link to="/entradas" className="link-item btn-neon-cyan">
+          <Link to="/entradas" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas' })}>
             <span className="btn-text">COMPRAR ENTRADAS</span>
           </Link>
 
-          <Link to="/stands" className="link-item btn-dark-purple">
+          <Link to="/stands" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Stands', content_category: 'Stands' })}>
             <span className="btn-text">COMPRAR STANDS</span>
           </Link>
 
-          <Link to="/patrocinios" className="link-item btn-dark-purple">
+          <Link to="/patrocinios" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Patrocinios', content_category: 'Patrocinios' })}>
             <span className="btn-text">SER PATROCINADOR</span>
           </Link>
         </div>

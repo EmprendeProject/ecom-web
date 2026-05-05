@@ -219,6 +219,7 @@ const Patrocinios = () => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-vsl-cta"
+            onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
           >
             SER PATROCINADOR
           </a>
@@ -251,6 +252,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -264,6 +266,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -277,6 +280,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -290,6 +294,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>

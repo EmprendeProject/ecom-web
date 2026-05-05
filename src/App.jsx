@@ -155,7 +155,7 @@ function App() {
         <div className="vsl-cta-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '30px auto 0 auto', padding: '0 20px', width: '100%', maxWidth: '900px' }}>
           <a 
             href="#stands" 
-            onClick={(e) => { e.preventDefault(); document.getElementById('stands').scrollIntoView({ behavior: 'smooth' }); }} 
+            onClick={(e) => { e.preventDefault(); document.getElementById('stands').scrollIntoView({ behavior: 'smooth' }); window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Stand', content_category: 'Stands' }); }} 
             className="btn-vsl-cta"
           >
             ADQUIRIR UN STAND
@@ -248,7 +248,7 @@ function App() {
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '15px' }}>
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px' }}>
-              <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta">
+              <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta" onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Stand', content_category: 'Stands' })}>
                 ADQUIRIR UN STAND
               </a>
             </div>
