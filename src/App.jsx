@@ -29,6 +29,7 @@ import imgSTANDS26 from './assets/STANDS/26.png';
 import imgSTANDS27 from './assets/STANDS/27.png';
 import imgSTANDS28 from './assets/STANDS/28.png';
 import imgPlanoEcomMuestra from './assets/STANDS/plano ecom muestra.png';
+import imgStandCustom from './assets/STANDS/stand custom.png';
 
 // Logos marcas anteriores
 import logoDHL from './assets/marcas anteriores/DHL.png';
@@ -242,6 +243,7 @@ function App() {
           <img src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS20} alt="Stand 20" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <img src={imgStandCustom} alt="Stand Custom" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS21} alt="Stand 21" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           <img src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
