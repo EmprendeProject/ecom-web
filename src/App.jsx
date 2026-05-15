@@ -3,13 +3,13 @@ import ecomLogoWhite from './assets/Elementos graficos/11.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
 import Navbar from './components/Navbar';
 
-import stat1 from './assets/STANDS/4.png';
+import stat1 from './assets/STANDS/2.png';
 import stat2 from './assets/STANDS/5.png';
 import stat3 from './assets/STANDS/6.png';
 import stat4 from './assets/STANDS/7.png';
 import marcasConfiaronTitle from './assets/STANDS/8.png';
 
-import imgSTANDS8 from './assets/STANDS/8.png';
+// imgSTANDS8 is the same as marcasConfiaronTitle (8.png)
 import imgSTANDS9 from './assets/STANDS/9.png';
 import imgSTANDS10 from './assets/STANDS/10.png';
 import imgSTANDS11 from './assets/STANDS/11.png';
