@@ -3,7 +3,7 @@ import ecomLogoWhite from './assets/Elementos graficos/11.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
 import Navbar from './components/Navbar';
 
-import stat1 from './assets/STANDS/2.png';
+import stat1 from './assets/STANDS/4.png';
 import stat2 from './assets/STANDS/5.png';
 import stat3 from './assets/STANDS/6.png';
 import stat4 from './assets/STANDS/7.png';
