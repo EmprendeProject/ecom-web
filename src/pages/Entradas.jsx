@@ -8,7 +8,7 @@ import img4 from '../assets/entradas/4.png';
 import imgParaTi from '../assets/entradas/para ti.png';
 import imgEstasListo from '../assets/entradas/estas listo.png';
 import imgAdquiereEntradas from '../assets/entradas/adquiere entradas.png';
-import etapaLeales from '../assets/entradas/ETAPA LEALES.png';
+import etapaDecididos from '../assets/entradas/etapa decididos.png';
 import img19 from '../assets/entradas/19.png';
 import img20 from '../assets/entradas/20.png';
 import img13 from '../assets/entradas/13.png';
@@ -143,7 +143,7 @@ export default function Entradas() {
           
           <img src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
 
-          <img src={etapaLeales} alt="Etapa Leales" className="entradas-imagen" style={{ maxWidth: '600px', width: '85%', marginTop: '-15px', marginBottom: '-5px' }} />
+          <img src={etapaDecididos} alt="Etapa Decididos" className="entradas-imagen" style={{ maxWidth: '600px', width: '85%', marginTop: '-15px', marginBottom: '-5px' }} />
           <p className="entradas-etapa-texto">
             Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios exclusivos!
           </p>
