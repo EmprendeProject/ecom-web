@@ -594,6 +594,7 @@ vsl-player {
   line-height: 1.2;
   font-weight: 800;
   padding: 0 20px;
+  font-family: 'Helvetica', Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
