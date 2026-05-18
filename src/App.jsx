@@ -161,7 +161,7 @@ function App() {
           >
             ADQUIRIR UN STAND
           </a>
-          <h2 className="stands-intro-title">
+          <h2 className="stands-intro-title" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             Conoce mas de ECOM 2026
           </h2>
         </div>

@@ -131,12 +131,12 @@ export default function Entradas() {
             <img src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
           </div>
           
-          <img src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" />
+          <img src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
             <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>¡COMPRAR ENTRADA!</a>
           </div>
           
-          <img src={img20} alt="Entradas 20" className="entradas-imagen" />
+          <img src={img20} alt="Entradas 20" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper">
             <a href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}>¡COMPRAR ENTRADA VIP!</a>
           </div>
