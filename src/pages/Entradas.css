@@ -21,7 +21,7 @@
   background: linear-gradient(160deg, #0b0213 0%, #1a082b 40%, #0b0213 100%);
   display: flex;
   flex-direction: column;
-  font-family: 'Garet', 'Segoe UI', sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 /* Footer Contacto */

@@ -126,6 +126,11 @@ export default function Entradas() {
       {/* Sección Púrpura - Tickets */}
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
+          <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+            <span style={{ fontWeight: 'bold', fontSize: '2rem', color: '#fff', textShadow: '0 2px 8px #00000088', fontFamily: 'Helvetica, Arial, sans-serif', lineHeight: '1.05' }}>
+              Más de 50 ponentes
+            </span>
+          </div>
           <img src={imgPonentes} alt="Ponentes" className="entradas-imagen" />
           <div className="entradas-image-container" style={{ margin: '40px auto', display: 'flex', justifyContent: 'center' }}>
             <img src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
