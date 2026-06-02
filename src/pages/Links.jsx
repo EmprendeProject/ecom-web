@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import headerImg from '../assets/STANDS/2.png';
 import navLogoImg from '../assets/STANDS/1.png';
+import ubicacionImg from '../assets/entradas/ubicacion.png';
 import './Links.css';
 
 const WA_URL_STANDS = "https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20informaci%C3%B3n%20de%20los%20STAND%20de%20ECOM2026";
@@ -38,6 +39,9 @@ export default function Links() {
           </p>
         </div>
 
+        {/* Access Subtitle */}
+        <h2 className="links-access-title">ELIGE TU ACCESO👇🏻</h2>
+
         {/* Main Buttons */}
         <div className="links-buttons">
           <Link to="/entradas" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas' })}>
@@ -51,6 +55,11 @@ export default function Links() {
           <Link to="/patrocinios" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Patrocinios', content_category: 'Patrocinios' })}>
             <span className="btn-text">SER PATROCINADOR</span>
           </Link>
+        </div>
+
+        {/* Ubicación Image */}
+        <div className="links-ubicacion-wrapper">
+          <img src={ubicacionImg} alt="Ubicación ECOM 2026" className="links-ubicacion-img" />
         </div>
 
       </div>
