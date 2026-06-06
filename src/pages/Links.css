@@ -4,12 +4,16 @@
 
 .links-page {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: #120320;
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%, #3d1060 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 85% 45%, #2a0a50 0%, transparent 60%),
+    radial-gradient(ellipse 45% 40% at 15% 75%, #1e0840 0%, transparent 55%);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  color: #111111;
+  color: #ffffff;
 }
 
 /* Navbar */
@@ -25,7 +29,7 @@
 .nav-icon-btn {
   background: transparent;
   border: none;
-  color: #555555;
+  color: rgba(255,255,255,0.6);
   cursor: pointer;
   padding: 4px;
 }
@@ -84,7 +88,7 @@
 
 .links-subtitle {
   font-size: 14px;
-  color: #666666;
+  color: rgba(255,255,255,0.55);
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
@@ -96,9 +100,10 @@
   font-weight: 900;
   letter-spacing: 2px;
   text-align: center;
-  color: #1a082b;
+  color: #ffffff;
   margin: 0 0 20px 0;
   text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(177, 76, 247, 0.4);
 }
 
 /* Buttons */
@@ -141,7 +146,7 @@
 
 .btn-neon-cyan {
   background-color: #be4cf7;
-  color: #111111;
+  color: #ffffff;
   box-shadow: 0 4px 15px rgba(190, 76, 247, 0.2);
 }
 
@@ -151,13 +156,14 @@
 }
 
 .btn-dark-purple {
-  background-color: #271f30;
-  color: #cba8f0;
+  background-color: #ffffff;
+  color: #1a082b;
 }
 
 .btn-dark-purple:hover {
-  background-color: #31263c;
+  background-color: #f0e8ff;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
 }
 
 .btn-icon {
@@ -202,14 +208,14 @@
 .icon-action-btn {
   background: transparent;
   border: none;
-  color: #888888;
+  color: rgba(255,255,255,0.5);
   cursor: pointer;
   padding: 8px;
   transition: color 0.2s;
 }
 
 .icon-action-btn:hover {
-  color: #111111;
+  color: #ffffff;
 }
 
 /* Footer Section */
@@ -261,5 +267,5 @@
   justify-content: center;
   gap: 30px;
   padding: 30px 20px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid rgba(177, 76, 247, 0.15);
 }

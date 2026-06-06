@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import headerImg from '../assets/STANDS/2.png';
+import headerImg from '../assets/Elementos graficos/elevento.png';
 import navLogoImg from '../assets/STANDS/1.png';
 import ubicacionImg from '../assets/entradas/ubicacion.png';
 import './Links.css';
@@ -32,12 +32,13 @@ export default function Links() {
           <img src={headerImg} alt="ECOM Header" className="links-header-img" />
         </div>
 
-        {/* Subtitle */}
+{/* Subtitle - hidden temporarily
         <div className="links-header">
           <p className="links-subtitle">
             Se parte del primer evento de comercio electronico del pais y unete a la corriente de negocios mas importante del 2026
           </p>
         </div>
+        */}
 
         {/* Access Subtitle */}
         <h2 className="links-access-title">ELIGE TU ACCESO👇🏻</h2>
