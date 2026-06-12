@@ -547,6 +547,23 @@
   box-shadow: 0 15px 40px rgba(177, 76, 247, 0.6);
 }
 
+.btn-vsl-cta.btn-vsl-cta-wa {
+  background: #25D366;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-vsl-cta.btn-vsl-cta-wa:hover {
+  background: #1ebc5a;
+  color: #ffffff;
+  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+}
+
+.btn-vsl-cta.btn-vsl-cta-wa::after {
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+}
+
 @keyframes shine {
   0% { left: -100%; }
   20% { left: 200%; }
