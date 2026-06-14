@@ -7,6 +7,7 @@ import Formulario from './pages/Formulario.jsx'
 import Entradas from './pages/Entradas.jsx'
 import Links from './pages/Links.jsx'
 import Patrocinios from './pages/Patrocinios.jsx'
+import Tickets from './pages/Tickets.jsx'
 
 // Fires a Meta Pixel PageView on every SPA route change
 function PixelPageView() {
@@ -30,6 +31,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/formulario" element={<Formulario />} />
         <Route path="/links" element={<Links />} />
         <Route path="/patrocinios" element={<Patrocinios />} />
+        <Route path="/tickets" element={<Tickets />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
