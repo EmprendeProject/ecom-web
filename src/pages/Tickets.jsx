@@ -46,7 +46,7 @@ function CountdownTimer() {
           </div>
         </div>
         <a
-          href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026"
+          href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
           target="_blank"
           rel="noopener noreferrer"
           className="tk-countdown-buy-btn"
@@ -81,7 +81,7 @@ export default function Tickets() {
         {/* Botón comprar online */}
         <div className="tickets-top-cta">
           <a
-            href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20comprar%20entradas%20de%20ECOM2026%20online"
+            href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
             target="_blank"
             rel="noopener noreferrer"
             className="tickets-btn-online"
@@ -120,7 +120,7 @@ export default function Tickets() {
           />
           <div className="tickets-cta-wrapper">
             <a
-              href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20saber%20c%C3%B3mo%20comprar%20las%20entradas%20de%20ECOM2026"
+              href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--vip"
