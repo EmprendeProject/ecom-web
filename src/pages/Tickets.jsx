@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
 import img19 from '../assets/entradas/19.png';
 import img20 from '../assets/entradas/20.png';
 import projectLogo from '../assets/Elementos graficos/1.png';
-import imgAdquiereEntradas from '../assets/entradas/adquiere entradas.png';
+import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import './Tickets.css';
 
@@ -63,9 +62,8 @@ export default function Tickets() {
   return (
     <div className="tickets-page">
       <div className="tickets-top-banner">
-        🚨 ¡OFERTA VÁLIDA POR SÓLO 30 DÍAS! 🚨
+        🚨 ¡OFERTA VÁLIDA POR SÓLO 7 DÍAS! 🚨
       </div>
-      <Navbar />
 
       <main className="tickets-main">
         {/* Imagen adquiere entradas */}
