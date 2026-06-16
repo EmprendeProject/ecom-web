@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import ecomLogoWhite from './assets/Elementos graficos/11.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
+import gif2Ecom from './assets/Elementos graficos/gif 2 ecom.gif';
 import Navbar from './components/Navbar';
 
 import stat1 from './assets/STANDS/4.png';
@@ -149,6 +150,18 @@ function App() {
         </div>
 
         {/* VSL Video Container */}
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%', padding: '0 20px', marginBottom: '15px' }}>
+          <p style={{
+            fontSize: '18px',
+            fontWeight: 'bold',
+            color: '#000',
+            textAlign: 'center',
+            margin: '0',
+            fontFamily: 'Helvetica, Arial, sans-serif'
+          }}>
+            Aquí te explico por qué DEBERÍAS tener un Stand en ECOM👇🏻
+          </p>
+        </div>
         <div className="vsl-section" style={{ width: '100%', maxWidth: '900px', margin: '0 auto', display: 'flex', justifyContent: 'center' }}>
           <vsl-player data-id="48239000-2fdd-47e5-9b6e-f00f2d5d67ea"></vsl-player>
         </div>
@@ -173,6 +186,22 @@ function App() {
             <img src={stat2} alt="+1.000 Asistentes" className="stat-card" />
             <img src={stat3} alt="Segunda Edición" className="stat-card" />
             <img src={stat4} alt="+20 Ponentes Nacionales e Internacionales" className="stat-card" />
+          </div>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '30px', width: '100%', padding: '0 20px', boxSizing: 'border-box' }}>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '800',
+              color: '#000000',
+              textAlign: 'center',
+              fontFamily: 'Garet, sans-serif',
+              textTransform: 'uppercase',
+              marginBottom: '15px',
+              letterSpacing: '1px'
+            }}>
+              ¡UN EVENTO ÚNICO EN VENEZUELA!
+            </h3>
+            <img src={gif2Ecom} alt="Ecom GIF" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           </div>
         </section>
 

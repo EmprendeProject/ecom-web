@@ -127,6 +127,17 @@ export default function Tickets() {
               ¡COMPRAR ENTRADA VIP!
             </a>
           </div>
+          <div className="tickets-cta-wrapper" style={{ marginTop: '15px' }}>
+            <a
+              href="https://wa.me/584226324938?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20comprar%20la%20entrada%20VIP%20de%20ECOM2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tickets-btn tickets-btn--whatsapp"
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Compra Whatsapp VIP', content_category: 'Entradas' })}
+            >
+              COMPRAR POR WHATSAPP
+            </a>
+          </div>
         </div>
       </main>
 

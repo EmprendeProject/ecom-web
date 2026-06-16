@@ -228,6 +228,23 @@
   animation: tkMetallicShimmer 3s infinite ease-in-out, tkPulseVip 2s infinite alternate ease-in-out;
 }
 
+.tickets-btn--whatsapp {
+  background: linear-gradient(
+    135deg,
+    #25d366 0%,
+    #128c7e 50%,
+    #075e54 100%
+  );
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: 1px solid #25d366;
+  box-shadow:
+    0 10px 25px rgba(37, 211, 102, 0.4),
+    inset 0 4px 10px rgba(37, 211, 102, 0.5),
+    inset 0 -4px 10px rgba(7, 94, 84, 0.2);
+  animation: tkMetallicShimmer 3s infinite ease-in-out, tkPulseWhatsapp 2s infinite alternate ease-in-out;
+}
+
 .tickets-btn:hover {
   transform: scale(1.06);
   filter: brightness(1.12);
@@ -248,6 +265,11 @@
 @keyframes tkPulseVip {
   0%   { transform: scale(1); box-shadow: 0 10px 25px rgba(255,204,0,0.4), inset 0 4px 10px rgba(255,235,179,0.8), inset 0 -4px 10px rgba(102,77,0,0.2); }
   100% { transform: scale(1.04); box-shadow: 0 15px 40px rgba(255,204,0,0.7), inset 0 4px 15px rgba(255,255,204,1), inset 0 -4px 10px rgba(77,58,0,0.15); }
+}
+
+@keyframes tkPulseWhatsapp {
+  0%   { transform: scale(1); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4), inset 0 4px 10px rgba(37, 211, 102, 0.5), inset 0 -4px 10px rgba(7, 94, 84, 0.2); }
+  100% { transform: scale(1.04); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7), inset 0 4px 15px rgba(37, 211, 102, 0.8), inset 0 -4px 10px rgba(7, 94, 84, 0.15); }
 }
 
 /* Footer */
