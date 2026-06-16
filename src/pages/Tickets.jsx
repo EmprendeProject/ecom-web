@@ -45,7 +45,7 @@ function CountdownTimer() {
           </div>
         </div>
         <a
-          href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
+          href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
           target="_blank"
           rel="noopener noreferrer"
           className="tk-countdown-buy-btn"
@@ -79,7 +79,7 @@ export default function Tickets() {
         {/* Botón comprar online */}
         <div className="tickets-top-cta">
           <a
-            href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
+            href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
             target="_blank"
             rel="noopener noreferrer"
             className="tickets-btn-online"
@@ -98,7 +98,7 @@ export default function Tickets() {
           />
           <div className="tickets-cta-wrapper">
             <a
-              href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
+              href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--general"
@@ -118,7 +118,7 @@ export default function Tickets() {
           />
           <div className="tickets-cta-wrapper">
             <a
-              href="https://www.ticketshow.app/evento/e17ed289-9c12-41fe-bf4b-9704de1262b0/comprar"
+              href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--vip"
