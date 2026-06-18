@@ -55,7 +55,7 @@ function CountdownTimer() {
             </div>
           </div>
         </div>
-        <a href="https://www.ticketshow.app/evento/6ba51c8a-fa25-410b-86f9-3c52ddf843c0/comprar" target="_blank" rel="noopener noreferrer" className="countdown-buy-btn" onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>COMPRAR ENTRADAS</a>
+        <Link to="/tickets" className="countdown-buy-btn" onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>COMPRAR ENTRADAS</Link>
       </div>
     </div>
   );
@@ -100,7 +100,7 @@ export default function Entradas() {
 
 
         <div className="entradas-cta-wrapper">
-          <a href="#entradas-19" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</a>
+          <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</Link>
         </div>
         <div className="entradas-image-container margin-top-large">
           <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
@@ -137,12 +137,12 @@ export default function Entradas() {
           
           <img src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
-            <a href="https://www.ticketshow.app/evento/6ba51c8a-fa25-410b-86f9-3c52ddf843c0/comprar" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>¡COMPRAR ENTRADA!</a>
+            <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>¡COMPRAR ENTRADA!</Link>
           </div>
           
           <img src={img20} alt="Entradas 20" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper">
-            <a href="https://www.ticketshow.app/evento/6ba51c8a-fa25-410b-86f9-3c52ddf843c0/comprar" target="_blank" rel="noopener noreferrer" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}>¡COMPRAR ENTRADA VIP!</a>
+            <Link to="/tickets" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}>¡COMPRAR ENTRADA VIP!</Link>
           </div>
           
           <img src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
