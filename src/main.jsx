@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './index.css'
@@ -8,6 +8,7 @@ import Entradas from './pages/Entradas.jsx'
 import Links from './pages/Links.jsx'
 import Patrocinios from './pages/Patrocinios.jsx'
 import Tickets from './pages/Tickets.jsx'
+import ComunicadoModal from './components/ComunicadoModal.jsx'
 
 // Fires a Meta Pixel PageView on every SPA route change
 function PixelPageView() {
@@ -20,10 +21,31 @@ function PixelPageView() {
   return null
 }
 
+function GlobalModalManager() {
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    const hasSeen = localStorage.getItem('hasSeenComunicado')
+    if (!hasSeen) {
+      setShowModal(true)
+    }
+  }, [])
+
+  if (!showModal) return null
+
+  return (
+    <ComunicadoModal onClose={() => {
+      localStorage.setItem('hasSeenComunicado', 'true')
+      setShowModal(false)
+    }} />
+  )
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <PixelPageView />
+      <GlobalModalManager />
       <Routes>
         <Route path="/" element={<Links />} />
         <Route path="/stands" element={<App />} />

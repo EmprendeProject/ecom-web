@@ -7,7 +7,7 @@ import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import './Tickets.css';
 
 function CountdownTimer() {
-  const TARGET_DATE = new Date('2026-08-28T23:59:59');
+  const TARGET_DATE = new Date('2026-09-25T23:59:59');
 
   const calcTimeLeft = () => {
     const diff = TARGET_DATE - new Date();
