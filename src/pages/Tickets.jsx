@@ -6,7 +6,15 @@ import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRA
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import './Tickets.css';
 
-function CountdownTimer() {
+const BASE_PURCHASE_URL = 'https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar';
+
+/** Reads fbclid from the current page URL and appends it to the purchase URL if present */
+function buildPurchaseUrl(fbclid) {
+  if (!fbclid) return BASE_PURCHASE_URL;
+  return `${BASE_PURCHASE_URL}?fbclid=${encodeURIComponent(fbclid)}`;
+}
+
+function CountdownTimer({ purchaseUrl }) {
   const TARGET_DATE = new Date('2026-09-25T23:59:59');
 
   const calcTimeLeft = () => {
@@ -45,7 +53,7 @@ function CountdownTimer() {
           </div>
         </div>
         <a
-          href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
+          href={purchaseUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="tk-countdown-buy-btn"
@@ -59,6 +67,14 @@ function CountdownTimer() {
 }
 
 export default function Tickets() {
+  const [purchaseUrl, setPurchaseUrl] = useState(BASE_PURCHASE_URL);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get('fbclid');
+    setPurchaseUrl(buildPurchaseUrl(fbclid));
+  }, []);
+
   return (
     <div className="tickets-page">
       <div className="tickets-top-banner">
@@ -79,7 +95,7 @@ export default function Tickets() {
         {/* Botón comprar online */}
         <div className="tickets-top-cta">
           <a
-            href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
+            href={purchaseUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="tickets-btn-online"
@@ -98,7 +114,7 @@ export default function Tickets() {
           />
           <div className="tickets-cta-wrapper">
             <a
-              href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
+              href={purchaseUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--general"
@@ -118,7 +134,7 @@ export default function Tickets() {
           />
           <div className="tickets-cta-wrapper">
             <a
-              href="https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar"
+              href={purchaseUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--vip"
@@ -147,7 +163,7 @@ export default function Tickets() {
 
       {/* Floating countdown bar */}
       <div className="tk-countdown-float-bar">
-        <CountdownTimer />
+        <CountdownTimer purchaseUrl={purchaseUrl} />
       </div>
     </div>
   );
