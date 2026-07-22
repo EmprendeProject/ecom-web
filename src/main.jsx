@@ -9,6 +9,8 @@ import Links from './pages/Links.jsx'
 import Patrocinios from './pages/Patrocinios.jsx'
 import Tickets from './pages/Tickets.jsx'
 import ComunicadoModal from './components/ComunicadoModal.jsx'
+import PdfEntradas from './pages/PdfEntradas.jsx'
+import PdfStands from './pages/PdfStands.jsx'
 
 // Fires a Meta Pixel PageView on every SPA route change
 function PixelPageView() {
@@ -54,6 +56,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/links" element={<Links />} />
         <Route path="/patrocinios" element={<Patrocinios />} />
         <Route path="/tickets" element={<Tickets />} />
+        <Route path="/pdfentradas" element={<PdfEntradas />} />
+        <Route path="/pdfstands" element={<PdfStands />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
