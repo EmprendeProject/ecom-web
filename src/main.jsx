@@ -47,7 +47,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <PixelPageView />
-      <GlobalModalManager />
+      {/* <GlobalModalManager /> */}
       <Routes>
         <Route path="/" element={<Links />} />
         <Route path="/stands" element={<App />} />
