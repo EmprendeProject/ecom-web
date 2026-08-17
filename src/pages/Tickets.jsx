@@ -6,7 +6,7 @@ import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRA
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import './Tickets.css';
 
-const BASE_PURCHASE_URL = 'https://www.ticketshow.app/evento/a30cc49a-5fbb-400b-a632-7f6e4c9e8840/comprar';
+const BASE_PURCHASE_URL = 'https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar';
 
 /** Reads fbclid from the current page URL and appends it to the purchase URL if present */
 function buildPurchaseUrl(fbclid) {
