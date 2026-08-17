@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from '../components/Navbar';
+import OptimizedImage from '../components/OptimizedImage';
 import './Patrocinios.css';
 
 // Import all images in order
@@ -98,7 +99,7 @@ function CarouselEspacios() {
         >
           {ESPACIOS_PHOTOS.map((src, i) => (
             <div className={`carousel-espacios-slide ${i === current ? 'active' : ''}`} key={i}>
-              <img src={src} alt={`Espacio publicitario ${i + 1}`} className="carousel-espacios-img" />
+              <OptimizedImage src={src} alt={`Espacio publicitario ${i + 1}`} className="carousel-espacios-img" />
             </div>
           ))}
         </div>
@@ -173,7 +174,7 @@ function CarouselMarcas() {
         >
           {STANDS_PHOTOS.map((src, i) => (
             <div className={`marcas-carousel-slide ${i === current ? 'active-slide' : ''}`} key={i}>
-              <img src={src} alt={`Stand anterior ${i + 1}`} className="marcas-carousel-photo" />
+              <OptimizedImage src={src} alt={`Stand anterior ${i + 1}`} className="marcas-carousel-photo" />
               <div className="marcas-carousel-overlay"></div>
             </div>
           ))}
@@ -211,7 +212,7 @@ const Patrocinios = () => {
     <div className="patrocinios-page">
       <Navbar />
       <div className="patrocinios-container">
-        <img src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-small" />
+        <OptimizedImage src={img1} alt="Patrocinios 1" className="patrocinios-img patrocinios-img-small" priority />
         
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '10px 0', padding: '0 30px', boxSizing: 'border-box' }}>
           <a 
@@ -225,26 +226,26 @@ const Patrocinios = () => {
           </a>
         </div>
 
-        <img src={img3} alt="Patrocinios 3" className="patrocinios-img patrocinios-img-small" />
-        <img src={img4} alt="Patrocinios 4" className="patrocinios-img" />
+        <OptimizedImage src={img3} alt="Patrocinios 3" className="patrocinios-img patrocinios-img-small" />
+        <OptimizedImage src={img4} alt="Patrocinios 4" className="patrocinios-img" />
       </div>
 
       <section id="nuestros-espacios" className="nuestros-espacios-section">
         <div className="patrocinios-container" style={{ gap: '10px' }}>
-          <img src={img6} alt="Patrocinios 6" className="patrocinios-img nuestros-espacios-title" />
+          <OptimizedImage src={img6} alt="Patrocinios 6" className="patrocinios-img nuestros-espacios-title" />
           <CarouselEspacios />
         </div>
       </section>
 
       <div className="patrocinios-container">
-        <img src={img8} alt="Patrocinios 8" className="patrocinios-img patrocinios-img-tier" style={{ marginTop: '40px', marginBottom: '20px' }} />
-        <img src={img9} alt="Patrocinios 9" className="patrocinios-img" />
+        <OptimizedImage src={img8} alt="Patrocinios 8" className="patrocinios-img patrocinios-img-tier" style={{ marginTop: '40px', marginBottom: '20px' }} />
+        <OptimizedImage src={img9} alt="Patrocinios 9" className="patrocinios-img" />
       </div>
 
       <section id="tickets" className="patrocinios-tickets-section">
         <div className="patrocinios-container" style={{ gap: '10px' }}>
-          <img src={img13} alt="Patrocinios 13" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '280px', marginTop: '30px', marginBottom: '20px' }} />
-          <img src={img14} alt="Patrocinios 14" className="patrocinios-img" />
+          <OptimizedImage src={img13} alt="Patrocinios 13" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '280px', marginTop: '30px', marginBottom: '20px' }} />
+          <OptimizedImage src={img14} alt="Patrocinios 14" className="patrocinios-img" />
           
           <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
             <a 
@@ -258,7 +259,7 @@ const Patrocinios = () => {
             </a>
           </div>
 
-          <img src={img15} alt="Patrocinios 15" className="patrocinios-img" />
+          <OptimizedImage src={img15} alt="Patrocinios 15" className="patrocinios-img" />
           
           <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
             <a 
@@ -272,7 +273,7 @@ const Patrocinios = () => {
             </a>
           </div>
 
-          <img src={img16} alt="Patrocinios 16" className="patrocinios-img" />
+          <OptimizedImage src={img16} alt="Patrocinios 16" className="patrocinios-img" />
           
           <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
             <a 
@@ -286,7 +287,7 @@ const Patrocinios = () => {
             </a>
           </div>
 
-          <img src={img17} alt="Patrocinios 17" className="patrocinios-img" />
+          <OptimizedImage src={img17} alt="Patrocinios 17" className="patrocinios-img" />
 
           <div style={{ display: 'flex', justifyContent: 'center', width: '100%', maxWidth: '900px', margin: '20px 0' }}>
             <a 
@@ -303,33 +304,33 @@ const Patrocinios = () => {
       </section>
 
       <div className="patrocinios-container">
-        <img src={img18} alt="Patrocinios 18" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '250px', marginBottom: '25px' }} />
-        <img src={img19} alt="Patrocinios 19" className="patrocinios-img" style={{ marginBottom: '40px' }} />
+        <OptimizedImage src={img18} alt="Patrocinios 18" className="patrocinios-img patrocinios-img-tier" style={{ maxWidth: '250px', marginBottom: '25px' }} />
+        <OptimizedImage src={img19} alt="Patrocinios 19" className="patrocinios-img" style={{ marginBottom: '40px' }} />
       </div>
 
       <section className="patrocinios-marcas-section">
         <div className="marcas-title-wrapper">
-            <img src={marcasConfiaronTitle} alt="Marcas que han confiado" className="marcas-title-img" />
+            <OptimizedImage src={marcasConfiaronTitle} alt="Marcas que han confiado" className="marcas-title-img" />
           </div>
 
           <CarouselMarcas />
 
           <div className="marcas-logos-grid">
-            <div className="marca-logo-item"><img src={logoPancakeMeta} alt="Pancake & Meta" /></div>
-            <div className="marca-logo-item"><img src={logoDropi} alt="Dropi" /></div>
-            <div className="marca-logo-item"><img src={logoSellibri} alt="Sellibri" /></div>
-            <div className="marca-logo-item"><img src={logoR4} alt="R4" /></div>
-            <div className="marca-logo-item"><img src={logoNewEmprende} alt="New Emprende" /></div>
-            <div className="marca-logo-item"><img src={logoZoom} alt="Zoom" /></div>
-            <div className="marca-logo-item"><img src={logoKomvii} alt="Komvii" /></div>
-            <div className="marca-logo-item"><img src={logoDropanas} alt="Dropanas" /></div>
-            <div className="marca-logo-item"><img src={logoAbuday} alt="Abuday" /></div>
-            <div className="marca-logo-item"><img src={logoOferfly} alt="Oferfly" /></div>
-            <div className="marca-logo-item"><img src={logoCalidex} alt="Calidex" /></div>
-            <div className="marca-logo-item"><img src={logoGalanet} alt="Galanet" /></div>
-            <div className="marca-logo-item"><img src={logoTFHKA} alt="The Factory HKA" /></div>
-            <div className="marca-logo-item"><img src={logoCavecom} alt="Cavecom-e" /></div>
-            <div className="marca-logo-item"><img src={logoDHL} alt="DHL" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoPancakeMeta} alt="Pancake & Meta" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDropi} alt="Dropi" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoSellibri} alt="Sellibri" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoR4} alt="R4" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoNewEmprende} alt="New Emprende" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoZoom} alt="Zoom" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoKomvii} alt="Komvii" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDropanas} alt="Dropanas" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoAbuday} alt="Abuday" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoOferfly} alt="Oferfly" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoCalidex} alt="Calidex" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoGalanet} alt="Galanet" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoTFHKA} alt="The Factory HKA" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoCavecom} alt="Cavecom-e" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDHL} alt="DHL" /></div>
           </div>
       </section>
 

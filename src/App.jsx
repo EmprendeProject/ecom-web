@@ -3,6 +3,7 @@ import ecomLogoWhite from './assets/Elementos graficos/11.png';
 import headlineText from './assets/Elementos graficos/titulo principal.png';
 import gif2Ecom from './assets/Elementos graficos/gif 2 ecom.gif';
 import Navbar from './components/Navbar';
+import OptimizedImage from './components/OptimizedImage';
 
 import stat1 from './assets/STANDS/4.png';
 import stat2 from './assets/STANDS/5.png';
@@ -92,7 +93,7 @@ function Carousel() {
         >
           {STANDS_PHOTOS.map((src, i) => (
             <div className={`carousel-slide ${i === current ? 'active-slide' : ''}`} key={i}>
-              <img src={src} alt={`Stand anterior ${i + 1}`} className="carousel-photo" />
+              <OptimizedImage src={src} alt={`Stand anterior ${i + 1}`} className="carousel-photo" />
               <div className="carousel-overlay"></div>
             </div>
           ))}
@@ -145,7 +146,7 @@ function App() {
         {/* Headline & Rocket */}
         <div className="headline-section" id="inicio">
           <div className="headline-wrapper">
-            <img src={headlineText} alt="El evento de ecommerce más grande de Venezuela" className="headline-text" />
+            <OptimizedImage src={headlineText} alt="El evento de ecommerce más grande de Venezuela" className="headline-text" priority />
           </div>
         </div>
 
@@ -182,10 +183,10 @@ function App() {
         {/* 5. Stats Cards */}
         <section className="stats-section">
           <div className="stats-grid">
-            <img src={stat1} alt="+15 Marcas Participaron" className="stat-card" />
-            <img src={stat2} alt="+1.000 Asistentes" className="stat-card" />
-            <img src={stat3} alt="Segunda Edición" className="stat-card" />
-            <img src={stat4} alt="+20 Ponentes Nacionales e Internacionales" className="stat-card" />
+            <OptimizedImage src={stat1} alt="+15 Marcas Participaron" className="stat-card" />
+            <OptimizedImage src={stat2} alt="+1.000 Asistentes" className="stat-card" />
+            <OptimizedImage src={stat3} alt="Segunda Edición" className="stat-card" />
+            <OptimizedImage src={stat4} alt="+20 Ponentes Nacionales e Internacionales" className="stat-card" />
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '30px', width: '100%', padding: '0 20px', boxSizing: 'border-box' }}>
@@ -201,40 +202,40 @@ function App() {
             }}>
               ¡UN EVENTO ÚNICO EN VENEZUELA!
             </h3>
-            <img src={gif2Ecom} alt="Ecom GIF" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            <OptimizedImage src={gif2Ecom} alt="Ecom GIF" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           </div>
         </section>
 
         {/* 6. Marcas que han confiado */}
         <section className="marcas-section">
           <div className="marcas-title-wrapper">
-            <img src={marcasConfiaronTitle} alt="Marcas que han confiado" className="marcas-title-img" />
+            <OptimizedImage src={marcasConfiaronTitle} alt="Marcas que han confiado" className="marcas-title-img" />
           </div>
           <Carousel />
 
           {/* Logos grid de marcas */}
           <div className="marcas-logos-grid">
-            <div className="marca-logo-item"><img src={logoPancakeMeta} alt="Pancake & Meta" /></div>
-            <div className="marca-logo-item"><img src={logoDropi} alt="Dropi" /></div>
-            <div className="marca-logo-item"><img src={logoSellibri} alt="Sellibri" /></div>
-            <div className="marca-logo-item"><img src={logoR4} alt="R4" /></div>
-            <div className="marca-logo-item"><img src={logoNewEmprende} alt="New Emprende" /></div>
-            <div className="marca-logo-item"><img src={logoZoom} alt="Zoom" /></div>
-            <div className="marca-logo-item"><img src={logoKomvii} alt="Komvii" /></div>
-            <div className="marca-logo-item"><img src={logoDropanas} alt="Dropanas" /></div>
-            <div className="marca-logo-item"><img src={logoAbuday} alt="Abuday" /></div>
-            <div className="marca-logo-item"><img src={logoOferfly} alt="Oferfly" /></div>
-            <div className="marca-logo-item"><img src={logoCalidex} alt="Calidex" /></div>
-            <div className="marca-logo-item"><img src={logoGalanet} alt="Galanet" /></div>
-            <div className="marca-logo-item"><img src={logoTFHKA} alt="The Factory HKA" /></div>
-            <div className="marca-logo-item"><img src={logoCavecom} alt="Cavecom-e" /></div>
-            <div className="marca-logo-item"><img src={logoDHL} alt="DHL" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoPancakeMeta} alt="Pancake & Meta" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDropi} alt="Dropi" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoSellibri} alt="Sellibri" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoR4} alt="R4" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoNewEmprende} alt="New Emprende" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoZoom} alt="Zoom" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoKomvii} alt="Komvii" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDropanas} alt="Dropanas" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoAbuday} alt="Abuday" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoOferfly} alt="Oferfly" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoCalidex} alt="Calidex" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoGalanet} alt="Galanet" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoTFHKA} alt="The Factory HKA" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoCavecom} alt="Cavecom-e" /></div>
+            <div className="marca-logo-item"><OptimizedImage src={logoDHL} alt="DHL" /></div>
           </div>
         </section>
 
         {/* Imagen 9 */}
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '0', margin: '0', lineHeight: 0, fontSize: 0, backgroundColor: '#ffffff' }}>
-          <img src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block', margin: '0' }} />
+          <OptimizedImage src={imgSTANDS9} alt="Imagen 9" style={{ width: '100%', height: 'auto', display: 'block', margin: '0' }} />
         </div>
 
         {/* 7. Razones */}
@@ -248,7 +249,7 @@ function App() {
             maxWidth: '1200px',
             margin: '0 auto'
           }}>
-            <img src={imgSTANDS10} alt="Razón 10" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            <OptimizedImage src={imgSTANDS10} alt="Razón 10" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
             
             <div style={{
               display: 'flex',
@@ -258,24 +259,24 @@ function App() {
               gap: '15px',
               width: '100%'
             }}>
-              <img src={imgSTANDS11} alt="Razón 11" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS12} alt="Razón 12" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS13} alt="Razón 13" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS14} alt="Razón 14" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS11} alt="Razón 11" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS12} alt="Razón 12" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS13} alt="Razón 13" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS14} alt="Razón 14" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
             </div>
           </div>
         </section>
 
         {/* 8. Nuestros Stands */}
         <section id="stands" className="nuestros-stands-section" style={{ backgroundColor: '#ffffff', padding: '80px 20px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '50px' }}>
-          <img src={imgSTANDS17} alt="Stand 17" style={{ width: '100%', maxWidth: '1000px', height: 'auto' }} />
-          <img src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgSTANDS20} alt="Stand 20" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgStandCustom} alt="Stand Custom" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgSTANDS21} alt="Stand 21" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-          <img src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS17} alt="Stand 17" style={{ width: '100%', maxWidth: '1000px', height: 'auto' }} />
+          <OptimizedImage src={imgSTANDS18} alt="Stand 18" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS19} alt="Stand 19" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS20} alt="Stand 20" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgStandCustom} alt="Stand Custom" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS21} alt="Stand 21" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS22} alt="Stand 22" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+          <OptimizedImage src={imgSTANDS23} alt="Stand 23" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '15px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '900px', gap: '15px' }}>
@@ -294,7 +295,7 @@ function App() {
               onClick={() => setIsPlanoZoomOpen(true)}
               aria-label="Ampliar plano ECOM"
             >
-              <img
+              <OptimizedImage
                 src={imgPlanoEcomMuestra}
                 alt="Plano ECOM muestra"
                 style={{ width: '100%', maxWidth: '900px', height: 'auto', marginTop: '0', marginBottom: '0', borderRadius: '15px' }}
@@ -314,7 +315,7 @@ function App() {
             maxWidth: '1200px',
             margin: '0 auto'
           }}>
-            <img src={imgSTANDS24} alt="Por qué 24" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+            <OptimizedImage src={imgSTANDS24} alt="Por qué 24" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
             
             <div style={{
               display: 'flex',
@@ -324,10 +325,10 @@ function App() {
               gap: '20px', /* Un poquito más juntas */
               width: '100%'
             }}>
-              <img src={imgSTANDS25} alt="Por qué 25" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS26} alt="Por qué 26" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS27} alt="Por qué 27" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
-              <img src={imgSTANDS28} alt="Por qué 28" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS25} alt="Por qué 25" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS26} alt="Por qué 26" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS27} alt="Por qué 27" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
+              <OptimizedImage src={imgSTANDS28} alt="Por qué 28" style={{ width: '100%', maxWidth: '1000px', height: 'auto', borderRadius: '15px' }} />
             </div>
           </div>
         </section>

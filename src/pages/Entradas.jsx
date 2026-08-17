@@ -16,6 +16,7 @@ import img21 from '../assets/entradas/21.png';
 import imgPonentes from '../assets/entradas/ponentes.jpeg';
 import img50Ponentes from '../assets/entradas/50 ponentes.png';
 import Navbar from '../components/Navbar';
+import OptimizedImage from '../components/OptimizedImage';
 import './Entradas.css';
 
 function CountdownTimer() {
@@ -83,9 +84,9 @@ export default function Entradas() {
 
       {/* Main Content */}
       <main className="entradas-main">
-        {/* Imagen 1 */}
+        {/* Imagen 1 — above the fold → priority */}
         <div className="entradas-image-container" style={{ maxWidth: '500px' }}>
-          <img src={titulo1} alt="Entradas" className="entradas-imagen-1" />
+          <OptimizedImage src={titulo1} alt="Entradas" className="entradas-imagen-1" priority />
         </div>
 
         {/* Texto descriptivo antes del VSL */}
@@ -104,21 +105,21 @@ export default function Entradas() {
           <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }}>¡COMPRAR ENTRADA!</Link>
         </div>
         <div className="entradas-image-container margin-top-large">
-          <img src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
+          <OptimizedImage src={ubicacionImg} alt="Ubicación" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
         <div className="entradas-image-container margin-top-large" style={{ marginTop: '30px', marginBottom: '10px' }}>
-          <img src={imgEstasListo} alt="¿Estás listo para la experiencia ECOM 2026?" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
+          <OptimizedImage src={imgEstasListo} alt="¿Estás listo para la experiencia ECOM 2026?" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
         </div>
         <div className="entradas-image-container margin-top-large">
-          <img src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" style={{ borderRadius: '20px' }} />
+          <OptimizedImage src={entradasGif} alt="Entradas Ecom Gif" className="entradas-imagen" style={{ borderRadius: '20px' }} />
         </div>
       </main>
 
       {/* Sección Blanca */}
       <section className="entradas-white-section" id="ecom-es-para-ti-si">
         <div className="entradas-white-content">
-          <img src={img4} alt="Entradas 4" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '30px' }} />
-          <img src={imgParaTi} alt="Para ti" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '20px' }} />
+          <OptimizedImage src={img4} alt="Entradas 4" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '30px' }} />
+          <OptimizedImage src={imgParaTi} alt="Para ti" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', marginTop: '20px' }} />
 
         </div>
       </section>
@@ -126,29 +127,29 @@ export default function Entradas() {
       {/* Sección Púrpura - Tickets */}
       <section className="entradas-purple-section" id="tickets">
         <div className="entradas-purple-content">
-          <img src={img50Ponentes} alt="Más de 50 ponentes" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', margin: '0 auto 10px auto' }} />
-          <img src={imgPonentes} alt="Ponentes" className="entradas-imagen" />
+          <OptimizedImage src={img50Ponentes} alt="Más de 50 ponentes" className="entradas-imagen" style={{ maxWidth: '400px', width: '70%', margin: '0 auto 10px auto' }} />
+          <OptimizedImage src={imgPonentes} alt="Ponentes" className="entradas-imagen" />
           <div className="entradas-image-container" style={{ margin: '40px auto', display: 'flex', justifyContent: 'center' }}>
-            <img src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
+            <OptimizedImage src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="entradas-imagen" style={{ maxWidth: '600px', width: '90%', margin: '0 auto' }} />
           </div>
           
-          <img src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
+          <OptimizedImage src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
             <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>¡COMPRAR ENTRADA!</Link>
           </div>
           
-          <img src={img20} alt="Entradas 20" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
+          <OptimizedImage src={img20} alt="Entradas 20" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper">
             <Link to="/tickets" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}>¡COMPRAR ENTRADA VIP!</Link>
           </div>
           
-          <img src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
+          <OptimizedImage src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />
 
-          <img src={etapaDecididos} alt="Etapa Decididos" className="entradas-imagen" style={{ maxWidth: '600px', width: '85%', marginTop: '-15px', marginBottom: '-5px' }} />
+          <OptimizedImage src={etapaDecididos} alt="Etapa Decididos" className="entradas-imagen" style={{ maxWidth: '600px', width: '85%', marginTop: '-15px', marginBottom: '-5px' }} />
           <p className="entradas-etapa-texto">
             Obtén beneficios especiales por "Pronto Pago" según las etapas de compra. Cuanto antes compres tu entrada, más beneficios exclusivos!
           </p>
-          <img src={img13} alt="Entradas 13" className="entradas-imagen" />
+          <OptimizedImage src={img13} alt="Entradas 13" className="entradas-imagen" />
         </div>
       </section>
 
@@ -187,7 +188,7 @@ export default function Entradas() {
         </div>
         
         <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
-          <img src={projectLogo} alt="Logo" style={{ width: '100%', maxWidth: '200px', filter: 'brightness(1.1)' }} />
+          <OptimizedImage src={projectLogo} alt="Logo" style={{ width: '100%', maxWidth: '200px', filter: 'brightness(1.1)' }} />
         </div>
       </footer>
       {/* Floating Contador */}

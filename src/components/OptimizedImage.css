@@ -1,0 +1,18 @@
+/* =============================================
+   OptimizedImage — fade-in + placeholder styles
+   ============================================= */
+
+/* Base: hidden until loaded */
+.opt-img {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+  /* Prevent CLS when width/height not provided */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Revealed state */
+.opt-img--loaded {
+  opacity: 1;
+}

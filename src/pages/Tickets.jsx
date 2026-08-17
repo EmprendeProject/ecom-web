@@ -4,6 +4,7 @@ import img20 from '../assets/entradas/20.png';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
+import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
 
 const BASE_PURCHASE_URL = 'https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar';
@@ -82,14 +83,14 @@ export default function Tickets() {
       </div>
 
       <main className="tickets-main">
-        {/* Imagen adquiere entradas */}
+        {/* Imagen adquiere entradas - above the fold */}
         <div className="tickets-header-img-wrapper">
-          <img src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="tickets-header-img" />
+          <OptimizedImage src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="tickets-header-img" priority />
         </div>
 
         {/* Imagen flyer */}
         <div className="tickets-flyer-wrapper">
-          <img src={imgFlyer} alt="Flyer ECOM 2026" className="tickets-flyer-img" />
+          <OptimizedImage src={imgFlyer} alt="Flyer ECOM 2026" className="tickets-flyer-img" />
         </div>
 
         {/* Botón comprar online */}
@@ -107,7 +108,7 @@ export default function Tickets() {
 
         {/* Imagen 19 - Entrada General */}
         <div className="tickets-card-wrapper">
-          <img
+          <OptimizedImage
             src={img19}
             alt="Entrada General ECOM 2026"
             className="tickets-img"
@@ -127,7 +128,7 @@ export default function Tickets() {
 
         {/* Imagen 20 - Entrada VIP */}
         <div className="tickets-card-wrapper">
-          <img
+          <OptimizedImage
             src={img20}
             alt="Entrada VIP ECOM 2026"
             className="tickets-img"
@@ -158,7 +159,7 @@ export default function Tickets() {
       </main>
 
       <footer className="tickets-footer">
-        <img src={projectLogo} alt="Logo" className="tickets-footer-logo" />
+        <OptimizedImage src={projectLogo} alt="Logo" className="tickets-footer-logo" />
       </footer>
 
       {/* Floating countdown bar */}
