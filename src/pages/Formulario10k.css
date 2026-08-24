@@ -14,26 +14,47 @@
   overflow-x: hidden;
 }
 
-/* ---- Header ---- */
-.f10k-header {
+/* ---- Urgency Banner ---- */
+@keyframes f10k-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.5); }
+}
+
+.f10k-urgency-banner {
   display: flex;
   align-items: center;
-  padding: 20px 48px;
-  border-bottom: 1px solid rgba(177, 76, 247, 0.2);
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #b91c1c 0%, #dc2626 50%, #b91c1c 100%);
+  background-size: 200% 100%;
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  text-align: center;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 16px rgba(185, 28, 28, 0.5);
+  animation: f10k-banner-shine 3s linear infinite;
 }
 
-.f10k-logo-link { display: flex; align-items: center; }
-.f10k-logo {
-  height: 36px;
-  object-fit: contain;
-  filter: brightness(1.1);
+@keyframes f10k-banner-shine {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
+
+.f10k-urgency-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fca5a5;
+  animation: f10k-pulse-dot 1.4s ease-in-out infinite;
+}
+
 
 /* ---- Glow Decorations ---- */
 .f10k-glow {
@@ -73,7 +94,7 @@
 /* ---- Hero ---- */
 .f10k-hero {
   text-align: center;
-  padding: 72px 24px 40px;
+  padding: 0 24px 24px;
   max-width: 680px;
   width: 100%;
 }
@@ -107,7 +128,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 8px auto;
   object-fit: contain;
 }
 
@@ -530,7 +551,7 @@
 .f10k-cta-bottom {
   display: flex;
   justify-content: center;
-  padding: 48px 24px 16px;
+  padding: 16px 24px 16px;
 }
 
 .f10k-footer {
@@ -548,7 +569,7 @@
   max-width: 560px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px 56px;
+  padding: 0 24px 16px;
 }
 
 .f10k-benefits-heading {
@@ -558,6 +579,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
+  margin-top: 40px;
   margin-bottom: 28px;
 }
 

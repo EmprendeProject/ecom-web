@@ -8,11 +8,11 @@ import './Formulario10k.css';
 export default function Formulario10k() {
   return (
     <div className="f10k-page">
-      <header className="f10k-header">
-        <Link to="/" className="f10k-logo-link" aria-label="Volver al inicio">
-          <img src={projectLogo} alt="eCom 2026 logo" className="f10k-logo" />
-        </Link>
-      </header>
+      <div className="f10k-urgency-banner" role="alert">
+        <span className="f10k-urgency-dot" aria-hidden="true" />
+        ¡Solo son <strong>300 cupos!</strong>
+        <span className="f10k-urgency-dot" aria-hidden="true" />
+      </div>
 
       <main className="f10k-main">
         <div className="f10k-glow f10k-glow-1" aria-hidden="true" />
@@ -41,7 +41,7 @@ export default function Formulario10k() {
               <p className="f10k-expertos-names">Edward, Johan y Bryan</p>
               <p className="f10k-expertos-names">Creadores de ECOM Venezuela</p>
               <p className="f10k-expertos-desc">
-                Empresarios y oprganizadores del evento de comercio electrónico más grande del país. No son gurús de afuera: venden online desde Venezuela, cobran en dólares y bolívares, y cierran ventas por WhatsApp igual que tú.
+                Empresarios y organizadores del evento de comercio electrónico más grande del país. No son gurús de afuera: venden online desde Venezuela, cobran en dólares y bolívares, y cierran ventas por WhatsApp igual que tú.
               </p>
             </div>
           </div>
