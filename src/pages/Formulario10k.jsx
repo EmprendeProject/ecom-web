@@ -97,22 +97,22 @@ export default function Formulario10k() {
             <div className="f10k-benefit-item">
               <span className="f10k-benefit-num">1</span>
               <div className="f10k-benefit-body">
-                <strong>Qué vender para arrancar ya.</strong>
-                <span> Un producto que la gente ya está comprando, aunque no tengas inventario ni experiencia.</span>
+                <strong>Selección de Producto Winner</strong>
+                <span> Criterios clave para identificar un producto ganador de alta demanda y excelente margen de ganancia, incluso sin inventario ni experiencia previa.</span>
               </div>
             </div>
             <div className="f10k-benefit-item">
               <span className="f10k-benefit-num">2</span>
               <div className="f10k-benefit-body">
-                <strong>Cómo cobrar en Venezuela sin enredos.</strong>
-                <span> Dólares, bolívares y pago móvil en un solo sistema.</span>
+                <strong>Estrategia Comercial para Ventas Masivas</strong>
+                <span> El paso a paso para armar una estructura de ventas clara y automatizada que te permita escalar y cerrar pedidos a diario por chat.</span>
               </div>
             </div>
             <div className="f10k-benefit-item">
               <span className="f10k-benefit-num">3</span>
               <div className="f10k-benefit-body">
-                <strong>Cómo cerrar ventas por WhatsApp todos los días.</strong>
-                <span> El sistema real de venta por chat, sin depender de tus horas.</span>
+                <strong>Sistema de Monetización en Bolívares y Dólares</strong>
+                <span> Conocerás la estructura exacta para cobrar de forma ágil y generar tus primeros ingresos vendiendo productos físicos por internet, aceptando Pago Móvil o divisas sin complicaciones.</span>
               </div>
             </div>
           </div>
