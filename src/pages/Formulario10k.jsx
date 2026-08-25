@@ -7,48 +7,52 @@ import './Formulario10k.css';
 
 const META_PIXEL_ID = '2204861446644503';
 
+// Inicializa el stub de fbq (se puede llamar múltiples veces sin problema)
+function initFbqStub() {
+  if (window.fbq) return;
+  const fbq = function() {
+    fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+  };
+  window.fbq = fbq;
+  window._fbq = fbq;
+  fbq.push = fbq;
+  fbq.loaded = true;
+  fbq.version = '2.0';
+  fbq.queue = [];
+}
+
 export default function Formulario10k() {
   useEffect(() => {
-    // Inyectar Meta Pixel solo en esta vista
-    if (window.fbq) {
-      window.fbq('init', META_PIXEL_ID);
-      window.fbq('track', 'PageView');
-      return;
-    }
+    initFbqStub();
 
-    // Inicializar fbq stub
-    (function(f, b, e, v) {
-      let n, t, s;
-      if (f.fbq) return;
-      n = f.fbq = function() {
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    // Inyectar el script solo si no está ya en el DOM
+    const SCRIPT_ID = 'meta-pixel-script';
+    if (!document.getElementById(SCRIPT_ID)) {
+      const script = document.createElement('script');
+      script.id = SCRIPT_ID;
+      script.async = true;
+      script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      script.onload = () => {
+        window.fbq('init', META_PIXEL_ID);
+        window.fbq('track', 'PageView');
       };
-      if (!f._fbq) f._fbq = n;
-      n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
-      t = b.createElement(e); t.async = true;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s);
-    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-    window.fbq('init', META_PIXEL_ID);
-    window.fbq('track', 'PageView');
-
-    // Noscript fallback
-    const noscript = document.createElement('noscript');
-    const img = document.createElement('img');
-    img.height = 1; img.width = 1; img.style.display = 'none';
-    img.src = `https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`;
-    noscript.appendChild(img);
-    noscript.id = 'meta-pixel-noscript';
-    document.head.appendChild(noscript);
-
-    return () => {
-      // Cleanup al salir de la vista
-      const ns = document.getElementById('meta-pixel-noscript');
-      if (ns) ns.remove();
-    };
+      // Si el script falla en cargar, igual intentamos con el stub en cola
+      script.onerror = () => {
+        window.fbq('init', META_PIXEL_ID);
+        window.fbq('track', 'PageView');
+      };
+      document.head.appendChild(script);
+    } else {
+      // Script ya cargado, solo trackear PageView
+      window.fbq('track', 'PageView');
+    }
   }, []);
+
+  const handleCtaClick = () => {
+    if (window.fbq) {
+      window.fbq('track', 'Lead', { content_name: 'Clase Gratis 10k' });
+    }
+  };
 
   return (
     <div className="f10k-page">
@@ -73,6 +77,7 @@ export default function Formulario10k() {
             rel="noopener noreferrer"
             id="f10k-cta-btn"
             className="f10k-cta-btn"
+            onClick={handleCtaClick}
           >
             Quiero unirme a la clase gratis
           </a>
@@ -125,6 +130,7 @@ export default function Formulario10k() {
             rel="noopener noreferrer"
             id="f10k-cta-btn-bottom"
             className="f10k-cta-btn"
+            onClick={handleCtaClick}
           >
             Quiero unirme a la clase gratis
           </a>
