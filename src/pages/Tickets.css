@@ -67,6 +67,21 @@
   gap: 50px;
 }
 
+/* Top Logo */
+.tickets-top-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -20px;
+}
+
+.tickets-logo-img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+}
+
 /* Header image (adquiere entradas) */
 .tickets-header-img-wrapper {
   width: 100%;
@@ -690,7 +705,11 @@
 
 .sp-carousel-track-wrapper {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -705,22 +724,21 @@
     black 92%,
     transparent 100%
   );
+  cursor: grab;
+}
+
+.sp-carousel-track-wrapper:active {
+  cursor: grabbing;
+}
+
+.sp-carousel-track-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .sp-carousel-track {
   display: flex;
   gap: 16px;
   width: max-content;
-  animation: spScroll 75s linear infinite;
-}
-
-.sp-carousel-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes spScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 .sp-carousel-card {
@@ -765,4 +783,57 @@
   .sp-carousel-card {
     width: 180px;
   }
+}
+
+/* Modal for Image */
+.sp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: spModalFade 0.3s ease;
+}
+
+@keyframes spModalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sp-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sp-modal-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(177, 76, 247, 0.4);
+}
+
+.sp-modal-close {
+  position: absolute;
+  top: -40px;
+  right: -20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  transition: color 0.3s ease;
+}
+
+.sp-modal-close:hover {
+  color: #c970ff;
 }

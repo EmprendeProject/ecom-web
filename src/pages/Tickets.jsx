@@ -5,6 +5,7 @@ import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import imgElevento from '../assets/Elementos graficos/elevento.png';
+import logoEcom from '../assets/Elementos graficos/LOGO ECOM.png';
 import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
 
@@ -30,22 +31,117 @@ const PONENTES = [
 ];
 
 function SpeakersCarousel() {
-  // Duplicate the list to create seamless infinite loop
   const items = [...PONENTES, ...PONENTES];
+  const trackRef = React.useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [dragMoved, setDragMoved] = useState(false);
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  // Auto-scroll logic
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    
+    let animationId;
+    let isPaused = false;
+    
+    const scroll = () => {
+      if (!isPaused && !isDragging) {
+        track.scrollLeft += 1;
+        // Reset scroll when reaching the halfway point (since items are duplicated)
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+          track.scrollLeft = 0;
+        }
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+    
+    animationId = requestAnimationFrame(scroll);
+    
+    const pause = () => isPaused = true;
+    const play = () => isPaused = false;
+    
+    track.addEventListener('mouseenter', pause);
+    track.addEventListener('mouseleave', play);
+    track.addEventListener('touchstart', pause, { passive: true });
+    track.addEventListener('touchend', play);
+    
+    return () => {
+      cancelAnimationFrame(animationId);
+      track.removeEventListener('mouseenter', pause);
+      track.removeEventListener('mouseleave', play);
+      track.removeEventListener('touchstart', pause);
+      track.removeEventListener('touchend', play);
+    };
+  }, [isDragging]);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setDragMoved(false);
+    setStartX(e.pageX - trackRef.current.offsetLeft);
+    setScrollLeft(trackRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    setDragMoved(true);
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startX) * 2; 
+    trackRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleCardClick = (src) => {
+    if (!dragMoved) {
+      setSelectedImg(src);
+    }
+  };
 
   return (
-    <div className="sp-carousel-section">
-      <p className="sp-carousel-label">PONENTES</p>
-      <div className="sp-carousel-track-wrapper">
-        <div className="sp-carousel-track">
-          {items.map((src, i) => (
-            <div key={i} className="sp-carousel-card">
-              <img src={src} alt={`Ponente ${(i % PONENTES.length) + 1}`} className="sp-carousel-img" loading="lazy" />
-            </div>
-          ))}
+    <>
+      <div className="sp-carousel-section">
+        <p className="sp-carousel-label">PONENTES</p>
+        <div 
+          className="sp-carousel-track-wrapper" 
+          ref={trackRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
+          <div className="sp-carousel-track">
+            {items.map((src, i) => (
+              <div 
+                key={i} 
+                className="sp-carousel-card"
+                onClick={() => handleCardClick(src)}
+              >
+                <img src={src} alt={`Ponente ${(i % PONENTES.length) + 1}`} className="sp-carousel-img" loading="lazy" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      {selectedImg && (
+        <div className="sp-modal-overlay" onClick={() => setSelectedImg(null)}>
+          <div className="sp-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="sp-modal-close" onClick={() => setSelectedImg(null)}>×</button>
+            <img src={selectedImg} alt="Ponente" className="sp-modal-img" />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -184,6 +280,11 @@ export default function Tickets() {
       </div>
 
       <main className="tickets-main">
+        {/* Logo superior */}
+        <div className="tickets-top-logo">
+          <OptimizedImage src={logoEcom} alt="ECOM" className="tickets-logo-img" priority />
+        </div>
+
         {/* Imagen elevento */}
         <div className="tickets-header-img-wrapper">
           <OptimizedImage src={imgElevento} alt="El Evento ECOM 2026" className="tickets-header-img" priority />
