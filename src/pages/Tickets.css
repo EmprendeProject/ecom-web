@@ -448,3 +448,103 @@
     min-width: 36px;
   }
 }
+
+/* ===========================
+   Speakers Carousel
+   =========================== */
+
+.sp-carousel-section {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  padding: 10px 0 20px;
+}
+
+.sp-carousel-label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: rgba(213, 128, 255, 0.75);
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.sp-carousel-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.sp-carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: spScroll 75s linear infinite;
+}
+
+.sp-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.sp-carousel-card {
+  flex-shrink: 0;
+  width: 280px;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(177, 76, 247, 0.35);
+  box-shadow:
+    0 0 18px rgba(177, 76, 247, 0.18),
+    0 4px 20px rgba(0, 0, 0, 0.5);
+  background: #0a0014;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.sp-carousel-card:hover {
+  transform: scale(1.07);
+  border-color: rgba(213, 128, 255, 0.75);
+  box-shadow:
+    0 0 30px rgba(177, 76, 247, 0.45),
+    0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.sp-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .sp-carousel-card {
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-carousel-card {
+    width: 180px;
+  }
+}

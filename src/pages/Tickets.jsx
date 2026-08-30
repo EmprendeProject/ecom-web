@@ -7,6 +7,47 @@ import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
 
+// Ponentes images
+import ponente1 from '../assets/ponentes/1.png';
+import ponente2 from '../assets/ponentes/2.png';
+import ponente3 from '../assets/ponentes/3.png';
+import ponente4 from '../assets/ponentes/4.png';
+import ponente5 from '../assets/ponentes/5.png';
+import ponente6 from '../assets/ponentes/6.png';
+import ponente7 from '../assets/ponentes/7.png';
+import ponente8 from '../assets/ponentes/8.png';
+import ponente9 from '../assets/ponentes/9.png';
+import ponente10 from '../assets/ponentes/10.png';
+import ponente11 from '../assets/ponentes/11.png';
+import ponente12 from '../assets/ponentes/12.png';
+import ponente13 from '../assets/ponentes/13.png';
+import ponente14 from '../assets/ponentes/14.png';
+
+const PONENTES = [
+  ponente1, ponente2, ponente3, ponente4, ponente5, ponente6, ponente7,
+  ponente8, ponente9, ponente10, ponente11, ponente12, ponente13, ponente14,
+];
+
+function SpeakersCarousel() {
+  // Duplicate the list to create seamless infinite loop
+  const items = [...PONENTES, ...PONENTES];
+
+  return (
+    <div className="sp-carousel-section">
+      <p className="sp-carousel-label">PONENTES</p>
+      <div className="sp-carousel-track-wrapper">
+        <div className="sp-carousel-track">
+          {items.map((src, i) => (
+            <div key={i} className="sp-carousel-card">
+              <img src={src} alt={`Ponente ${(i % PONENTES.length) + 1}`} className="sp-carousel-img" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const BASE_PURCHASE_URL = 'https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar';
 
 /** Reads fbclid from the current page URL and appends it to the purchase URL if present */
@@ -105,6 +146,9 @@ export default function Tickets() {
             🛒 COMPRAR ONLINE
           </a>
         </div>
+
+        {/* Carrusel de ponentes */}
+        <SpeakersCarousel />
 
         {/* Imagen 19 - Entrada General */}
         <div className="tickets-card-wrapper">
