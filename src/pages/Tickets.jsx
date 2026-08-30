@@ -4,6 +4,7 @@ import img20 from '../assets/entradas/20.png';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
+import imgElevento from '../assets/Elementos graficos/elevento.png';
 import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
 
@@ -108,6 +109,65 @@ function CountdownTimer({ purchaseUrl }) {
   );
 }
 
+const STATS = [
+  { prefix: '',  value: 2,  suffix: '',    label: 'DÍAS DE EVENTO',          icon: '📅' },
+  { prefix: '+', value: 40, suffix: '',    label: 'PONENTES',                 icon: '🎤' },
+  { prefix: '+', value: 6,  suffix: '',    label: 'EXPERIENCIAS DE NEGOCIO',  icon: '🚀' },
+  { prefix: '+', value: 50, suffix: '',    label: 'MARCAS DEL ECOMMERCE',     icon: '🏆' },
+];
+
+function useCountUp(target, duration = 1800, started) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration]);
+  return count;
+}
+
+function StatCard({ prefix, value, suffix, label, icon, started }) {
+  const count = useCountUp(value, 1600, started);
+  return (
+    <div className="sc-card">
+      <span className="sc-icon">{icon}</span>
+      <span className="sc-number">{prefix}{count}{suffix}</span>
+      <span className="sc-label">{label}</span>
+    </div>
+  );
+}
+
+function StatsCounter() {
+  const [started, setStarted] = useState(false);
+  const ref = React.useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="sc-section" ref={ref}>
+      {STATS.map((stat, i) => (
+        <StatCard key={i} {...stat} started={started} />
+      ))}
+    </div>
+  );
+}
+
 export default function Tickets() {
   const [purchaseUrl, setPurchaseUrl] = useState(BASE_PURCHASE_URL);
 
@@ -124,17 +184,16 @@ export default function Tickets() {
       </div>
 
       <main className="tickets-main">
-        {/* Imagen adquiere entradas - above the fold */}
+        {/* Imagen elevento */}
         <div className="tickets-header-img-wrapper">
-          <OptimizedImage src={imgAdquiereEntradas} alt="Adquiere tus entradas" className="tickets-header-img" priority />
+          <OptimizedImage src={imgElevento} alt="El Evento ECOM 2026" className="tickets-header-img" priority />
         </div>
 
-        {/* Imagen flyer */}
-        <div className="tickets-flyer-wrapper">
-          <OptimizedImage src={imgFlyer} alt="Flyer ECOM 2026" className="tickets-flyer-img" />
-        </div>
 
-        {/* Botón comprar online */}
+        {/* Contadores animados */}
+        <StatsCounter />
+
+        {/* Bot\u00f3n comprar online */}
         <div className="tickets-top-cta">
           <a
             href={purchaseUrl}
@@ -145,10 +204,25 @@ export default function Tickets() {
           >
             🛒 COMPRAR ONLINE
           </a>
+          <p className="tickets-preventa-badge">PREVENTA HASTA EL 5 DE SEPTIEMBRE</p>
+        </div>
+
+        {/* Seccion info del evento */}
+        <div className="ev-info-section">
+          <div className="ev-info-headline">
+            <p className="ev-info-cta-text">Todo para <strong>AUMENTAR las ventas por internet</strong> en un solo lugar.</p>
+          </div>
         </div>
 
         {/* Carrusel de ponentes */}
         <SpeakersCarousel />
+
+        {/* Texto bajado del carrusel */}
+        <div className="ev-info-section" style={{ paddingTop: 0 }}>
+          <div className="ev-info-headline">
+            <p className="ev-info-sub">Los verdaderos expertos.<br />Los mejores proveedores y empresas más importantes.</p>
+          </div>
+        </div>
 
         {/* Imagen 19 - Entrada General */}
         <div className="tickets-card-wrapper">
