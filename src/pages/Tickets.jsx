@@ -11,13 +11,13 @@ import './Tickets.css';
 
 // Ponentes images
 import ponente1 from '../assets/ponentes/1.png';
-import ponente2 from '../assets/ponentes/2.png';
+import ponente2 from '../assets/ponentes/2.jpeg';
 import ponente3 from '../assets/ponentes/3.png';
 import ponente4 from '../assets/ponentes/4.png';
 import ponente5 from '../assets/ponentes/5.png';
 import ponente6 from '../assets/ponentes/6.png';
 import ponente7 from '../assets/ponentes/7.png';
-import ponente8 from '../assets/ponentes/8.png';
+import ponente8 from '../assets/ponentes/8.jpeg';
 import ponente9 from '../assets/ponentes/9.png';
 import ponente10 from '../assets/ponentes/10.png';
 import ponente11 from '../assets/ponentes/11.png';
@@ -290,11 +290,18 @@ export default function Tickets() {
           <OptimizedImage src={imgElevento} alt="El Evento ECOM 2026" className="tickets-header-img" priority />
         </div>
 
+        {/* Texto AUMENTAR las ventas */}
+        <div className="ev-info-section" style={{ paddingBottom: 0, paddingTop: '10px' }}>
+          <div className="ev-info-headline">
+            <p className="ev-info-cta-text">Todo para <strong>AUMENTAR las ventas por internet</strong> en un solo lugar.</p>
+          </div>
+        </div>
+
 
         {/* Contadores animados */}
         <StatsCounter />
 
-        {/* Bot\u00f3n comprar online */}
+        {/* Botón comprar online */}
         <div className="tickets-top-cta">
           <a
             href={purchaseUrl}
@@ -306,14 +313,16 @@ export default function Tickets() {
             🛒 COMPRAR ONLINE
           </a>
           <p className="tickets-preventa-badge">PREVENTA HASTA EL 5 DE SEPTIEMBRE</p>
-        </div>
-
-        {/* Seccion info del evento */}
-        <div className="ev-info-section">
-          <div className="ev-info-headline">
-            <p className="ev-info-cta-text">Todo para <strong>AUMENTAR las ventas por internet</strong> en un solo lugar.</p>
+          
+          {/* Barra de progreso de ventas */}
+          <div className="tk-progress-container">
+            <div className="tk-progress-bar">
+              <div className="tk-progress-fill"></div>
+            </div>
+            <p className="tk-progress-text">🔥 <strong>+75%</strong> ENTRADAS VENDIDAS</p>
           </div>
         </div>
+
 
         {/* Carrusel de ponentes */}
         <SpeakersCarousel />
