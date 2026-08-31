@@ -291,7 +291,7 @@ export default function Tickets() {
         </div>
 
         {/* Texto AUMENTAR las ventas */}
-        <div className="ev-info-section" style={{ paddingBottom: 0, paddingTop: '10px' }}>
+        <div className="ev-info-section">
           <div className="ev-info-headline">
             <p className="ev-info-cta-text">Todo para <strong>AUMENTAR las ventas por internet</strong> en un solo lugar.</p>
           </div>
@@ -312,29 +312,30 @@ export default function Tickets() {
           >
             🛒 COMPRAR ONLINE
           </a>
-          <p className="tickets-preventa-badge">PREVENTA HASTA EL 5 DE SEPTIEMBRE</p>
-          
-          {/* Barra de progreso de ventas */}
+        </div>
+
+
+        {/* Texto arriba del carrusel */}
+        <div className="ev-info-section">
+          <div className="ev-info-headline">
+            <p className="ev-info-sub">Los verdaderos expertos.<br />Los mejores proveedores y empresas más importantes.</p>
+          </div>
+        </div>
+
+        {/* Carrusel de ponentes */}
+        <SpeakersCarousel />
+
+        {/* Imagen 19 - Entrada General */}
+        {/* Urgency Section (Barra + Preventa) */}
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
           <div className="tk-progress-container">
             <div className="tk-progress-bar">
               <div className="tk-progress-fill"></div>
             </div>
             <p className="tk-progress-text">🔥 <strong>+75%</strong> ENTRADAS VENDIDAS</p>
           </div>
+          <p className="tickets-preventa-badge">PREVENTA HASTA EL 5 DE SEPTIEMBRE</p>
         </div>
-
-
-        {/* Carrusel de ponentes */}
-        <SpeakersCarousel />
-
-        {/* Texto bajado del carrusel */}
-        <div className="ev-info-section" style={{ paddingTop: 0 }}>
-          <div className="ev-info-headline">
-            <p className="ev-info-sub">Los verdaderos expertos.<br />Los mejores proveedores y empresas más importantes.</p>
-          </div>
-        </div>
-
-        {/* Imagen 19 - Entrada General */}
         <div className="tickets-card-wrapper">
           <OptimizedImage
             src={img19}
