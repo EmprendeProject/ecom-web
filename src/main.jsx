@@ -44,6 +44,13 @@ function GlobalModalManager() {
   )
 }
 
+function ExternalRedirect({ to }) {
+  useEffect(() => {
+    window.location.href = to;
+  }, [to]);
+  return null;
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -60,6 +67,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/pdfentradas" element={<PdfEntradas />} />
         <Route path="/pdfstands" element={<PdfStands />} />
         <Route path="/formulario10k" element={<Formulario10k />} />
+        <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

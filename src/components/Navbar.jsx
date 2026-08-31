@@ -48,8 +48,8 @@ const Navbar = () => {
 
         <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
           <Link 
-            to="/entradas" 
-            className={`nav-link ${location.pathname === '/entradas' ? 'active-link' : ''}`}
+            to="/tickets" 
+            className={`nav-link ${location.pathname === '/tickets' ? 'active-link' : ''}`}
             onClick={closeMenu}
           >
             Entradas
@@ -61,13 +61,15 @@ const Navbar = () => {
           >
             Stands
           </Link>
+          {/* 
           <Link 
             to="/patrocinios" 
             className={`nav-link ${location.pathname === '/patrocinios' ? 'active-link' : ''}`}
             onClick={closeMenu}
           >
             Patrocinios
-          </Link>
+          </Link> 
+          */}
         </div>
       </div>
     </nav>

@@ -45,7 +45,7 @@ export default function Links() {
 
         {/* Main Buttons */}
         <div className="links-buttons">
-          <Link to="/entradas" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas' })}>
+          <Link to="/tickets" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas' })}>
             <span className="btn-text">COMPRAR ENTRADAS</span>
           </Link>
 
@@ -53,9 +53,11 @@ export default function Links() {
             <span className="btn-text">COMPRAR STANDS</span>
           </Link>
 
+          {/*
           <Link to="/patrocinios" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Patrocinios', content_category: 'Patrocinios' })}>
             <span className="btn-text">SER PATROCINADOR</span>
           </Link>
+          */}
         </div>
 
         {/* Ubicación Image */}
