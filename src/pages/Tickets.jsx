@@ -5,6 +5,7 @@ import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
 import imgElevento from '../assets/Elementos graficos/elevento.png';
+import imgFecha2 from '../assets/Elementos graficos/fecha 2.png';
 import logoEcom from '../assets/Elementos graficos/LOGO ECOM.png';
 import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
@@ -286,9 +287,17 @@ export default function Tickets() {
           <OptimizedImage src={logoEcom} alt="ECOM" className="tickets-logo-img" priority />
         </div>
 
-        {/* Imagen elevento */}
-        <div className="tickets-header-img-wrapper">
-          <OptimizedImage src={imgElevento} alt="El Evento ECOM 2026" className="tickets-header-img" priority />
+        {/* Contenedor agrupado para elevento y fecha 2 (sin separación) */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0', width: '100%', marginTop: '-15px' }}>
+          {/* Imagen elevento */}
+          <div className="tickets-header-img-wrapper" style={{ marginBottom: '0' }}>
+            <OptimizedImage src={imgElevento} alt="El Evento ECOM 2026" className="tickets-header-img" priority />
+          </div>
+
+          {/* Imagen fecha 2 */}
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '0', padding: '0' }}>
+            <OptimizedImage src={imgFecha2} alt="Fecha ECOM 2026" style={{ maxWidth: '200px', width: '100%', height: 'auto', margin: '0', padding: '0', border: 'none' }} priority />
+          </div>
         </div>
 
         {/* Texto AUMENTAR las ventas */}
