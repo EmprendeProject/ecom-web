@@ -278,7 +278,7 @@ export default function Tickets() {
   return (
     <div className="tickets-page">
       <div className="tickets-top-banner">
-        🚨 ¡OFERTA VÁLIDA POR SÓLO 7 DÍAS! 🚨
+        🚨 ¡5 personas estan comprando ahora! 🚨
       </div>
 
       <main className="tickets-main">
