@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useState } from 'react'
+import React, { StrictMode, useEffect, useState, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './index.css'
@@ -13,10 +13,18 @@ import PdfEntradas from './pages/PdfEntradas.jsx'
 import PdfStands from './pages/PdfStands.jsx'
 import Formulario10k from './pages/Formulario10k.jsx'
 
-// Fires a Meta Pixel PageView on every SPA route change
+// Fires a Meta Pixel PageView on every SPA route change (skips the very first
+// render because index.html already called fbq('track', 'PageView') on load).
 function PixelPageView() {
   const location = useLocation()
+  const isFirstRender = useRef(true)
+
   useEffect(() => {
+    // Skip the initial mount — index.html already fired the first PageView
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'PageView')
     }

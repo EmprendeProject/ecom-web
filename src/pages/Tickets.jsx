@@ -14,20 +14,21 @@ import ponente1 from '../assets/ponentes/1.png';
 import ponente2 from '../assets/ponentes/2.jpeg';
 import ponente3 from '../assets/ponentes/3.png';
 import ponente4 from '../assets/ponentes/4.png';
-import ponente5 from '../assets/ponentes/5.png';
-import ponente6 from '../assets/ponentes/6.png';
+import ponente5 from '../assets/ponentes/5.jpg';
+import ponente6 from '../assets/ponentes/6.jpg';
 import ponente7 from '../assets/ponentes/7.png';
 import ponente8 from '../assets/ponentes/8.jpeg';
-import ponente9 from '../assets/ponentes/9.png';
+import ponente9 from '../assets/ponentes/9.jpg';
 import ponente10 from '../assets/ponentes/10.png';
 import ponente11 from '../assets/ponentes/11.png';
-import ponente12 from '../assets/ponentes/12.png';
-import ponente13 from '../assets/ponentes/13.png';
+import ponente12 from '../assets/ponentes/12.jpg';
+import ponente13 from '../assets/ponentes/13.jpg';
 import ponente14 from '../assets/ponentes/14.png';
+import ponente15 from '../assets/ponentes/15.jpg';
 
 const PONENTES = [
   ponente1, ponente2, ponente3, ponente4, ponente5, ponente6, ponente7,
-  ponente8, ponente9, ponente10, ponente11, ponente12, ponente13, ponente14,
+  ponente8, ponente9, ponente10, ponente11, ponente12, ponente13, ponente14, ponente15,
 ];
 
 function SpeakersCarousel() {
