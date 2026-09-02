@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import projectLogo from '../assets/Elementos graficos/1.png';
-import tituloWebinar from '../assets/Elementos graficos/titulo webinar.png';
-import expertosImg from '../assets/Elementos graficos/expertos.png';
+import projectLogo from '../assets/Elementos graficos/1.webp';
+import tituloWebinar from '../assets/Elementos graficos/titulo webinar.webp';
+import expertosImg from '../assets/Elementos graficos/expertos.webp';
+import OptimizedImage from '../components/OptimizedImage';
 import './Formulario10k.css';
 
 const META_PIXEL_ID = '2204861446644503';
@@ -67,7 +68,7 @@ export default function Formulario10k() {
         <div className="f10k-glow f10k-glow-2" aria-hidden="true" />
 
         <section className="f10k-hero">
-          <img src={tituloWebinar} alt="Título Webinar" className="f10k-title-img" />
+          <OptimizedImage src={tituloWebinar} alt="Título Webinar" className="f10k-title-img" priority />
           <p className="f10k-subtitle">
             Cómo construir desde cero un negocio de ecommerce que genere tus primeros <strong>$10.000</strong> antes de que termine el 2026, vendiendo desde Venezuela.
           </p>
@@ -85,7 +86,7 @@ export default function Formulario10k() {
 
         <section className="f10k-card-wrapper">
           <div className="f10k-expertos-wrapper">
-            <img src={expertosImg} alt="Expertos" className="f10k-expertos-img" />
+            <OptimizedImage src={expertosImg} alt="Expertos" className="f10k-expertos-img" />
             <div className="f10k-expertos-bio">
               <p className="f10k-expertos-names">Edward, Johan y Bryan</p>
               <p className="f10k-expertos-names">Creadores de ECOM Venezuela</p>

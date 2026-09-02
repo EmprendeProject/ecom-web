@@ -268,6 +268,7 @@ function StatsCounter() {
 
 export default function Tickets() {
   const [purchaseUrl, setPurchaseUrl] = useState(BASE_PURCHASE_URL);
+  const [buyersCount, setBuyersCount] = useState(5);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -275,10 +276,26 @@ export default function Tickets() {
     setPurchaseUrl(buildPurchaseUrl(fbclid));
   }, []);
 
+  useEffect(() => {
+    let timeout;
+    const updateBuyersCount = () => {
+      // Generar un número realista entre 1 y 9
+      const newCount = Math.floor(Math.random() * 9) + 1;
+      setBuyersCount(newCount);
+      
+      // Siguiente actualización entre 4 y 10 segundos
+      const nextUpdateIn = Math.floor(Math.random() * 6000) + 4000;
+      timeout = setTimeout(updateBuyersCount, nextUpdateIn);
+    };
+
+    timeout = setTimeout(updateBuyersCount, 5000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div className="tickets-page">
       <div className="tickets-top-banner">
-        🚨 ¡5 personas estan comprando ahora! 🚨
+        {buyersCount} {buyersCount === 1 ? 'persona esta' : 'personas estan'} comprando ahora! 🚨
       </div>
 
       <main className="tickets-main">
