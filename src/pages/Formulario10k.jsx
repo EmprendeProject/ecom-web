@@ -51,7 +51,7 @@ export default function Formulario10k() {
 
   const handleCtaClick = () => {
     if (window.fbq) {
-      window.fbq('track', 'Lead', { content_name: 'Clase Gratis 10k' });
+      window.fbq('track', 'Lead', { content_name: 'Clase Gratis 10k', value: 0, currency: 'USD' });
     }
   };
 

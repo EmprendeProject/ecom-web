@@ -220,7 +220,7 @@ const Patrocinios = () => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-vsl-cta"
-            onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
+            onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios', value: 0, currency: 'USD' })}
           >
             SER PATROCINADOR
           </a>
@@ -253,7 +253,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
-              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios', value: 0, currency: 'USD' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -267,7 +267,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
-              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios', value: 0, currency: 'USD' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -281,7 +281,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
-              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios', value: 0, currency: 'USD' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>
@@ -295,7 +295,7 @@ const Patrocinios = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="patrocinios-gold-btn"
-              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios' })}
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Patrocinio', content_category: 'Patrocinios', value: 0, currency: 'USD' })}
             >
               ¡QUIERO MÁS INFORMACIÓN!
             </a>

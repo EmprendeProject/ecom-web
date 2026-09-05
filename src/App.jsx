@@ -280,7 +280,7 @@ function App() {
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '15px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '900px', gap: '15px' }}>
-              <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta" onClick={() => { window.fbq && window.fbq('track', 'Lead', { content_name: 'Stand', content_category: 'Stands' }); }}>
+              <a href="https://wa.me/584226324938?text=¡Hola!%20Me%20gustaría%20información%20sobre%20los%20stands%20de%20ECOM2026" target="_blank" rel="noopener noreferrer" className="btn-vsl-cta" onClick={() => { window.fbq && window.fbq('track', 'Lead', { content_name: 'Stand', content_category: 'Stands', value: 0, currency: 'USD' }); }}>
                 ADQUIRIR UN STAND
               </a>
 

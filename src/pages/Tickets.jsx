@@ -198,7 +198,7 @@ function CountdownTimer({ purchaseUrl }) {
           target="_blank"
           rel="noopener noreferrer"
           className="tk-countdown-buy-btn"
-          onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}
+          onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas', value: 0, currency: 'USD' })}
         >
           COMPRAR ENTRADAS
         </a>
@@ -335,7 +335,7 @@ export default function Tickets() {
             target="_blank"
             rel="noopener noreferrer"
             className="tickets-btn-online"
-            onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Comprar Online', content_category: 'Entradas' })}
+            onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Comprar Online', content_category: 'Entradas', value: 0, currency: 'USD' })}
           >
             🛒 COMPRAR ONLINE
           </a>
@@ -375,7 +375,7 @@ export default function Tickets() {
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--general"
-              onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}
+              onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas', value: 0, currency: 'USD' })}
             >
               ¡COMPRAR ENTRADA!
             </a>
@@ -395,7 +395,7 @@ export default function Tickets() {
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--vip"
-              onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}
+              onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas', value: 0, currency: 'USD' })}
             >
               ¡COMPRAR ENTRADA VIP!
             </a>
@@ -406,7 +406,7 @@ export default function Tickets() {
               target="_blank"
               rel="noopener noreferrer"
               className="tickets-btn tickets-btn--whatsapp"
-              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Compra Whatsapp VIP', content_category: 'Entradas' })}
+              onClick={() => window.fbq && window.fbq('track', 'Lead', { content_name: 'Compra Whatsapp VIP', content_category: 'Entradas', value: 0, currency: 'USD' })}
             >
               COMPRAR POR WHATSAPP
             </a>

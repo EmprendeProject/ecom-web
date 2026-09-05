@@ -57,7 +57,7 @@ function CountdownTimer() {
             </div>
           </div>
         </div>
-        <Link to="/tickets" className="countdown-buy-btn" onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>COMPRAR ENTRADAS</Link>
+        <Link to="/tickets" className="countdown-buy-btn" onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas', value: 0, currency: 'USD' })}>COMPRAR ENTRADAS</Link>
       </div>
     </div>
   );
@@ -135,12 +135,12 @@ export default function Entradas() {
           
           <OptimizedImage src={img19} id="entradas-19" alt="Entradas 19" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper" style={{ marginBottom: '40px' }}>
-            <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas' })}>¡COMPRAR ENTRADA!</Link>
+            <Link to="/tickets" className="entradas-cta-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada General', content_category: 'Entradas', value: 0, currency: 'USD' })}>¡COMPRAR ENTRADA!</Link>
           </div>
           
           <OptimizedImage src={img20} alt="Entradas 20" className="entradas-imagen" style={{ width: '90%', margin: '0 auto' }} />
           <div className="entradas-cta-wrapper">
-            <Link to="/tickets" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas' })}>¡COMPRAR ENTRADA VIP!</Link>
+            <Link to="/tickets" className="entradas-cta-btn vip-btn" style={{ textDecoration: 'none', textAlign: 'center' }} onClick={() => window.fbq && window.fbq('track', 'InitiateCheckout', { content_name: 'Entrada VIP', content_category: 'Entradas', value: 0, currency: 'USD' })}>¡COMPRAR ENTRADA VIP!</Link>
           </div>
           
           <OptimizedImage src={img21} alt="Entradas 21" className="entradas-imagen" style={{ marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 }} />

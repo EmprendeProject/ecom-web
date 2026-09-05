@@ -45,16 +45,16 @@ export default function Links() {
 
         {/* Main Buttons */}
         <div className="links-buttons">
-          <Link to="/tickets" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas' })}>
+          <Link to="/tickets" className="link-item btn-neon-cyan" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Entradas', content_category: 'Entradas', value: 0, currency: 'USD' })}>
             <span className="btn-text">COMPRAR ENTRADAS</span>
           </Link>
 
-          <Link to="/stands" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Stands', content_category: 'Stands' })}>
+          <Link to="/stands" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Stands', content_category: 'Stands', value: 0, currency: 'USD' })}>
             <span className="btn-text">COMPRAR STANDS</span>
           </Link>
 
           {/*
-          <Link to="/patrocinios" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Patrocinios', content_category: 'Patrocinios' })}>
+          <Link to="/patrocinios" className="link-item btn-dark-purple" onClick={() => window.fbq && window.fbq('track', 'ViewContent', { content_name: 'Patrocinios', content_category: 'Patrocinios', value: 0, currency: 'USD' })}>
             <span className="btn-text">SER PATROCINADOR</span>
           </Link>
           */}
