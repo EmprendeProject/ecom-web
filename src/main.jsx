@@ -11,7 +11,6 @@ import Tickets from './pages/Tickets.jsx'
 import ComunicadoModal from './components/ComunicadoModal.jsx'
 import PdfEntradas from './pages/PdfEntradas.jsx'
 import PdfStands from './pages/PdfStands.jsx'
-import Formulario10k from './pages/Formulario10k.jsx'
 
 // Fires a Meta Pixel PageView on every SPA route change (skips the very first
 // render because index.html already called fbq('track', 'PageView') on load).
@@ -74,7 +73,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/pdfentradas" element={<PdfEntradas />} />
         <Route path="/pdfstands" element={<PdfStands />} />
-        <Route path="/formulario10k" element={<Formulario10k />} />
         <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
       </Routes>
     </BrowserRouter>
