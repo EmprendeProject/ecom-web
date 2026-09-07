@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import img19 from '../assets/entradas/19.png';
-import img20 from '../assets/entradas/20.png';
+import img19 from '../assets/entradas/19.webp';
+import img20 from '../assets/entradas/20.webp';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
-import imgElevento from '../assets/Elementos graficos/elevento.png';
-import imgFecha2 from '../assets/Elementos graficos/fecha 2.png';
-import logoEcom from '../assets/Elementos graficos/LOGO ECOM.png';
+import imgElevento from '../assets/Elementos graficos/elevento.webp';
+import imgFecha2 from '../assets/Elementos graficos/fecha 2.webp';
+import logoEcom from '../assets/Elementos graficos/LOGO ECOM.webp';
 import OptimizedImage from '../components/OptimizedImage';
 import './Tickets.css';
 
 // Ponentes images
-import ponente1 from '../assets/ponentes/1.png';
-import ponente2 from '../assets/ponentes/2.jpeg';
-import ponente3 from '../assets/ponentes/3.png';
-import ponente4 from '../assets/ponentes/4.png';
-import ponente5 from '../assets/ponentes/5.jpg';
-import ponente6 from '../assets/ponentes/6.jpg';
-import ponente7 from '../assets/ponentes/7.png';
-import ponente8 from '../assets/ponentes/8.jpeg';
-import ponente9 from '../assets/ponentes/9.jpg';
-import ponente10 from '../assets/ponentes/10.png';
-import ponente11 from '../assets/ponentes/11.png';
-import ponente12 from '../assets/ponentes/12.jpg';
-import ponente13 from '../assets/ponentes/13.jpg';
-import ponente14 from '../assets/ponentes/14.png';
-import ponente15 from '../assets/ponentes/15.jpg';
+import ponente1 from '../assets/ponentes/1.webp';
+import ponente2 from '../assets/ponentes/2.webp';
+import ponente3 from '../assets/ponentes/3.webp';
+import ponente4 from '../assets/ponentes/4.webp';
+import ponente5 from '../assets/ponentes/5.webp';
+import ponente6 from '../assets/ponentes/6.webp';
+import ponente7 from '../assets/ponentes/7.webp';
+import ponente8 from '../assets/ponentes/8.webp';
+import ponente9 from '../assets/ponentes/9.webp';
+import ponente10 from '../assets/ponentes/10.webp';
+import ponente11 from '../assets/ponentes/11.webp';
+import ponente12 from '../assets/ponentes/12.webp';
+import ponente13 from '../assets/ponentes/13.webp';
+import ponente14 from '../assets/ponentes/14.webp';
+import ponente15 from '../assets/ponentes/15.webp';
 
 const PONENTES = [
   ponente1, ponente2, ponente3, ponente4, ponente5, ponente6, ponente7,
@@ -359,9 +359,9 @@ export default function Tickets() {
             <div className="tk-progress-bar">
               <div className="tk-progress-fill"></div>
             </div>
-            <p className="tk-progress-text">🔥 <strong>+75%</strong> ENTRADAS VENDIDAS</p>
+            <p className="tk-progress-text">🔥 <strong>78%</strong> ENTRADAS VENDIDAS</p>
           </div>
-          <p className="tickets-preventa-badge">PREVENTA HASTA EL 5 DE SEPTIEMBRE</p>
+          <p className="tickets-preventa-badge">PREVENTA HASTA EL 16 DE SEPTIEMBRE</p>
         </div>
         <div className="tickets-card-wrapper">
           <OptimizedImage

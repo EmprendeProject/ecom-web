@@ -1,16 +1,18 @@
-import React, { StrictMode, useEffect, useState, useRef } from 'react'
+import React, { StrictMode, useEffect, useState, useRef, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './index.css'
-import App from './App.jsx'
-import Formulario from './pages/Formulario.jsx'
-import Entradas from './pages/Entradas.jsx'
-import Links from './pages/Links.jsx'
-import Patrocinios from './pages/Patrocinios.jsx'
-import Tickets from './pages/Tickets.jsx'
-import ComunicadoModal from './components/ComunicadoModal.jsx'
-import PdfEntradas from './pages/PdfEntradas.jsx'
-import PdfStands from './pages/PdfStands.jsx'
+
+// Lazy-loaded routes — each page is its own JS chunk, loaded on demand
+const App         = lazy(() => import('./App.jsx'))
+const Formulario  = lazy(() => import('./pages/Formulario.jsx'))
+const Entradas    = lazy(() => import('./pages/Entradas.jsx'))
+const Links       = lazy(() => import('./pages/Links.jsx'))
+const Patrocinios = lazy(() => import('./pages/Patrocinios.jsx'))
+const Tickets     = lazy(() => import('./pages/Tickets.jsx'))
+const ComunicadoModal = lazy(() => import('./components/ComunicadoModal.jsx'))
+const PdfEntradas = lazy(() => import('./pages/PdfEntradas.jsx'))
+const PdfStands   = lazy(() => import('./pages/PdfStands.jsx'))
 
 // Fires a Meta Pixel PageView on every SPA route change (skips the very first
 // render because index.html already called fbq('track', 'PageView') on load).
@@ -63,18 +65,20 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <PixelPageView />
       {/* <GlobalModalManager /> */}
-      <Routes>
-        <Route path="/" element={<Links />} />
-        <Route path="/stands" element={<App />} />
-        <Route path="/entradas" element={<Entradas />} />
-        <Route path="/formulario" element={<Formulario />} />
-        <Route path="/links" element={<Links />} />
-        <Route path="/patrocinios" element={<Patrocinios />} />
-        <Route path="/tickets" element={<Tickets />} />
-        <Route path="/pdfentradas" element={<PdfEntradas />} />
-        <Route path="/pdfstands" element={<PdfStands />} />
-        <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Links />} />
+          <Route path="/stands" element={<App />} />
+          <Route path="/entradas" element={<Entradas />} />
+          <Route path="/formulario" element={<Formulario />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="/patrocinios" element={<Patrocinios />} />
+          <Route path="/tickets" element={<Tickets />} />
+          <Route path="/pdfentradas" element={<PdfEntradas />} />
+          <Route path="/pdfstands" element={<PdfStands />} />
+          <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   </StrictMode>,
 )
