@@ -77,6 +77,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/pdfentradas" element={<PdfEntradas />} />
           <Route path="/pdfstands" element={<PdfStands />} />
           <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
+          <Route path="/pago10k" element={<ExternalRedirect to="https://www.ticketshow.app/evento/3a0926fa-0aa2-4c45-b85e-07d5a3ea4138/comprar" />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
