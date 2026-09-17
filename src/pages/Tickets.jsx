@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import img19 from '../assets/entradas/19.webp';
-import img20 from '../assets/entradas/20.webp';
+import img19 from '../assets/entradas/19.png';
+import img20 from '../assets/entradas/20.png';
 import projectLogo from '../assets/Elementos graficos/1.png';
 import imgAdquiereEntradas from '../assets/Elementos graficos/ADQUIERE TUS ENTRADAS.png';
 import imgFlyer from '../assets/Elementos graficos/flyer.jpg';
@@ -16,7 +16,7 @@ import ponente2 from '../assets/ponentes/2.webp';
 import ponente3 from '../assets/ponentes/3.webp';
 import ponente4 from '../assets/ponentes/4.webp';
 import ponente5 from '../assets/ponentes/5.webp';
-import ponente6 from '../assets/ponentes/6.webp';
+import ponente6 from '../assets/ponentes/6.png';
 import ponente7 from '../assets/ponentes/7.webp';
 import ponente8 from '../assets/ponentes/8.webp';
 import ponente9 from '../assets/ponentes/9.webp';
