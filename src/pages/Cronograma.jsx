@@ -171,10 +171,8 @@ function ConfCard({ session, status, onClick }) {
   );
 }
 
-// ─── SESSION MODAL ─────────────────────────────────────────────────────────────
-function SessionModal({ session, day, agenda, onToggle, onClose }) {
+function SessionModal({ session, day, onClose }) {
   const status = getStatus(session, day);
-  const saved = agenda.includes(session.id);
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };
@@ -200,56 +198,6 @@ function SessionModal({ session, day, agenda, onToggle, onClose }) {
           <span>🕐 {session.time}</span>
           <span>📍 {session.room}</span>
         </div>
-        <button
-          className={`btn-add-agenda${saved ? ' saved' : ''}`}
-          onClick={() => onToggle(session.id)}
-        >
-          {saved ? '✅ EN MI AGENDA' : '⭐ AGREGAR A MI AGENDA'}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── MY AGENDA PANEL ──────────────────────────────────────────────────────────
-function AgendaPanel({ agenda, onRemove, onOpen, onClose }) {
-  const all = [...SCHEDULE[1], ...SCHEDULE[2]];
-  const saved = all.filter(s => agenda.includes(s.id));
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
-  }, []);
-
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="agenda-panel" onClick={e => e.stopPropagation()}>
-        <div className="agenda-panel-hdr">
-          <h3>⭐ Mi Agenda</h3>
-          <button className="modal-close-btn" onClick={onClose}>✕</button>
-        </div>
-        {saved.length === 0 ? (
-          <div className="agenda-empty">
-            <p>Aún no has guardado conferencias.</p>
-            <p>Haz click en cualquier sesión y presiona <strong>⭐ Agregar a mi agenda</strong>.</p>
-          </div>
-        ) : (
-          <div className="agenda-list">
-            {saved.map(s => (
-              <div key={s.id} className="agenda-item">
-                <button className="agenda-item-body" onClick={() => onOpen(s)}>
-                  <span className="ag-time">{s.time}</span>
-                  <div className="ag-info">
-                    <span className="ag-speaker">{s.speaker}</span>
-                    <span className="ag-ttl">{s.title}</span>
-                    <CatBadge category={s.category} />
-                  </div>
-                </button>
-                <button className="agenda-remove" onClick={() => onRemove(s.id)} aria-label="Eliminar">✕</button>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -261,26 +209,13 @@ export default function Cronograma() {
   const [cat, setCat] = useState('TODAS');
   const [query, setQuery] = useState('');
   const [modal, setModal] = useState(null);
-  const [showAgenda, setShowAgenda] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [agenda, setAgenda] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('ecom_agenda') || '[]'); }
-    catch { return []; }
-  });
-
-  useEffect(() => {
-    localStorage.setItem('ecom_agenda', JSON.stringify(agenda));
-  }, [agenda]);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
-  }, []);
-
-  const toggleAgenda = useCallback((id) => {
-    setAgenda(p => p.includes(id) ? p.filter(x => x !== id) : [...p, id]);
   }, []);
 
   const sessions = useMemo(() => {
@@ -308,7 +243,7 @@ export default function Cronograma() {
     return map;
   }, [times, sessions]);
 
-  const openModal = useCallback(s => { setModal(s); setShowAgenda(false); }, []);
+  const openModal = useCallback(s => setModal(s), []);
 
   const [dayFade, setDayFade] = useState(true);
   const switchDay = useCallback((d) => {
@@ -335,13 +270,6 @@ export default function Cronograma() {
             <span className="brand-sep" />
             <span className="brand-sub">PROGRAMACIÓN</span>
           </Link>
-          <button
-            className={`nav-agenda-btn${agenda.length > 0 ? ' has-items' : ''}`}
-            onClick={() => setShowAgenda(true)}
-          >
-            ⭐ MI AGENDA
-            {agenda.length > 0 && <span className="agenda-badge">{agenda.length}</span>}
-          </button>
         </div>
       </nav>
 
@@ -490,17 +418,7 @@ export default function Cronograma() {
         <SessionModal
           session={modal}
           day={day}
-          agenda={agenda}
-          onToggle={toggleAgenda}
           onClose={() => setModal(null)}
-        />
-      )}
-      {showAgenda && (
-        <AgendaPanel
-          agenda={agenda}
-          onRemove={id => setAgenda(p => p.filter(x => x !== id))}
-          onOpen={s => { setModal(s); setShowAgenda(false); }}
-          onClose={() => setShowAgenda(false)}
         />
       )}
     </div>

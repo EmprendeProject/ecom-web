@@ -199,7 +199,7 @@
 .hero-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: clamp(52px, 10vw, 96px);
+  font-size: clamp(32px, 9vw, 96px);
   text-transform: uppercase;
   letter-spacing: 4px;
   margin: 0;
@@ -944,10 +944,8 @@
 /* ─── MOBILE ──────────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .cr-nav-inner { flex-wrap: wrap; }
-  .cr-brand { flex: 1; }
+  .cr-brand { flex: 1; justify-content: center; }
   .brand-sub { display: none; }
-  .cr-nav-days { order: 3; width: 100%; justify-content: center; padding-top: 8px; }
-  .nav-agenda-btn { margin-left: auto; }
 
   .cr-hero { padding: 100px 20px 60px; }
 
@@ -1005,13 +1003,11 @@
   .modal-speaker { font-size: 19px; }
   .modal-title-text { font-size: 14px; }
 
-  .agenda-panel { max-height: 85vh; border-radius: 20px 20px 0 0; align-self: flex-end; }
-
   .search-inp { font-size: 14px; padding: 13px 40px; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { letter-spacing: 2px; }
+  .hero-title { font-size: clamp(26px, 8vw, 36px); letter-spacing: 1px; }
   .day-sw-btn { flex: 1; min-width: 0; }
   .f-pill { font-size: 9px; padding: 5px 10px; }
 }
