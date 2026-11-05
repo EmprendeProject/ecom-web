@@ -138,65 +138,28 @@ function Cutout({ speaker, className = '', eager = false }) {
   )
 }
 
-/* ───────────────────────── navbar ───────────────────────── */
+/* ───────────────────────── cintillo de urgencia ───────────────────────── */
 
-const NAV = [
-  ['Temario', '#temario'],
-  ['Ponentes', '#ponentes'],
-  ['Entradas', '#entradas'],
-]
-
-function Navbar({ scrolled }) {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
-
+function UrgencyBar() {
   return (
-    <header className={`ejv-nav ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
-      <div className="ejv-nav__bar">
-        <a href="#top" className="ejv-nav__logo" aria-label="ECOM — inicio" onClick={() => setOpen(false)}>
-          <img src={logoEcom} alt="ECOM" width="120" height="23" />
+    <aside className="ejv-urgency" role="region" aria-label="Disponibilidad de cupos">
+      <div className="ejv-urgency__inner">
+        <div className="ejv-urgency__content">
+          <span className="ejv-urgency__pulse" aria-hidden="true">
+            <span className="ejv-urgency__dot" />
+          </span>
+          <p className="ejv-urgency__text">
+            <strong>55% de los cupos ya están vendidos</strong>
+            <span className="ejv-urgency__sep" aria-hidden="true">·</span>
+            <span className="ejv-urgency__sub">Workshop presencial · 21 nov · Torre Movilnet</span>
+          </p>
+        </div>
+        <a href="#entradas" className="ejv-urgency__cta">
+          <span>Asegura tu cupo</span>
+          <span aria-hidden="true">→</span>
         </a>
-
-        <nav className="ejv-nav__links" aria-label="Principal">
-          {NAV.map(([label, href]) => (
-            <a key={href} href={href}>{label}</a>
-          ))}
-        </nav>
-
-        <Button variant="white" size="sm" className="ejv-nav__cta" {...ctaProps()}>
-          RESERVAR MI CUPO
-        </Button>
-
-        <button
-          type="button"
-          className="ejv-nav__burger"
-          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={open}
-          aria-controls="ejv-menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span /><span />
-        </button>
       </div>
-
-      <div id="ejv-menu" className="ejv-menu" hidden={!open}>
-        <nav aria-label="Menú móvil">
-          {NAV.map(([label, href], i) => (
-            <a key={href} href={href} style={{ '--i': i }} onClick={() => setOpen(false)}>
-              <small>0{i + 1}</small>{label}
-            </a>
-          ))}
-        </nav>
-        <Button variant="white" {...ctaProps()} onClick={(e) => { setOpen(false); ctaProps().onClick?.(e) }}>
-          RESERVAR MI CUPO
-        </Button>
-        <p className="ejv-menu__meta">{EVENT.dateShort} · {EVENT.venue.toUpperCase()}, CARACAS</p>
-      </div>
-    </header>
+    </aside>
   )
 }
 
@@ -240,9 +203,16 @@ function Hero() {
 
       <div className="ejv-container ejv-hero__inner">
         <div className="ejv-hero__head">
-          <p className="ejv-tag ejv-tag--glass ejv-in" style={{ '--d': 0 }}>
-            <i /> ECOM PRESENTA · WORKSHOP INMERSIVO
-          </p>
+          <div className="ejv-hero__brand ejv-in" style={{ '--d': 0 }}>
+            <img
+              src={logoEcom}
+              alt="ECOM"
+              className="ejv-hero__logo"
+              width="150"
+              height="29"
+              decoding="async"
+            />
+          </div>
           <h1 className="ejv-hero__title" aria-label="El juego de las ventas">
             <span className="ejv-line" aria-hidden="true"><b style={{ '--d': 1 }}>EL JUEGO</b></span>
             <span className="ejv-line ejv-line--outline" aria-hidden="true"><b style={{ '--d': 2 }}>DE LAS</b></span>
@@ -656,7 +626,6 @@ function StickyBar({ visible }) {
 
 export default function ElJuegoDeLasVentas() {
   const rootRef = useRef(null)
-  const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
   const [hideSticky, setHideSticky] = useState(false)
 
@@ -721,7 +690,6 @@ export default function ElJuegoDeLasVentas() {
       raf = requestAnimationFrame(() => {
         raf = 0
         const y = window.scrollY
-        setScrolled(y > 24)
         setPastHero(y > window.innerHeight * 0.7)
         if (!reduce && y < window.innerHeight * 1.2) hero.style.setProperty('--sy', `${y}px`)
       })
@@ -770,7 +738,7 @@ export default function ElJuegoDeLasVentas() {
           alt=""
         />
       </noscript>
-      <Navbar scrolled={scrolled} />
+      <UrgencyBar />
       <main>
         <Hero />
         <Marquee />
