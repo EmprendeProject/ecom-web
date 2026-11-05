@@ -147,8 +147,6 @@ function UrgencyBar() {
         <p className="ejv-urgency__text">
           <span className="ejv-urgency__flame" aria-hidden="true">🔥</span>
           <strong>55% DE LOS CUPOS YA ESTÁN VENDIDOS</strong>
-          <span className="ejv-urgency__sep" aria-hidden="true">·</span>
-          <span className="ejv-urgency__sub">Workshop Presencial · 21 Nov · Torre Movilnet</span>
         </p>
       </div>
     </aside>
