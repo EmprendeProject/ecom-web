@@ -70,7 +70,7 @@ createRoot(document.getElementById('root')).render(
       {/* <GlobalModalManager /> */}
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<Tickets />} />
+          <Route path="/" element={<ElJuegoDeLasVentas />} />
           <Route path="/stands" element={<App />} />
           <Route path="/entradas" element={<Entradas />} />
           <Route path="/formulario" element={<Formulario />} />
