@@ -155,7 +155,6 @@ const HERO_INFO = [
   { k: 'date', t: '21 NOV 2026' },
   { k: 'pin', t: 'TORRE MOVILNET, CARACAS' },
   { k: 'clock', t: '8 HORAS DE EXPERIENCIA' },
-  { k: 'seat', t: '70 CUPOS' },
 ]
 
 const InfoIcon = ({ k }) => {
@@ -218,9 +217,6 @@ function Hero() {
           <p className="ejv-hero__sub">
             Aprende las 5 herramientas que pueden transformar la manera en que tu negocio atrae clientes y genera ventas.
           </p>
-          <p className="ejv-hero__text">
-            8 horas de formación teórico-práctica junto a 5 especialistas en marketing, anuncios, contenido e inteligencia artificial. Una experiencia presencial para aprender, implementar y conectar con otros empresarios.
-          </p>
 
           <ul className="ejv-hero__info">
             {HERO_INFO.map((i) => (
@@ -230,9 +226,7 @@ function Hero() {
 
           <div className="ejv-hero__ctas">
             <Button variant="white" size="lg" {...ctaProps()}>QUIERO ASEGURAR MI CUPO</Button>
-            <a className="ejv-btn ejv-btn--ghost ejv-btn--lg" href="#solucion"><span>DESCUBRIR EL WORKSHOP</span></a>
           </div>
-          <p className="ejv-hero__micro">Una experiencia presencial diseñada para 70 participantes.</p>
         </div>
       </div>
     </section>
@@ -241,7 +235,7 @@ function Hero() {
 
 /* cinta de texto entre hero y problema */
 function Marquee() {
-  const items = ['EL JUEGO DE LAS VENTAS', '21 NOV 2026', 'TORRE MOVILNET · CARACAS', '5 HERRAMIENTAS', '70 CUPOS', 'WORKSHOP INMERSIVO']
+  const items = ['EL JUEGO DE LAS VENTAS', '21 NOV 2026', 'TORRE MOVILNET · CARACAS', '5 HERRAMIENTAS', 'CUPOS LIMITADOS', 'WORKSHOP INMERSIVO']
   const row = (k) => (
     <div className="ejv-marquee__row" aria-hidden={k === 'b'} key={k}>
       {items.map((t) => (
@@ -534,7 +528,7 @@ function Offer() {
                   El enlace de pago oficial se publicará muy pronto.
                 </p>
               )}
-              <p className="ejv-ticket__foot">70 cupos en total · Evento presencial</p>
+              <p className="ejv-ticket__foot">Cupos limitados · Evento presencial</p>
             </div>
           </div>
         </div>
@@ -636,7 +630,7 @@ export default function ElJuegoDeLasVentas() {
     document.title = 'El Juego de las Ventas — Workshop Inmersivo | ECOM · 21 nov 2026, Caracas'
     meta?.setAttribute(
       'content',
-      'Workshop presencial de 8 horas con 5 especialistas en contenido, anuncios, landing pages, IA y automatización. 21 de noviembre de 2026, Torre Movilnet, Caracas. 70 cupos.',
+      'Workshop presencial de 8 horas con 5 especialistas en contenido, anuncios, landing pages, IA y automatización. 21 de noviembre de 2026, Torre Movilnet, Caracas. Cupos limitados.',
     )
     return () => {
       document.title = prevTitle
