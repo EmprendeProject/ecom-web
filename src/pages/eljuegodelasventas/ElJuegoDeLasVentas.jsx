@@ -496,14 +496,15 @@ function Offer() {
   const includes = [...INCLUDES, ...OFFER.extras]
 
   const cta = unavailable ? (
-    <button type="button" className="ejv-btn ejv-btn--blue ejv-btn--lg ejv-btn--block" disabled>
+    <button type="button" className="ejv-btn ejv-btn--hero ejv-btn--lg ejv-btn--block" disabled>
       <span>{label}</span>
     </button>
   ) : OFFER.checkoutUrl ? (
-    <Button variant="blue" size="lg" className="ejv-btn--block" {...ctaProps()}>{label}</Button>
+    <Button variant="hero" size="lg" className="ejv-btn--block" {...ctaProps()}>{label}</Button>
   ) : (
-    <button type="button" className="ejv-btn ejv-btn--blue ejv-btn--lg ejv-btn--block" onClick={() => setNotice(true)}>
-      <span>{label}</span><Arrow />
+    <button type="button" className="ejv-btn ejv-btn--hero ejv-btn--lg ejv-btn--block" onClick={() => setNotice(true)}>
+      <span>{label}</span>
+      <span className="ejv-btn__arrow-wrap"><Arrow /></span>
     </button>
   )
 
@@ -511,24 +512,15 @@ function Offer() {
     <section className="ejv-sec ejv-offer ejv-dark ejv-gridbg" id="entradas">
       <div className="ejv-offer__glow" aria-hidden="true" />
       <div className="ejv-container">
-        <Eyebrow tone="light">TU PARTICIPACIÓN</Eyebrow>
-        <h2 className="ejv-h2 ejv-h2--light" data-reveal>
-          Tu participación <em>incluye:</em>
-        </h2>
+        <div className="ejv-offer__head">
+          <Eyebrow tone="light">ENTRADAS</Eyebrow>
+          <h2 className="ejv-h2 ejv-h2--light" data-reveal>
+            Asegura tu cupo en <em>El Juego de las Ventas</em>
+          </h2>
+        </div>
 
-        <div className="ejv-offer__grid">
-          <ul className="ejv-includes">
-            {includes.map((t, i) => (
-              <li key={t} data-reveal style={{ '--d': i }}>
-                <span className="ejv-includes__tick" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="16" height="16"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </span>
-                {t}
-              </li>
-            ))}
-          </ul>
-
-          <div className="ejv-ticket" data-reveal style={{ '--d': 2 }}>
+        <div className="ejv-offer__wrapper" data-reveal>
+          <div className="ejv-ticket">
             <div className="ejv-ticket__edge" aria-hidden="true" />
             <div className="ejv-ticket__inner">
               <div className="ejv-ticket__top">
@@ -536,12 +528,28 @@ function Offer() {
                 <span className="ejv-tag ejv-tag--glass"><i /> ENTRADA GENERAL</span>
               </div>
               <h3 className="ejv-ticket__name">EL JUEGO<br />DE LAS VENTAS</h3>
-              <p className="ejv-ticket__sub">Workshop inmersivo</p>
-              <p className="ejv-ticket__when">21 de noviembre · Caracas</p>
+              <p className="ejv-ticket__sub">Workshop inmersivo presencial</p>
+              <p className="ejv-ticket__when">Sábado 21 de noviembre · Torre Movilnet, Caracas</p>
 
               <div className="ejv-ticket__price">
                 <span>PRECIO HOY</span>
                 <strong className={OFFER.price === null ? 'is-tbd' : ''}>{priceLabel()}</strong>
+              </div>
+
+              <div className="ejv-ticket__inclusions">
+                <p className="ejv-ticket__inclusions-title">Tu participación incluye:</p>
+                <ul className="ejv-ticket__list">
+                  {includes.map((t) => (
+                    <li key={t}>
+                      <span className="ejv-ticket__tick" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m5 12.5 4.5 4.5L19 7.5" />
+                        </svg>
+                      </span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {cta}
