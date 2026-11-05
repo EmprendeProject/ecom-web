@@ -632,11 +632,14 @@ function StickyBar({ visible }) {
     <div className={`ejv-sticky ${visible ? 'is-visible' : ''}`} aria-hidden={!visible}>
       <div className="ejv-sticky__txt">
         <b>EL JUEGO DE LAS VENTAS</b>
-        <span>21 NOV · CARACAS</span>
+        <span className="ejv-sticky__meta">
+          <i className="ejv-sticky__dot" aria-hidden="true" />
+          21 NOV · CARACAS · <em>$107</em>
+        </span>
       </div>
-      <a className="ejv-btn ejv-btn--white ejv-btn--sm" tabIndex={visible ? 0 : -1} {...ctaProps()}>
-        <span>RESERVAR MI CUPO</span>
-      </a>
+      <Button variant="hero" size="sm" className="ejv-sticky__cta" tabIndex={visible ? 0 : -1} {...ctaProps()}>
+        QUIERO MI CUPO
+      </Button>
     </div>
   )
 }
