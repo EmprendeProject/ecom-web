@@ -168,7 +168,7 @@ function UrgencyBar() {
 const HERO_INFO = [
   { k: 'date', t: '21 NOV 2026' },
   { k: 'pin', t: 'TORRE MOVILNET, CARACAS' },
-  { k: 'clock', t: '8 HORAS DE EXPERIENCIA' },
+  { k: 'clock', t: '8 HORAS DE WORKSHOP INMERSIVO' },
 ]
 
 const InfoIcon = ({ k }) => {
