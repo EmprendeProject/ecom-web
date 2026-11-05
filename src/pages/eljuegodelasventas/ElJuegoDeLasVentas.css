@@ -491,34 +491,16 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
-  transition: transform 0.35s var(--ease), background 0.3s, border-color 0.3s;
-}
-.ejv-acc-mod__icon i {
-  position: absolute;
-  background: var(--black);
-  border-radius: 1px;
-  transition: transform 0.35s var(--ease), background 0.3s;
-}
-.ejv-acc-mod__icon i:first-child {
-  width: 12px;
-  height: 2px;
-}
-.ejv-acc-mod__icon i:last-child {
-  width: 2px;
-  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 .ejv-acc-mod.is-open .ejv-acc-mod__icon {
   background: var(--blue);
   border-color: var(--blue);
-  transform: rotate(90deg);
-}
-.ejv-acc-mod.is-open .ejv-acc-mod__icon i {
-  background: #fff;
-}
-.ejv-acc-mod.is-open .ejv-acc-mod__icon i:last-child {
-  transform: scaleY(0);
+  color: #ffffff;
 }
 
 /* colapso / expansión */
@@ -548,33 +530,38 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
 }
 .ejv-acc-mod__list li {
   display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(6, 72, 232, 0.035);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(6, 72, 232, 0.04);
   font-size: clamp(13.5px, 1.05vw, 15px);
   font-weight: 600;
   line-height: 1.35;
   color: var(--black);
 }
-.ejv-acc-mod__list li span {
-  flex: 1;
+.ejv-acc-mod__text {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .ejv-acc-mod__tick {
-  flex: none;
-  display: grid;
-  place-items: center;
-  margin-top: 2px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  flex: 0 0 22px !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  border-radius: 50% !important;
   background: var(--blue);
-  color: #fff;
+  color: #ffffff;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 .ejv-acc-mod__tick svg {
   width: 12px;
   height: 12px;
+  display: block;
 }
 
 @media (max-width: 860px) {
