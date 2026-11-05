@@ -3,9 +3,9 @@ import logoEcom from '../../assets/Elementos graficos/LOGO ECOM.webp'
 import imgFooter from '../../assets/el juego de las ventas/futter.png'
 import imgCertificado from '../../assets/el juego de las ventas/certificado.jpeg'
 import { ChessPiece, PieceDefs } from './ChessPiece'
-import { OFFER, EVENT } from './config'
+import { OFFER, EVENT, META_PIXEL_ID } from './config'
 import {
-  SPEAKERS, STAGES, MODULES,
+  SPEAKERS, MODULES,
   INCLUDES, photoOf,
 } from './data'
 import './ElJuegoDeLasVentas.css'
@@ -14,8 +14,54 @@ import './ElJuegoDeLasVentas.css'
 
 const speakerById = (id) => SPEAKERS.find((s) => s.id === id)
 
+const initMetaPixel = () => {
+  if (typeof window === 'undefined') return
+  if (!window.fbq) {
+    const n = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    }
+    window.fbq = n
+    if (!window._fbq) window._fbq = n
+    n.push = n
+    n.loaded = true
+    n.version = '2.0'
+    n.queue = []
+    const s = document.createElement('script')
+    s.async = true
+    s.src = 'https://connect.facebook.net/en_US/fbevents.js'
+    const first = document.getElementsByTagName('script')[0]
+    first?.parentNode?.insertBefore(s, first)
+  }
+
+  try {
+    window.fbq('init', META_PIXEL_ID)
+    window.fbq('trackSingle', META_PIXEL_ID, 'PageView')
+    window.fbq('trackSingle', META_PIXEL_ID, 'ViewContent', {
+      content_name: 'El Juego de las Ventas — Workshop Inmersivo',
+      content_category: 'Workshop',
+      content_ids: ['el-juego-de-las-ventas-2026'],
+      content_type: 'product',
+      value: OFFER.price || 107,
+      currency: 'USD',
+    })
+  } catch (err) {
+    console.warn('Meta Pixel tracking error:', err)
+  }
+}
+
 const trackCheckout = () => {
-  if (typeof window.fbq === 'function') window.fbq('track', 'InitiateCheckout')
+  if (typeof window.fbq === 'function') {
+    const data = {
+      content_name: 'El Juego de las Ventas — Workshop Inmersivo',
+      content_category: 'Workshop',
+      content_ids: ['el-juego-de-las-ventas-2026'],
+      content_type: 'product',
+      value: OFFER.price || 107,
+      currency: 'USD',
+    }
+    window.fbq('track', 'InitiateCheckout', data)
+    window.fbq('trackSingle', META_PIXEL_ID, 'InitiateCheckout', data)
+  }
 }
 
 // Todos los CTA apuntan al checkout oficial si está configurado; si no, a la sección de entradas.
@@ -251,37 +297,6 @@ function Marquee() {
     <div className="ejv-marquee" role="presentation">
       <div className="ejv-marquee__track">{row('a')}{row('b')}</div>
     </div>
-  )
-}
-
-/* ───────────────────────── 2. solución ───────────────────────── */
-
-function Solution() {
-  return (
-    <section className="ejv-sec ejv-solution ejv-dark ejv-gridbg" id="solucion">
-      <div className="ejv-solution__glow" aria-hidden="true" />
-      <div className="ejv-container">
-        <Eyebrow tone="light">LA NUEVA FORMA DE VENDER</Eyebrow>
-        <h2 className="ejv-h2 ejv-h2--light" data-reveal>
-          5 herramientas. Un mismo objetivo: <em>hacer crecer tu negocio.</em>
-        </h2>
-
-        <ol className="ejv-flow">
-          {STAGES.map((s, i) => (
-            <li className="ejv-stage" key={s.n} data-lit style={{ '--i': i }}>
-              <div className="ejv-stage__node">
-                <ChessPiece type={s.piece} variant="solid" />
-              </div>
-              <div className="ejv-stage__card">
-                <span className="ejv-stage__n">{s.n}</span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
   )
 }
 
@@ -626,8 +641,9 @@ export default function ElJuegoDeLasVentas() {
   const [pastHero, setPastHero] = useState(false)
   const [hideSticky, setHideSticky] = useState(false)
 
-  // SEO básico de la ruta
+  // SEO y tracking Meta Pixel
   useEffect(() => {
+    initMetaPixel()
     const prevTitle = document.title
     const meta = document.querySelector('meta[name="description"]')
     const prevDesc = meta?.getAttribute('content')
@@ -725,12 +741,20 @@ export default function ElJuegoDeLasVentas() {
   return (
     <div className="ejv" ref={rootRef}>
       <PieceDefs />
-      <a className="ejv-skip" href="#solucion">Saltar al contenido</a>
+      <a className="ejv-skip" href="#temario">Saltar al contenido</a>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: 'none' }}
+          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          alt=""
+        />
+      </noscript>
       <Navbar scrolled={scrolled} />
       <main>
         <Hero />
         <Marquee />
-        <Solution />
         <Modules />
         <Experts />
         <Offer />

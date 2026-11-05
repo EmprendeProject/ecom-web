@@ -448,39 +448,7 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   .ejv-pcard p { flex-basis: 100%; margin-top: 4px; }
 }
 
-/* ═════════════ 3. SOLUCIÓN ═════════════ */
-.ejv-solution { background: linear-gradient(180deg, var(--black) 0%, #060c33 60%, var(--deep) 140%); overflow: hidden; }
-.ejv-solution__glow { position: absolute; width: 70vw; height: 40vw; left: 15%; top: -10%; background: radial-gradient(ellipse, rgba(6, 72, 232, 0.4), transparent 65%); filter: blur(40px); pointer-events: none; z-index: -1; }
-.ejv-flow { --gap: 18px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap); margin-top: clamp(48px, 7vw, 88px); }
-.ejv-stage { position: relative; display: flex; flex-direction: column; gap: 22px; }
-.ejv-stage::after {
-  content: ''; position: absolute; top: 31px; left: 76px; right: calc(var(--gap) * -1 + 10px); height: 2px;
-  background: linear-gradient(90deg, #6f9bff, var(--violet)); opacity: 0.25; transition: opacity 0.8s 0.3s, box-shadow 0.8s 0.3s;
-}
-.ejv-stage:last-child::after { display: none; }
-.ejv-stage.is-in::after { opacity: 1; box-shadow: 0 0 14px rgba(111, 155, 255, 0.8); }
-.ejv-stage__node {
-  display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; color: rgba(255, 255, 255, 0.65);
-  background: rgba(255, 255, 255, 0.05); border: 1.5px solid rgba(255, 255, 255, 0.25); transition: all 0.7s var(--ease); transition-delay: calc(var(--i) * 140ms);
-}
-.ejv-stage__node .ejv-piece { height: 34px; width: auto; }
-.ejv-stage.is-in .ejv-stage__node { color: #fff; background: var(--blue); border-color: #6f9bff; box-shadow: 0 0 0 6px rgba(6, 72, 232, 0.25), 0 0 40px rgba(6, 72, 232, 0.9); }
-.ejv-stage__card { flex: 1; padding: 22px 20px 24px; background: linear-gradient(170deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; transition: border-color 0.7s, transform 0.4s var(--ease); }
-.ejv-stage.is-in .ejv-stage__card { border-color: rgba(111, 155, 255, 0.5); }
-.ejv-stage__card:hover { transform: translateY(-6px); }
-.ejv-stage__n { font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #8fb0ff; }
-.ejv-stage__card h3 { margin-top: 8px; font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1; text-transform: uppercase; }
-.ejv-stage__card p { margin-top: 12px; font-size: 14.5px; color: rgba(255, 255, 255, 0.74); }
-
-@media (max-width: 1100px) {
-  .ejv-flow { grid-template-columns: 1fr; gap: 0; }
-  .ejv-stage { display: grid; grid-template-columns: 64px 1fr; gap: 0 18px; padding-bottom: 18px; }
-  .ejv-stage::after { top: 64px; bottom: 0; left: 31px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, #6f9bff, var(--violet)); }
-  .ejv-stage__card { padding: 20px; }
-}
-
 /* ═════════════ 4. MÓDULOS (ACORDEÓN DESPLEGABLE) ═════════════ */
-.ejv-solution .ejv-h2 { max-width: 22ch; }
 .ejv-modules { background: #fff; position: relative; padding-block: clamp(40px, 5.5vw, 76px); }
 .ejv-modules__head {
   display: flex;
