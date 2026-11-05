@@ -1,10 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import logoEcom from '../../assets/Elementos graficos/LOGO ECOM.webp'
+import imgFooter from '../../assets/el juego de las ventas/futter.png'
+import imgCertificado from '../../assets/el juego de las ventas/certificado.jpeg'
 import { ChessPiece, PieceDefs } from './ChessPiece'
-import { OFFER, CONTACT, LEGAL, CERTIFICATE_IMAGE, EVENT } from './config'
+import { OFFER, EVENT } from './config'
 import {
-  SPEAKERS, PROBLEMS, STAGES, MODULES, PILLARS, JOURNEY,
-  BENEFITS_70, INCLUDES, FAQ, photoOf,
+  SPEAKERS, STAGES, MODULES, JOURNEY,
+  INCLUDES, photoOf,
 } from './data'
 import './ElJuegoDeLasVentas.css'
 
@@ -22,10 +24,12 @@ const ctaProps = () =>
     ? { href: OFFER.checkoutUrl, target: '_blank', rel: 'noopener noreferrer', onClick: trackCheckout }
     : { href: '#entradas' }
 
-const priceLabel = () =>
-  OFFER.price === null || OFFER.price === undefined || OFFER.price === ''
-    ? OFFER.pricePlaceholder
-    : `${OFFER.currency ? OFFER.currency + ' ' : ''}${OFFER.price}`
+const priceLabel = () => {
+  if (OFFER.price === null || OFFER.price === undefined || OFFER.price === '') {
+    return OFFER.pricePlaceholder
+  }
+  return OFFER.currency === '$' ? `$${OFFER.price}` : `${OFFER.currency ? OFFER.currency + ' ' : ''}${OFFER.price}`
+}
 
 const Arrow = () => (
   <svg className="ejv-btn__arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
@@ -253,53 +257,7 @@ function Marquee() {
   )
 }
 
-/* ───────────────────────── 2. problema ───────────────────────── */
-
-function Problem() {
-  return (
-    <section className="ejv-sec ejv-problem" id="problema">
-      <div className="ejv-container">
-        <div className="ejv-problem__head">
-          <Eyebrow>EL PROBLEMA</Eyebrow>
-          <h2 className="ejv-h2" data-reveal>
-            El problema no es solo vender. <em>Es no tener un sistema.</em>
-          </h2>
-          <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
-            Publicas contenido, inviertes en publicidad, respondes mensajes y buscas constantemente nuevos clientes. Pero ¿todas esas acciones trabajan juntas para hacer crecer tu negocio?
-          </p>
-        </div>
-
-        <ul className="ejv-problem__grid">
-          {PROBLEMS.map((p, i) => (
-            <li className="ejv-pcard" key={p.n} data-reveal style={{ '--d': i }}>
-              <span className="ejv-pcard__n">{p.n}</span>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="ejv-closing" data-reveal>
-          <p className="ejv-closing__a">No necesitas más herramientas aisladas.</p>
-          <p className="ejv-closing__b">
-            Necesitas aprender a <mark>conectarlas estratégicamente.</mark>
-          </p>
-          <svg className="ejv-closing__net" viewBox="0 0 220 120" aria-hidden="true">
-            <g fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M24 90 70 30 120 70 170 24 200 84" />
-              <path d="M70 30 170 24M24 90 120 70 200 84" strokeDasharray="3 5" opacity=".6" />
-            </g>
-            {[[24, 90], [70, 30], [120, 70], [170, 24], [200, 84]].map(([x, y]) => (
-              <circle key={x} cx={x} cy={y} r="7" fill="#0648E8" />
-            ))}
-          </svg>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ───────────────────────── 3. solución ───────────────────────── */
+/* ───────────────────────── 2. solución ───────────────────────── */
 
 function Solution() {
   return (
@@ -333,57 +291,147 @@ function Solution() {
 /* ───────────────────────── 4. módulos ───────────────────────── */
 
 function Modules() {
+  const [openSet, setOpenSet] = useState(() => new Set())
+
+  const toggleModule = (n) => {
+    setOpenSet((prev) => {
+      const next = new Set(prev)
+      if (next.has(n)) next.delete(n)
+      else next.add(n)
+      return next
+    })
+  }
+
+  const allOpen = openSet.size === MODULES.length
+
+  const toggleAll = () => {
+    if (allOpen) {
+      setOpenSet(new Set())
+    } else {
+      setOpenSet(new Set(MODULES.map((m) => m.n)))
+    }
+  }
+
   return (
-    <section id="temario" className="ejv-modules">
-      <div className="ejv-sec ejv-modules__intro">
-        <div className="ejv-container">
-          <Eyebrow>TEMARIO</Eyebrow>
-          <h2 className="ejv-h2" data-reveal>Qué vas a <em>aprender</em></h2>
-          <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
-            Cinco módulos, cinco especialistas y un mismo sistema comercial.
-          </p>
+    <section id="temario" className="ejv-sec ejv-modules">
+      <div className="ejv-container">
+        <div className="ejv-modules__head">
+          <div>
+            <Eyebrow>TEMARIO</Eyebrow>
+            <h2 className="ejv-h2" data-reveal>Qué vas a <em>aprender</em></h2>
+            <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
+              Cinco módulos, cinco especialistas y un mismo sistema comercial. Toca cualquier módulo para desplegar su temario detallado.
+            </p>
+          </div>
+          <div className="ejv-modules__actions" data-reveal style={{ '--d': 2 }}>
+            <button
+              type="button"
+              className="ejv-btn ejv-btn--blue ejv-btn--sm ejv-modules__toggle-all"
+              onClick={toggleAll}
+              aria-expanded={allOpen}
+            >
+              <span>{allOpen ? 'CERRAR TODOS LOS MÓDULOS' : 'DESPLEGAR TEMARIO COMPLETO'}</span>
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ transform: allOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="ejv-acc-modules">
+          {MODULES.map((m, i) => {
+            const s = speakerById(m.speaker)
+            const isOpen = openSet.has(m.n)
+            return (
+              <div
+                key={m.n}
+                className={`ejv-acc-mod ${isOpen ? 'is-open' : ''}`}
+                data-reveal
+                style={{ '--d': i }}
+              >
+                <button
+                  type="button"
+                  className="ejv-acc-mod__header"
+                  onClick={() => toggleModule(m.n)}
+                  aria-expanded={isOpen}
+                  aria-controls={`mod-body-${m.n}`}
+                  id={`mod-head-${m.n}`}
+                >
+                  <span className="ejv-acc-mod__n">{m.n}</span>
+                  <div className="ejv-acc-mod__meta">
+                    <div className="ejv-acc-mod__speaker">
+                      <span className="ejv-acc-mod__badge">MÓDULO {m.n}</span>
+                      <strong className="ejv-acc-mod__author">{s.first} {s.last}</strong>
+                      <span className="ejv-tag ejv-tag--solid ejv-acc-mod__tag">{s.tag}</span>
+                    </div>
+                    <h3 className="ejv-acc-mod__title">{m.title}</h3>
+                  </div>
+                  <div className="ejv-acc-mod__action">
+                    <span className="ejv-acc-mod__action-text">
+                      {isOpen ? 'CERRAR' : 'DESPLEGAR'}
+                    </span>
+                    <span className="ejv-acc-mod__icon" aria-hidden="true">
+                      <i /><i />
+                    </span>
+                  </div>
+                </button>
+
+                <div
+                  id={`mod-body-${m.n}`}
+                  role="region"
+                  aria-labelledby={`mod-head-${m.n}`}
+                  className="ejv-acc-mod__collapse"
+                >
+                  <div className="ejv-acc-mod__content">
+                    <div className="ejv-acc-mod__grid">
+                      <div className="ejv-acc-mod__visual">
+                        <div className="ejv-acc-mod__frame">
+                          <Cutout speaker={s} />
+                        </div>
+                        <p className="ejv-acc-mod__area-caption">
+                          Especialista: <b>{s.first} {s.last}</b> · {s.area}
+                        </p>
+                      </div>
+
+                      <div className="ejv-acc-mod__details">
+                        <p className="ejv-acc-mod__learn-label">PUNTOS CLAVE DEL MÓDULO:</p>
+                        <ul className="ejv-acc-mod__list">
+                          {m.points.map((p) => (
+                            <li key={p}>
+                              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                                <path
+                                  d="m5 12.5 4.5 4.5L19 7.5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.6"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                              <span>{p}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
-
-      {MODULES.map((m, i) => {
-        const s = speakerById(m.speaker)
-        const dark = i % 2 === 1
-        return (
-          <article
-            key={m.n}
-            className={`ejv-mod ${dark ? 'ejv-mod--dark ejv-dark' : 'ejv-mod--light'} ${i % 2 ? 'is-flip' : ''}`}
-          >
-            <div className="ejv-container ejv-mod__grid">
-              <div className="ejv-mod__visual" data-reveal>
-                <span className="ejv-mod__num" aria-hidden="true">{m.n}</span>
-                <div className="ejv-mod__frame">
-                  <Cutout speaker={s} />
-                </div>
-                <span className="ejv-tag ejv-tag--solid ejv-mod__tag">{s.tag}</span>
-              </div>
-
-              <div className="ejv-mod__body" data-reveal style={{ '--d': 1 }}>
-                <p className="ejv-mod__label">
-                  <span>MÓDULO {m.n}</span>
-                  <b>{s.first} {s.last}</b>
-                </p>
-                <h3 className="ejv-mod__title">{m.title}</h3>
-                <p className="ejv-mod__learn">Aprenderás sobre:</p>
-                <ul className="ejv-mod__list">
-                  {m.points.map((p) => (
-                    <li key={p}>
-                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                        <path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </article>
-        )
-      })}
     </section>
   )
 }
@@ -423,96 +471,11 @@ function Experts() {
   )
 }
 
-/* ───────────────────────── 6. aprende haciendo ───────────────────────── */
-
-const VisualLearn = () => (
-  <svg viewBox="0 0 320 200" className="ejv-viz" aria-hidden="true">
-    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <rect x="64" y="18" width="200" height="124" rx="10" opacity=".35" />
-      <rect x="46" y="34" width="200" height="124" rx="10" opacity=".65" />
-      <rect x="28" y="50" width="200" height="124" rx="10" fill="rgba(255,255,255,.06)" />
-      <path d="M48 76h90M48 94h130M48 112h70" opacity=".8" />
-      <path d="M48 150V134m16 16v-26m16 26v-34m16 34v-20" strokeWidth="6" opacity=".9" />
-      <circle cx="192" cy="118" r="18" />
-      <path d="m184 118 6 6 11-12" strokeWidth="3" />
-    </g>
-  </svg>
-)
-
-const VisualPractice = () => (
-  <svg viewBox="0 0 320 200" className="ejv-viz" aria-hidden="true">
-    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="24" y="22" width="248" height="152" rx="10" fill="rgba(255,255,255,.06)" />
-      <path d="M24 48h248" />
-      <circle cx="42" cy="35" r="3.5" fill="currentColor" />
-      <circle cx="56" cy="35" r="3.5" />
-      <circle cx="70" cy="35" r="3.5" />
-      <rect x="42" y="64" width="110" height="46" rx="6" />
-      <path d="M42 126h84M42 142h60" opacity=".8" />
-      <rect x="172" y="64" width="80" height="12" rx="6" fill="currentColor" opacity=".9" />
-      <path d="m176 96 5 5 9-10M176 120l5 5 9-10" />
-      <path d="M200 98h50M200 122h36" opacity=".8" />
-      <path d="M232 140l0 30 8-8 6 14 6-3-6-13 11-1z" fill="#fff" stroke="#090A0F" strokeWidth="1.5" />
-    </g>
-  </svg>
-)
-
-const VisualConnect = () => (
-  <svg viewBox="0 0 320 200" className="ejv-viz" aria-hidden="true">
-    <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <path d="M160 100 70 52M160 100 250 48M160 100 62 148M160 100 258 152M70 52 62 148M250 48 258 152M70 52 250 48" opacity=".6" />
-      {[[70, 52], [250, 48], [62, 148], [258, 152]].map(([x, y]) => (
-        <g key={x}>
-          <circle cx={x} cy={y} r="16" fill="rgba(255,255,255,.08)" />
-          <circle cx={x} cy={y - 3} r="4.5" />
-          <path d={`M${x - 8} ${y + 9}c1-6 4-8 8-8s7 2 8 8`} />
-        </g>
-      ))}
-      <circle cx="160" cy="100" r="26" fill="currentColor" opacity=".15" />
-      <circle cx="160" cy="100" r="26" />
-      <path d="M149 100h22M160 89v22" strokeWidth="3" />
-    </g>
-  </svg>
-)
-
-const PILLAR_VIZ = { aprende: VisualLearn, practica: VisualPractice, conecta: VisualConnect }
-const PILLAR_TONE = { aprende: 'blue', practica: 'black', conecta: 'white' }
-
-function Learn() {
-  return (
-    <section className="ejv-sec ejv-learn" id="experiencia">
-      <div className="ejv-container">
-        <Eyebrow>NO ES UN EVENTO PARA SOLO ESCUCHAR</Eyebrow>
-        <h2 className="ejv-h2" data-reveal>
-          No vienes solamente a escuchar. <em>Vienes a aprender haciendo.</em>
-        </h2>
-        <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
-          Una jornada que combina conocimiento, demostraciones, ejercicios y aplicación de herramientas.
-        </p>
-
-        <div className="ejv-pillars">
-          {PILLARS.map((p, i) => {
-            const Viz = PILLAR_VIZ[p.key]
-            return (
-              <article className={`ejv-pillar ejv-pillar--${PILLAR_TONE[p.key]}`} key={p.key} data-reveal style={{ '--d': i }}>
-                <Viz />
-                <span className="ejv-pillar__n" aria-hidden="true">0{i + 1}</span>
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
-              </article>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ───────────────────────── 7. recorrido ───────────────────────── */
+/* ───────────────────────── 5. recorrido ───────────────────────── */
 
 function Journey() {
   return (
-    <section className="ejv-sec ejv-journey ejv-dark ejv-gridbg" id="recorrido">
+    <section className="ejv-sec ejv-journey ejv-dark ejv-gridbg" id="experiencia">
       <div className="ejv-container ejv-journey__grid">
         <div className="ejv-journey__intro">
           <Eyebrow tone="light">EL RETO DE LAS 8 HORAS</Eyebrow>
@@ -552,45 +515,7 @@ function Journey() {
   )
 }
 
-/* ───────────────────────── 8. 70 personas ───────────────────────── */
-
-function Seventy() {
-  return (
-    <section className="ejv-sec ejv-seventy" id="cupos">
-      <div className="ejv-seventy__bg" aria-hidden="true" />
-      <div className="ejv-container ejv-seventy__grid">
-        <div className="ejv-seventy__visual" data-reveal aria-hidden="true">
-          <span className="ejv-seventy__big">70</span>
-          <div className="ejv-seats">
-            {Array.from({ length: EVENT.capacity }).map((_, i) => (
-              <i key={i} style={{ '--i': i }} />
-            ))}
-          </div>
-        </div>
-
-        <div className="ejv-seventy__body">
-          <Eyebrow tone="light">EXPERIENCIA EXCLUSIVA</Eyebrow>
-          <h2 className="ejv-h2 ejv-h2--light ejv-h2--md" data-reveal>
-            70 personas. Una experiencia diseñada para aprender y <em>conectar.</em>
-          </h2>
-          <p className="ejv-lead ejv-lead--light" data-reveal style={{ '--d': 1 }}>
-            Un formato de capacidad limitada para compartir conocimientos, realizar actividades prácticas y generar conexiones con otros emprendedores y empresarios.
-          </p>
-          <ul className="ejv-benefits">
-            {BENEFITS_70.map((b, i) => (
-              <li key={b} data-reveal style={{ '--d': i + 1 }}>
-                <span>0{i + 1}</span>{b}
-              </li>
-            ))}
-          </ul>
-          <Button variant="white" size="lg" {...ctaProps()}>QUIERO FORMAR PARTE</Button>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ───────────────────────── 9. oferta ───────────────────────── */
+/* ───────────────────────── 6. oferta ───────────────────────── */
 
 function Offer() {
   const [notice, setNotice] = useState(false)
@@ -643,7 +568,7 @@ function Offer() {
               <p className="ejv-ticket__when">21 de noviembre · Caracas</p>
 
               <div className="ejv-ticket__price">
-                <span>PRECIO</span>
+                <span>PRECIO HOY</span>
                 <strong className={OFFER.price === null ? 'is-tbd' : ''}>{priceLabel()}</strong>
               </div>
 
@@ -662,13 +587,13 @@ function Offer() {
   )
 }
 
-/* ───────────────────────── 10. certificado ───────────────────────── */
+/* ───────────────────────── 7. certificado ───────────────────────── */
 
 function Certificate() {
   return (
     <section className="ejv-sec ejv-cert" id="certificado">
       <div className="ejv-container ejv-cert__grid">
-        <div>
+        <div className="ejv-cert__info">
           <Eyebrow>CERTIFICADO DE PARTICIPACIÓN</Eyebrow>
           <h2 className="ejv-h2 ejv-h2--md" data-reveal>
             Tu aprendizaje también merece ser <em>reconocido.</em>
@@ -676,137 +601,38 @@ function Certificate() {
           <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
             Al participar en El Juego de las Ventas recibirás un certificado digital de participación en el workshop inmersivo.
           </p>
-          <p className="ejv-cert__legal" data-reveal style={{ '--d': 2 }}>
-            Es un certificado de participación. No constituye un título académico ni una acreditación profesional.
-          </p>
         </div>
 
         <div className="ejv-cert__stage" data-reveal>
           <div className="ejv-cert__card">
-            {CERTIFICATE_IMAGE ? (
-              <img src={CERTIFICATE_IMAGE} alt="Certificado digital de participación" loading="lazy" />
-            ) : (
-              <div className="ejv-diploma" role="img" aria-label="Representación ilustrativa del certificado digital de participación">
-                <div className="ejv-diploma__frame">
-                  <img className="ejv-diploma__logo" src={logoEcom} alt="" />
-                  <p className="ejv-diploma__kicker">CERTIFICADO DE PARTICIPACIÓN</p>
-                  <p className="ejv-diploma__lead">Se otorga a</p>
-                  <p className="ejv-diploma__name">Nombre del participante</p>
-                  <p className="ejv-diploma__text">
-                    por su participación en el workshop inmersivo <b>EL JUEGO DE LAS VENTAS</b>
-                  </p>
-                  <div className="ejv-diploma__foot">
-                    <span>Caracas · 21 de noviembre de 2026</span>
-                    <ChessPiece type="king" variant="solid" className="ejv-diploma__seal" />
-                    <span>ECOM</span>
-                  </div>
-                </div>
-              </div>
-            )}
+            <img
+              src={imgCertificado}
+              alt="Certificado digital de participación - El Juego de las Ventas"
+              loading="lazy"
+            />
           </div>
-          {!CERTIFICATE_IMAGE && <p className="ejv-cert__cap">Representación ilustrativa</p>}
         </div>
       </div>
     </section>
   )
 }
 
-/* ───────────────────────── 11. FAQ ───────────────────────── */
-
-function Faq() {
-  const [open, setOpen] = useState(0)
-  return (
-    <section className="ejv-sec ejv-faq" id="faq">
-      <div className="ejv-container ejv-faq__grid">
-        <div className="ejv-faq__intro">
-          <Eyebrow>PREGUNTAS FRECUENTES</Eyebrow>
-          <h2 className="ejv-h2 ejv-h2--md" data-reveal>Antes de hacer tu <em>movimiento</em></h2>
-        </div>
-        <div className="ejv-acc">
-          {FAQ.map((f, i) => {
-            const isOpen = open === i
-            return (
-              <div className={`ejv-acc__item ${isOpen ? 'is-open' : ''}`} key={f.q}>
-                <h3>
-                  <button
-                    type="button"
-                    id={`faq-b-${i}`}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-p-${i}`}
-                    onClick={() => setOpen(isOpen ? -1 : i)}
-                  >
-                    <span>{f.q}</span>
-                    <i aria-hidden="true" />
-                  </button>
-                </h3>
-                <div className="ejv-acc__panel" id={`faq-p-${i}`} role="region" aria-labelledby={`faq-b-${i}`}>
-                  <div><p>{f.a}</p></div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ───────────────────────── 12. CTA final ───────────────────────── */
-
-function FinalCta() {
-  return (
-    <section className="ejv-final" id="final">
-      <div className="ejv-final__bg" aria-hidden="true">
-        <div className="ejv-final__board" />
-        <div className="ejv-final__glow" />
-      </div>
-      <div className="ejv-container ejv-final__grid">
-        <div className="ejv-final__copy">
-          <Eyebrow tone="light">EL SIGUIENTE MOVIMIENTO</Eyebrow>
-          <h2 className="ejv-final__title" data-reveal>
-            En los negocios, no se trata solo de jugar. <em>Se trata de aprender a jugar mejor.</em>
-          </h2>
-          <p className="ejv-lead ejv-lead--light" data-reveal style={{ '--d': 1 }}>
-            El siguiente movimiento de tu negocio comienza con las decisiones y herramientas que aprendes a utilizar hoy.
-          </p>
-          <Button variant="white" size="lg" {...ctaProps()}>ASEGURAR MI ENTRADA</Button>
-        </div>
-        <div className="ejv-final__piece" aria-hidden="true">
-          <ChessPiece type="king" variant="3d" />
-          <span className="ejv-final__shadow" />
-        </div>
-      </div>
-
-      <div className="ejv-container">
-        <ul className="ejv-final__info">
-          <li><b>21 NOVIEMBRE 2026</b></li>
-          <li><b>TORRE MOVILNET · CARACAS</b></li>
-          <li><b>70 CUPOS · 5 ESPECIALISTAS · 8 HORAS</b></li>
-        </ul>
-      </div>
-    </section>
-  )
-}
-
-/* ───────────────────────── 13. footer ───────────────────────── */
+/* ───────────────────────── 10. footer ───────────────────────── */
 
 function Footer() {
-  const legal = [
-    ['Política de privacidad', LEGAL.privacy],
-    ['Términos y condiciones', LEGAL.terms],
-    ['Política de reembolso', LEGAL.refund],
-  ].filter(([, url]) => url)
-
-  const contacts = [
-    CONTACT.email && ['Email', `mailto:${CONTACT.email}`, CONTACT.email],
-    CONTACT.whatsapp && ['WhatsApp', `https://wa.me/${CONTACT.whatsapp}`, 'Escríbenos'],
-    CONTACT.instagram && ['Instagram', CONTACT.instagram, 'Síguenos'],
-    CONTACT.website && ['Web', CONTACT.website, CONTACT.website.replace(/^https?:\/\//, '')],
-  ].filter(Boolean)
-
   return (
-    <footer className="ejv-footer">
+    <footer className="ejv-footer" id="footer">
       <div className="ejv-container">
+        <div className="ejv-footer__banner" data-reveal>
+          <img
+            src={imgFooter}
+            alt="El Juego de las Ventas — Workshop Inmersivo"
+            className="ejv-footer__banner-img"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
         <div className="ejv-footer__top">
           <div className="ejv-footer__brand">
             <img src={logoEcom} alt="ECOM" width="110" height="21" />
@@ -817,35 +643,6 @@ function Footer() {
             Sábado 21 de noviembre de 2026<br />Torre Movilnet · Caracas, Venezuela
           </p>
         </div>
-
-        <div className="ejv-footer__cols">
-          <nav aria-label="Secciones">
-            <h4>Secciones</h4>
-            <a href="#temario">Temario</a>
-            <a href="#ponentes">Ponentes</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#faq">Preguntas frecuentes</a>
-            <a href="#entradas">Entradas</a>
-          </nav>
-          {contacts.length > 0 && (
-            <div>
-              <h4>Contacto del organizador</h4>
-              {contacts.map(([k, href, txt]) => (
-                <a key={k} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">{k}: {txt}</a>
-              ))}
-            </div>
-          )}
-          {legal.length > 0 && (
-            <div>
-              <h4>Legal</h4>
-              {legal.map(([k, url]) => (
-                <a key={k} href={url} target="_blank" rel="noopener noreferrer">{k}</a>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <p className="ejv-footer__copy">© 2026 ECOM. Todos los derechos reservados.</p>
       </div>
     </footer>
   )
@@ -954,10 +751,10 @@ export default function ElJuegoDeLasVentas() {
     }
   }, [])
 
-  // La barra sticky se oculta cuando ya se ve la oferta o el CTA final
+  // La barra sticky se oculta cuando ya se ve la oferta o el footer
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return undefined
-    const targets = ['entradas', 'final'].map((id) => document.getElementById(id)).filter(Boolean)
+    const targets = ['entradas', 'footer'].map((id) => document.getElementById(id)).filter(Boolean)
     const seen = new Set()
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => (en.isIntersecting ? seen.add(en.target.id) : seen.delete(en.target.id)))
@@ -970,22 +767,17 @@ export default function ElJuegoDeLasVentas() {
   return (
     <div className="ejv" ref={rootRef}>
       <PieceDefs />
-      <a className="ejv-skip" href="#problema">Saltar al contenido</a>
+      <a className="ejv-skip" href="#solucion">Saltar al contenido</a>
       <Navbar scrolled={scrolled} />
       <main>
         <Hero />
         <Marquee />
-        <Problem />
         <Solution />
         <Modules />
         <Experts />
-        <Learn />
         <Journey />
-        <Seventy />
         <Offer />
         <Certificate />
-        <Faq />
-        <FinalCta />
       </main>
       <Footer />
       <StickyBar visible={pastHero && !hideSticky} />

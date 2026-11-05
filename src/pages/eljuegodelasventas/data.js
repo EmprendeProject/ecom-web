@@ -1,19 +1,26 @@
 // Contenido de la landing. Los textos provienen del brief oficial del evento.
 // No agregar cargos, empresas, logros ni cifras de los ponentes sin confirmación.
 
-// Fotos de ponentes: se detectan automáticamente al colocar los archivos en
-// src/assets/eljuegodelasventas/ponentes/ con el nombre del id (ver LEEME.md).
-const photoFiles = import.meta.glob(
-  '../../assets/eljuegodelasventas/ponentes/*.{png,webp,jpg,jpeg,avif}',
-  { eager: true, query: '?url', import: 'default' },
-)
+import imgVictoria from '../../assets/el juego de las ventas/victoria.PNG'
+import imgBryan from '../../assets/el juego de las ventas/brayan.PNG'
+import imgGabo from '../../assets/el juego de las ventas/gabo.PNG'
+import imgJohan from '../../assets/el juego de las ventas/johan.PNG'
+import imgEdward from '../../assets/el juego de las ventas/edward.PNG'
 
-export const PHOTOS = Object.entries(photoFiles).reduce((acc, [path, url]) => {
-  const base = path.split('/').pop().replace(/\.[^.]+$/, '').toLowerCase()
-  acc[base] = url
-  return acc
-}, {})
+export const PHOTOS = {
+  'victoria-poggioli': imgVictoria,
+  'bryan-dominguez': imgBryan,
+  'gabriel-angulo': imgGabo,
+  'johan-echeverri': imgJohan,
+  'edward-nunez': imgEdward,
+  victoria: imgVictoria,
+  brayan: imgBryan,
+  gabo: imgGabo,
+  johan: imgJohan,
+  edward: imgEdward,
+}
 
+// Orden oficial estricto solicitado: Victoria, Bryan, Gabo, Johan, Edward.
 export const SPEAKERS = [
   {
     id: 'victoria-poggioli',
@@ -23,15 +30,6 @@ export const SPEAKERS = [
     area: 'Contenido y organización',
     tag: 'CONTENIDO',
     piece: 'pawn',
-  },
-  {
-    id: 'johan-echeverri',
-    first: 'Johan',
-    last: 'Echeverri',
-    initials: 'JE',
-    area: 'Anuncios y estrategias de ventas',
-    tag: 'ANUNCIOS',
-    piece: 'bishop',
   },
   {
     id: 'bryan-dominguez',
@@ -50,6 +48,15 @@ export const SPEAKERS = [
     area: 'IA aplicada a redes sociales',
     tag: 'IA PARA REDES',
     piece: 'queen',
+  },
+  {
+    id: 'johan-echeverri',
+    first: 'Johan',
+    last: 'Echeverri',
+    initials: 'JE',
+    area: 'Anuncios y estrategias de ventas',
+    tag: 'ANUNCIOS',
+    piece: 'bishop',
   },
   {
     id: 'edward-nunez',
@@ -134,17 +141,6 @@ export const MODULES = [
   },
   {
     n: '02',
-    speaker: 'johan-echeverri',
-    title: 'Anuncios y contenido para multiplicar tus oportunidades de venta.',
-    points: [
-      'Fundamentos de publicidad digital.',
-      'Estrategias de adquisición de clientes.',
-      'Mensajes y creativos publicitarios.',
-      'Cómo estructurar campañas enfocadas en resultados.',
-    ],
-  },
-  {
-    n: '03',
     speaker: 'bryan-dominguez',
     title: 'Crea una landing page que venda utilizando inteligencia artificial.',
     points: [
@@ -156,7 +152,7 @@ export const MODULES = [
     ],
   },
   {
-    n: '04',
+    n: '03',
     speaker: 'gabriel-angulo',
     title: 'Construye tu suite de IA para redes sociales con Claude.',
     points: [
@@ -165,6 +161,17 @@ export const MODULES = [
       'Producción de contenido asistida por IA.',
       'Flujos de trabajo para redes sociales.',
       'Productividad y simplificación de tareas.',
+    ],
+  },
+  {
+    n: '04',
+    speaker: 'johan-echeverri',
+    title: 'Anuncios y contenido para multiplicar tus oportunidades de venta.',
+    points: [
+      'Fundamentos de publicidad digital.',
+      'Estrategias de adquisición de clientes.',
+      'Mensajes y creativos publicitarios.',
+      'Cómo estructurar campañas enfocadas en resultados.',
     ],
   },
   {
@@ -203,10 +210,10 @@ export const PILLARS = [
 export const JOURNEY = [
   { type: 'step', n: '01', title: 'Bienvenida e introducción', text: 'Arranca el juego: contexto del workshop y visión del sistema comercial.' },
   { type: 'step', n: '02', title: 'Organización y estrategia de contenido', text: 'Ordena tu comunicación y conecta contenido con oportunidades de venta.' },
-  { type: 'step', n: '03', title: 'Estrategias de anuncios y adquisición', text: 'Estructura campañas pensadas para captar clientes.' },
+  { type: 'step', n: '03', title: 'Construcción de landing pages con IA', text: 'Crea páginas orientadas a convertir visitantes en clientes potenciales.' },
   { type: 'break', title: 'Pausa', text: 'Un espacio para descansar y conectar con otros participantes.' },
-  { type: 'step', n: '04', title: 'Construcción de landing pages con IA', text: 'Crea páginas orientadas a convertir visitantes en clientes potenciales.' },
-  { type: 'step', n: '05', title: 'Productividad y contenido con Claude', text: 'Organiza procesos creativos y flujos de trabajo para redes sociales.' },
+  { type: 'step', n: '04', title: 'Productividad y contenido con Claude', text: 'Organiza procesos creativos y flujos de trabajo para redes sociales.' },
+  { type: 'step', n: '05', title: 'Estrategias de anuncios y adquisición', text: 'Estructura campañas pensadas para captar clientes.' },
   { type: 'break', title: 'Pausa', text: 'Otro espacio de descanso e intercambio presencial.' },
   { type: 'step', n: '06', title: 'Agentes de IA y automatización comercial', text: 'Atención, seguimiento y retención apoyados en automatización.' },
   { type: 'step', n: '07', title: 'Integración de conocimientos y cierre', text: 'Une las cinco herramientas en un mismo sistema para tu negocio.' },

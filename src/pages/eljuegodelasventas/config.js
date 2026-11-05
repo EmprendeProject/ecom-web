@@ -7,11 +7,11 @@
  */
 
 export const OFFER = {
-  // Precio numérico (ej. 50). Mientras sea null se muestra `pricePlaceholder`.
-  price: null,
+  // Precio numérico (ej. 107). Mientras sea null se muestra `pricePlaceholder`.
+  price: 107,
   pricePlaceholder: '[PRECIO POR DEFINIR]',
-  // Moneda que se antepone al precio cuando `price` está definido (ej. 'USD', 'Bs.').
-  currency: 'USD',
+  // Moneda que se antepone al precio cuando `price` está definido (ej. '$', 'USD', 'Bs.').
+  currency: '$',
   // Enlace a la pasarela / checkout oficial (ej. Ticketshow, Stripe Checkout, etc.).
   // Mientras esté vacío, los botones de compra llevan a la sección de entradas
   // y el botón de la tarjeta de oferta queda en estado "checkout próximamente".
