@@ -20,26 +20,8 @@ export const PHOTOS = {
   edward: imgEdward,
 }
 
-// Orden oficial estricto solicitado: Victoria, Bryan, Gabo, Johan, Edward.
+// Orden oficial estricto: Gabo, Johan, Bryan, Victoria, Edward.
 export const SPEAKERS = [
-  {
-    id: 'victoria-poggioli',
-    first: 'Victoria',
-    last: 'Poggioli',
-    initials: 'VP',
-    area: 'Contenido y organización',
-    tag: 'CONTENIDO',
-    piece: 'pawn',
-  },
-  {
-    id: 'bryan-dominguez',
-    first: 'Bryan',
-    last: 'Domínguez',
-    initials: 'BD',
-    area: 'Landing pages e inteligencia artificial',
-    tag: 'LANDING PAGES + IA',
-    piece: 'rook',
-  },
   {
     id: 'gabriel-angulo',
     first: 'Gabriel',
@@ -57,6 +39,24 @@ export const SPEAKERS = [
     area: 'Anuncios y estrategias de ventas',
     tag: 'ANUNCIOS',
     piece: 'bishop',
+  },
+  {
+    id: 'bryan-dominguez',
+    first: 'Bryan',
+    last: 'Domínguez',
+    initials: 'BD',
+    area: 'Landing pages e inteligencia artificial',
+    tag: 'LANDING PAGES + IA',
+    piece: 'rook',
+  },
+  {
+    id: 'victoria-poggioli',
+    first: 'Victoria',
+    last: 'Poggioli',
+    initials: 'VP',
+    area: 'Contenido y organización',
+    tag: 'CONTENIDO',
+    piece: 'pawn',
   },
   {
     id: 'edward-nunez',
