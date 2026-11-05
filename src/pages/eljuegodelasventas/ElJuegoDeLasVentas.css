@@ -644,40 +644,6 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   .ejv-viz { max-width: 260px; }
 }
 
-/* ═════════════ 7. RECORRIDO ═════════════ */
-.ejv-journey { background: linear-gradient(180deg, #060b30, var(--deep) 140%); }
-.ejv-journey__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.ejv-journey__intro { position: sticky; top: calc(var(--nav-h) + 32px); }
-.ejv-journey__note { margin-top: 28px; padding-left: 16px; border-left: 2px solid var(--violet); max-width: 36ch; font-size: 14px; color: rgba(255, 255, 255, 0.7); }
-.ejv-timeline { position: relative; display: grid; gap: 14px; }
-.ejv-timeline::before { content: ''; position: absolute; left: 41px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(180deg, #6f9bff, var(--violet) 70%, transparent); opacity: 0.6; }
-.ejv-tl { position: relative; display: grid; grid-template-columns: 84px 1fr; align-items: stretch; gap: 14px; }
-.ejv-tl__n {
-  position: relative; z-index: 1; align-self: start; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 20px;
-  font-family: var(--display); font-size: 40px; background: var(--black); border: 1.5px solid #6f9bff; color: #fff; box-shadow: 0 0 0 6px var(--deep), 0 0 30px rgba(6, 72, 232, 0.5);
-}
-.ejv-tl__card { padding: 20px 22px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; transition: background 0.3s, transform 0.3s var(--ease); }
-.ejv-tl:hover .ejv-tl__card { background: rgba(255, 255, 255, 0.11); transform: translateX(4px); }
-.ejv-tl__card h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.02; }
-.ejv-tl__card p { margin-top: 8px; font-size: 15px; color: rgba(255, 255, 255, 0.72); }
-.ejv-tl--break { opacity: 0.95; }
-.ejv-tl--break .ejv-tl__n { width: 84px; height: 48px; margin-top: 18px; border-radius: 999px; border-style: dashed; border-color: var(--violet); color: #c4b0ff; background: #11103a; }
-.ejv-tl--break .ejv-tl__card { padding: 14px 20px; border-style: dashed; border-color: rgba(139, 92, 246, 0.55); background: rgba(139, 92, 246, 0.08); }
-.ejv-tl--break h3 { font-size: 22px; color: #d3c5ff; }
-.ejv-tl--break p { margin-top: 2px; font-size: 14px; }
-
-@media (max-width: 900px) {
-  .ejv-journey__grid { grid-template-columns: 1fr; }
-  .ejv-journey__intro { position: static; }
-}
-@media (max-width: 520px) {
-  .ejv-timeline::before { left: 29px; }
-  .ejv-tl { grid-template-columns: 60px 1fr; gap: 10px; }
-  .ejv-tl__n { width: 60px; height: 60px; font-size: 28px; border-radius: 15px; box-shadow: 0 0 0 5px #070f4a; }
-  .ejv-tl--break .ejv-tl__n { width: 60px; height: 40px; margin-top: 12px; }
-  .ejv-tl__card { padding: 16px; }
-}
-
 /* ═════════════ 8. 70 PERSONAS ═════════════ */
 .ejv-seventy { color: #fff; overflow: hidden; isolation: isolate; background: linear-gradient(120deg, #0a52ff, var(--blue) 45%, #0436b8); }
 .ejv-seventy__bg { position: absolute; inset: 0; z-index: -1; background: repeating-conic-gradient(rgba(255, 255, 255, 0.05) 0 25%, transparent 0 50%) 0 0 / 120px 120px; -webkit-mask-image: linear-gradient(90deg, #000, transparent 70%); mask-image: linear-gradient(90deg, #000, transparent 70%); }

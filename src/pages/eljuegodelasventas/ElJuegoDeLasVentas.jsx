@@ -5,7 +5,7 @@ import imgCertificado from '../../assets/el juego de las ventas/certificado.jpeg
 import { ChessPiece, PieceDefs } from './ChessPiece'
 import { OFFER, EVENT } from './config'
 import {
-  SPEAKERS, STAGES, MODULES, JOURNEY,
+  SPEAKERS, STAGES, MODULES,
   INCLUDES, photoOf,
 } from './data'
 import './ElJuegoDeLasVentas.css'
@@ -92,7 +92,6 @@ function Cutout({ speaker, className = '', eager = false }) {
 const NAV = [
   ['Temario', '#temario'],
   ['Ponentes', '#ponentes'],
-  ['Experiencia', '#experiencia'],
   ['Entradas', '#entradas'],
 ]
 
@@ -472,50 +471,6 @@ function Experts() {
   )
 }
 
-/* ───────────────────────── 5. recorrido ───────────────────────── */
-
-function Journey() {
-  return (
-    <section className="ejv-sec ejv-journey ejv-dark ejv-gridbg" id="experiencia">
-      <div className="ejv-container ejv-journey__grid">
-        <div className="ejv-journey__intro">
-          <Eyebrow tone="light">EL RETO DE LAS 8 HORAS</Eyebrow>
-          <h2 className="ejv-h2 ejv-h2--light ejv-h2--md" data-reveal>
-            8 horas para cambiar tu forma de <em>entender las ventas.</em>
-          </h2>
-          <p className="ejv-journey__note">
-            Recorrido temático de la jornada. Los horarios por módulo se publicarán cuando sean confirmados oficialmente.
-          </p>
-        </div>
-
-        <ol className="ejv-timeline">
-          {JOURNEY.map((j, i) =>
-            j.type === 'break' ? (
-              <li className="ejv-tl ejv-tl--break" key={i} data-reveal>
-                <span className="ejv-tl__n" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3" /></svg>
-                </span>
-                <div className="ejv-tl__card">
-                  <h3>{j.title}</h3>
-                  <p>{j.text}</p>
-                </div>
-              </li>
-            ) : (
-              <li className="ejv-tl" key={i} data-reveal>
-                <span className="ejv-tl__n">{j.n}</span>
-                <div className="ejv-tl__card">
-                  <h3>{j.title}</h3>
-                  <p>{j.text}</p>
-                </div>
-              </li>
-            ),
-          )}
-        </ol>
-      </div>
-    </section>
-  )
-}
-
 /* ───────────────────────── 6. oferta ───────────────────────── */
 
 function Offer() {
@@ -780,7 +735,6 @@ export default function ElJuegoDeLasVentas() {
         <Solution />
         <Modules />
         <Experts />
-        <Journey />
         <Offer />
         <Certificate />
       </main>
