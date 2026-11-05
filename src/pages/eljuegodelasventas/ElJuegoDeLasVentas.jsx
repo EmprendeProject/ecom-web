@@ -319,11 +319,8 @@ function Modules() {
           <div>
             <Eyebrow>TEMARIO</Eyebrow>
             <h2 className="ejv-h2" data-reveal>Qué vas a <em>aprender</em></h2>
-            <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
-              Cinco módulos, cinco especialistas y un mismo sistema comercial. Toca cualquier módulo para desplegar su temario detallado.
-            </p>
           </div>
-          <div className="ejv-modules__actions" data-reveal style={{ '--d': 2 }}>
+          <div className="ejv-modules__actions" data-reveal style={{ '--d': 1 }}>
             <button
               type="button"
               className="ejv-btn ejv-btn--blue ejv-btn--sm ejv-modules__toggle-all"
@@ -394,36 +391,26 @@ function Modules() {
                   className="ejv-acc-mod__collapse"
                 >
                   <div className="ejv-acc-mod__content">
-                    <div className="ejv-acc-mod__grid">
-                      <div className="ejv-acc-mod__visual">
-                        <div className="ejv-acc-mod__frame">
-                          <Cutout speaker={s} />
-                        </div>
-                        <p className="ejv-acc-mod__area-caption">
-                          Especialista: <b>{s.first} {s.last}</b> · {s.area}
-                        </p>
-                      </div>
-
-                      <div className="ejv-acc-mod__details">
-                        <p className="ejv-acc-mod__learn-label">PUNTOS CLAVE DEL MÓDULO:</p>
-                        <ul className="ejv-acc-mod__list">
-                          {m.points.map((p) => (
-                            <li key={p}>
-                              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <div className="ejv-acc-mod__body">
+                      <ul className="ejv-acc-mod__list">
+                        {m.points.map((p) => (
+                          <li key={p}>
+                            <span className="ejv-acc-mod__tick" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" width="14" height="14">
                                 <path
                                   d="m5 12.5 4.5 4.5L19 7.5"
                                   fill="none"
                                   stroke="currentColor"
-                                  strokeWidth="2.6"
+                                  strokeWidth="2.8"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                              <span>{p}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                            </span>
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
