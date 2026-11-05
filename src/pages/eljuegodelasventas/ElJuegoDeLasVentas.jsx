@@ -252,7 +252,7 @@ function Hero() {
 
         <div className="ejv-hero__body ejv-in" style={{ '--d': 4 }}>
           <p className="ejv-hero__sub">
-            Aprende las 5 herramientas que pueden transformar la manera en que tu negocio atrae clientes y genera ventas.
+            El único taller presencial que te dará las herramientas para aumentar las ventas de tu negocio
           </p>
 
           <ul className="ejv-hero__info">
