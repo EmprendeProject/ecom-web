@@ -1,11 +1,11 @@
 // Contenido de la landing. Los textos provienen del brief oficial del evento.
 // No agregar cargos, empresas, logros ni cifras de los ponentes sin confirmación.
 
-import imgVictoria from '../../assets/el juego de las ventas/victoria.PNG'
-import imgBryan from '../../assets/el juego de las ventas/brayan.PNG'
-import imgGabo from '../../assets/el juego de las ventas/gabo.PNG'
-import imgJohan from '../../assets/el juego de las ventas/johan.PNG'
-import imgEdward from '../../assets/el juego de las ventas/edward.PNG'
+import imgVictoria from '../../assets/el juego de las ventas/victoria.webp'
+import imgBryan from '../../assets/el juego de las ventas/brayan.webp'
+import imgGabo from '../../assets/el juego de las ventas/gabo.webp'
+import imgJohan from '../../assets/el juego de las ventas/johan.webp'
+import imgEdward from '../../assets/el juego de las ventas/edward.webp'
 
 export const PHOTOS = {
   'victoria-poggioli': imgVictoria,

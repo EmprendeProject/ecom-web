@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import logoEcom from '../../assets/Elementos graficos/LOGO ECOM.webp'
-import imgFooter from '../../assets/el juego de las ventas/futter.png'
-import imgCertificado from '../../assets/el juego de las ventas/certificado.jpeg'
+import imgFooter from '../../assets/el juego de las ventas/futter.webp'
+import imgCertificado from '../../assets/el juego de las ventas/certificado.webp'
 import { ChessPiece, PieceDefs } from './ChessPiece'
 import { OFFER, EVENT, META_PIXEL_ID } from './config'
 import {
@@ -122,7 +122,10 @@ function Cutout({ speaker, className = '', eager = false }) {
           src={src}
           alt={`${speaker.first} ${speaker.last}`}
           loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
+          width="800"
+          height="1067"
           draggable="false"
         />
       ) : (
@@ -578,6 +581,9 @@ function Certificate() {
               src={imgCertificado}
               alt="Certificado digital de participación - El Juego de las Ventas"
               loading="lazy"
+              decoding="async"
+              width="1000"
+              height="707"
             />
           </div>
         </div>
@@ -599,6 +605,8 @@ function Footer() {
             className="ejv-footer__banner-img"
             loading="lazy"
             decoding="async"
+            width="1320"
+            height="434"
           />
         </div>
 

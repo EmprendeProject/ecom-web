@@ -216,7 +216,7 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
 
 /* ───────── fotos / placeholders ───────── */
 .ejv-cutout { position: absolute; inset: 0; overflow: hidden; }
-.ejv-cutout img { width: 100%; height: 100%; object-fit: cover; object-position: top center; user-select: none; }
+.ejv-cutout img { width: 100%; height: 100%; object-fit: cover; object-position: top center; user-select: none; content-visibility: auto; }
 .ejv-cutout__ph { position: absolute; inset: 0; display: grid; place-items: start center; padding-top: 14%; color: rgba(255, 255, 255, 0.5); }
 .ejv-cutout__piece { position: absolute; width: 58%; bottom: -3%; left: 21%; opacity: 0.4; }
 .ejv-cutout__ini {
