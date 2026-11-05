@@ -495,9 +495,9 @@ function Offer() {
     <section className="ejv-sec ejv-offer ejv-dark ejv-gridbg" id="entradas">
       <div className="ejv-offer__glow" aria-hidden="true" />
       <div className="ejv-container">
-        <Eyebrow tone="light">TU ENTRADA</Eyebrow>
+        <Eyebrow tone="light">TU PARTICIPACIÓN</Eyebrow>
         <h2 className="ejv-h2 ejv-h2--light" data-reveal>
-          Tu entrada al juego <em>incluye:</em>
+          Tu participación <em>incluye:</em>
         </h2>
 
         <div className="ejv-offer__grid">

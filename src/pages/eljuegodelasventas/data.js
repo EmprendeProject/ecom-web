@@ -226,12 +226,12 @@ export const BENEFITS_70 = [
 ]
 
 export const INCLUDES = [
-  'Acceso presencial al workshop.',
-  'Participación en una jornada de 8 horas.',
-  'Formación con cinco especialistas.',
-  'Sesiones teórico-prácticas.',
-  'Espacios para conectar con otros empresarios.',
-  'Certificado digital de participación.',
+  'Escarapela full access al workshop',
+  'Bollería y merienda',
+  'Zona de café',
+  'Material entregable del taller',
+  'Certificado',
+  'Llavero y libreta',
 ]
 
 export const FAQ = [
