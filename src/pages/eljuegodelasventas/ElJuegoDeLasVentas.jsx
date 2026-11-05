@@ -548,9 +548,6 @@ function Certificate() {
           <h2 className="ejv-h2 ejv-h2--md" data-reveal>
             Tu aprendizaje también merece ser <em>reconocido.</em>
           </h2>
-          <p className="ejv-lead" data-reveal style={{ '--d': 1 }}>
-            Al participar en El Juego de las Ventas recibirás un certificado digital de participación en el workshop inmersivo.
-          </p>
         </div>
 
         <div className="ejv-cert__stage" data-reveal>
@@ -744,8 +741,8 @@ export default function ElJuegoDeLasVentas() {
         <Marquee />
         <Modules />
         <Experts />
-        <Offer />
         <Certificate />
+        <Offer />
       </main>
       <Footer />
       <StickyBar visible={pastHero && !hideSticky} />
