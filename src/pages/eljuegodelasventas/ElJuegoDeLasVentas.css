@@ -235,14 +235,19 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--nav-h);
-  background: linear-gradient(90deg, #090e24 0%, #0d1a4d 50%, #090e24 100%);
-  border-bottom: 1px solid rgba(111, 155, 255, 0.28);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 25px rgba(6, 72, 232, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(90deg, #ff1744 0%, #ff5200 50%, #ff1744 100%);
+  background-size: 200% auto;
+  animation: ejv-urgency-shimmer 6s ease-in-out infinite;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(255, 23, 68, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   color: #ffffff;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+@keyframes ejv-urgency-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 .ejv-urgency__inner {
   width: 100%;
@@ -252,105 +257,48 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  font-size: 13px;
-}
-.ejv-urgency__content {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-.ejv-urgency__pulse {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  flex: none;
-}
-.ejv-urgency__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff3b30;
-  box-shadow: 0 0 10px #ff3b30;
-  animation: ejv-pulse-red 1.6s ease-in-out infinite alternate;
-}
-.ejv-urgency__pulse::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: rgba(255, 59, 48, 0.4);
-  animation: ejv-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-@keyframes ejv-pulse-red {
-  0% { transform: scale(0.9); opacity: 0.85; }
-  100% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px #ff3b30; }
-}
-@keyframes ejv-ping {
-  75%, 100% { transform: scale(1.8); opacity: 0; }
+  text-align: center;
 }
 .ejv-urgency__text {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(12px, 1.05vw, 13.5px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
   color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.02em;
   white-space: nowrap;
 }
+.ejv-urgency__flame {
+  font-size: 15px;
+  display: inline-block;
+  animation: ejv-flame-bounce 1.6s ease-in-out infinite alternate;
+}
+@keyframes ejv-flame-bounce {
+  0% { transform: scale(0.92) rotate(-3deg); }
+  100% { transform: scale(1.18) rotate(3deg); }
+}
 .ejv-urgency__text strong {
-  font-weight: 800;
-  color: #ffe600;
-  letter-spacing: 0.03em;
-  text-shadow: 0 0 16px rgba(255, 230, 0, 0.4);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 .ejv-urgency__sep {
-  opacity: 0.4;
-  color: #8fb0ff;
+  opacity: 0.55;
+  color: #ffffff;
 }
 .ejv-urgency__sub {
-  color: #c4d7ff;
-  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: clamp(11.5px, 0.95vw, 12.5px);
   font-weight: 600;
-}
-.ejv-urgency__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #ffffff;
-  transition: background 0.25s, transform 0.2s, border-color 0.25s;
-  flex: none;
-}
-.ejv-urgency__cta:hover {
-  background: #ffffff;
-  color: var(--black);
-  border-color: #ffffff;
-  transform: translateY(-1px);
-}
-.ejv-urgency__cta span:last-child {
-  transition: transform 0.2s;
-}
-.ejv-urgency__cta:hover span:last-child {
-  transform: translateX(3px);
 }
 
 @media (max-width: 680px) {
   .ejv-urgency__inner {
-    justify-content: space-between;
-    gap: 8px;
-    padding-inline: 12px;
+    padding-inline: 10px;
+    justify-content: center;
   }
   .ejv-urgency__sub {
     display: none;
@@ -360,13 +308,10 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   }
   .ejv-urgency__text {
     font-size: 11.5px;
+    letter-spacing: 0.02em;
   }
   .ejv-urgency__text strong {
     font-size: 12px;
-  }
-  .ejv-urgency__cta {
-    padding: 3px 9px;
-    font-size: 10.5px;
   }
 }
 

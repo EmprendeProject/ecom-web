@@ -144,20 +144,12 @@ function UrgencyBar() {
   return (
     <aside className="ejv-urgency" role="region" aria-label="Disponibilidad de cupos">
       <div className="ejv-urgency__inner">
-        <div className="ejv-urgency__content">
-          <span className="ejv-urgency__pulse" aria-hidden="true">
-            <span className="ejv-urgency__dot" />
-          </span>
-          <p className="ejv-urgency__text">
-            <strong>55% de los cupos ya están vendidos</strong>
-            <span className="ejv-urgency__sep" aria-hidden="true">·</span>
-            <span className="ejv-urgency__sub">Workshop presencial · 21 nov · Torre Movilnet</span>
-          </p>
-        </div>
-        <a {...ctaProps()} className="ejv-urgency__cta">
-          <span>Asegura tu cupo</span>
-          <span aria-hidden="true">→</span>
-        </a>
+        <p className="ejv-urgency__text">
+          <span className="ejv-urgency__flame" aria-hidden="true">🔥</span>
+          <strong>55% DE LOS CUPOS YA ESTÁN VENDIDOS</strong>
+          <span className="ejv-urgency__sep" aria-hidden="true">·</span>
+          <span className="ejv-urgency__sub">Workshop Presencial · 21 Nov · Torre Movilnet</span>
+        </p>
       </div>
     </aside>
   )
