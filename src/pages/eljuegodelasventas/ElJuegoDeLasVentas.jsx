@@ -40,8 +40,10 @@ const Arrow = () => (
 function Button({ variant = 'blue', size, children, className = '', ...props }) {
   return (
     <a className={`ejv-btn ejv-btn--${variant} ${size ? `ejv-btn--${size}` : ''} ${className}`} {...props}>
-      <span>{children}</span>
-      <Arrow />
+      <span className="ejv-btn__text">{children}</span>
+      <span className="ejv-btn__arrow-wrap">
+        <Arrow />
+      </span>
     </a>
   )
 }
@@ -199,20 +201,6 @@ function Hero() {
           </h1>
         </div>
 
-        <div className="ejv-hero__cast" aria-label="Los cinco especialistas">
-          {SPEAKERS.map((s, i) => (
-            <figure className="ejv-cast" key={s.id} style={{ '--i': i }}>
-              <div className="ejv-cast__inner">
-                <Cutout speaker={s} eager />
-                <figcaption>
-                  <b>{s.first}</b>
-                  <span>{s.tag}</span>
-                </figcaption>
-              </div>
-            </figure>
-          ))}
-        </div>
-
         <div className="ejv-hero__body ejv-in" style={{ '--d': 4 }}>
           <p className="ejv-hero__sub">
             Aprende las 5 herramientas que pueden transformar la manera en que tu negocio atrae clientes y genera ventas.
@@ -225,8 +213,24 @@ function Hero() {
           </ul>
 
           <div className="ejv-hero__ctas">
-            <Button variant="white" size="lg" {...ctaProps()}>QUIERO ASEGURAR MI CUPO</Button>
+            <Button variant="hero" size="lg" {...ctaProps()}>
+              QUIERO ASEGURAR MI CUPO
+            </Button>
           </div>
+        </div>
+
+        <div className="ejv-hero__cast" aria-label="Los cinco especialistas">
+          {SPEAKERS.map((s, i) => (
+            <figure className="ejv-cast" key={s.id} style={{ '--i': i }}>
+              <div className="ejv-cast__inner">
+                <Cutout speaker={s} eager />
+                <figcaption>
+                  <b>{s.first}</b>
+                  <span>{s.tag}</span>
+                </figcaption>
+              </div>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
