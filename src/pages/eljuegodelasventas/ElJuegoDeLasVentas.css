@@ -142,7 +142,8 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
 
 /* ───────── scroll reveal ───────── */
 .ejv-anim [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
-.ejv-anim [data-reveal].is-in { opacity: 1; transform: none; }
+.ejv-anim [data-reveal].is-in,
+.ejv-anim [data-reveal][data-revealed="true"] { opacity: 1; transform: none; }
 
 /* ═════════════ NAVBAR ═════════════ */
 .ejv-nav { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background 0.35s, backdrop-filter 0.35s, box-shadow 0.35s; color: #fff; }
@@ -382,6 +383,8 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+  opacity: 1 !important;
+  transform: none !important;
 }
 .ejv-acc-mod:hover {
   border-color: rgba(6, 72, 232, 0.35);
@@ -528,6 +531,7 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
   grid-template-rows: 1fr;
 }
 .ejv-acc-mod__content {
+  min-height: 0;
   overflow: hidden;
 }
 

@@ -346,7 +346,7 @@ function Modules() {
           </div>
         </div>
 
-        <div className="ejv-acc-modules">
+        <div className="ejv-acc-modules" data-reveal>
           {MODULES.map((m, i) => {
             const s = speakerById(m.speaker)
             const isOpen = openSet.has(m.n)
@@ -354,7 +354,6 @@ function Modules() {
               <div
                 key={m.n}
                 className={`ejv-acc-mod ${isOpen ? 'is-open' : ''}`}
-                data-reveal
                 style={{ '--d': i }}
               >
                 <button
@@ -681,7 +680,10 @@ export default function ElJuegoDeLasVentas() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const els = root.querySelectorAll('[data-reveal], [data-lit]')
     if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-in'))
+      els.forEach((el) => {
+        el.classList.add('is-in')
+        el.setAttribute('data-revealed', 'true')
+      })
       return undefined
     }
     root.classList.add('ejv-anim')
@@ -690,6 +692,7 @@ export default function ElJuegoDeLasVentas() {
         entries.forEach((en) => {
           if (en.isIntersecting) {
             en.target.classList.add('is-in')
+            en.target.setAttribute('data-revealed', 'true')
             io.unobserve(en.target)
           }
         })
