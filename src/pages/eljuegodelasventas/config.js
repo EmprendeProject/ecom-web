@@ -17,7 +17,7 @@ export const OFFER = {
   // Enlace a la pasarela / checkout oficial (ej. Ticketshow, Stripe Checkout, etc.).
   // Mientras esté vacío, los botones de compra llevan a la sección de entradas
   // y el botón de la tarjeta de oferta queda en estado "checkout próximamente".
-  checkoutUrl: '',
+  checkoutUrl: 'https://wa.link/z7t9sd',
   // Disponibilidad: 'open' | 'soon' | 'soldout'
   // 'soon'    -> botón deshabilitado "PRÓXIMAMENTE"
   // 'soldout' -> botón deshabilitado "AGOTADO"

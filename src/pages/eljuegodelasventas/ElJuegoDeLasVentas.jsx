@@ -154,7 +154,7 @@ function UrgencyBar() {
             <span className="ejv-urgency__sub">Workshop presencial · 21 nov · Torre Movilnet</span>
           </p>
         </div>
-        <a href="#entradas" className="ejv-urgency__cta">
+        <a {...ctaProps()} className="ejv-urgency__cta">
           <span>Asegura tu cupo</span>
           <span aria-hidden="true">→</span>
         </a>
@@ -576,7 +576,7 @@ function Footer() {
   return (
     <footer className="ejv-footer" id="footer">
       <div className="ejv-container">
-        <div className="ejv-footer__banner" data-reveal>
+        <a {...ctaProps()} className="ejv-footer__banner" data-reveal aria-label="Asegura tu cupo en WhatsApp">
           <img
             src={imgFooter}
             alt="El Juego de las Ventas — Workshop Inmersivo"
@@ -586,7 +586,7 @@ function Footer() {
             width="1320"
             height="434"
           />
-        </div>
+        </a>
 
         <div className="ejv-footer__top">
           <div className="ejv-footer__brand">
