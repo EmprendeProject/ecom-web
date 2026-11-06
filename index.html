@@ -28,8 +28,13 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '2204861446644503');
-      fbq('track', 'PageView');
+      // La landing de El Juego de las Ventas ("/" y "/eljuegodelasventas") usa SOLO su pixel
+      // propio (2019601382311026, inicializado en la propia página). En esas rutas NO se
+      // inicializa el pixel general para que ningún evento se duplique en él.
+      if (!/^\/(eljuegodelasventas\/?)?$/i.test(location.pathname)) {
+        fbq('init', '2204861446644503');
+        fbq('track', 'PageView');
+      }
     </script>
     <!-- End Meta Pixel Code -->
   </head>

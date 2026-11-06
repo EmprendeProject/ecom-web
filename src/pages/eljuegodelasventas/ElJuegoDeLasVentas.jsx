@@ -14,8 +14,12 @@ import './ElJuegoDeLasVentas.css'
 
 const speakerById = (id) => SPEAKERS.find((s) => s.id === id)
 
+// Evita inicializar/disparar dos veces (React StrictMode monta los efectos 2 veces en dev).
+let pixelStarted = false
+
 const initMetaPixel = () => {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || pixelStarted) return
+  pixelStarted = true
   if (!window.fbq) {
     const n = function () {
       n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
@@ -33,6 +37,7 @@ const initMetaPixel = () => {
     first?.parentNode?.insertBefore(s, first)
   }
 
+  // Todo con trackSingle: los eventos van SOLO a este pixel, nunca a otros pixeles de la web.
   try {
     window.fbq('init', META_PIXEL_ID)
     window.fbq('trackSingle', META_PIXEL_ID, 'PageView')
@@ -49,25 +54,27 @@ const initMetaPixel = () => {
   }
 }
 
-const trackCheckout = () => {
-  if (typeof window.fbq === 'function') {
-    const data = {
+// "Cliente potencial" (Lead): se dispara al hacer clic en cualquier CTA hacia WhatsApp.
+const trackLead = () => {
+  if (typeof window.fbq !== 'function') return
+  try {
+    window.fbq('trackSingle', META_PIXEL_ID, 'Lead', {
       content_name: 'El Juego de las Ventas — Workshop Inmersivo',
       content_category: 'Workshop',
       content_ids: ['el-juego-de-las-ventas-2026'],
       content_type: 'product',
       value: OFFER.price || 107,
       currency: 'USD',
-    }
-    window.fbq('track', 'InitiateCheckout', data)
-    window.fbq('trackSingle', META_PIXEL_ID, 'InitiateCheckout', data)
+    })
+  } catch (err) {
+    console.warn('Meta Pixel tracking error:', err)
   }
 }
 
 // Todos los CTA apuntan al checkout oficial si está configurado; si no, a la sección de entradas.
 const ctaProps = () =>
   OFFER.checkoutUrl
-    ? { href: OFFER.checkoutUrl, target: '_blank', rel: 'noopener noreferrer', onClick: trackCheckout }
+    ? { href: OFFER.checkoutUrl, target: '_blank', rel: 'noopener noreferrer', onClick: trackLead }
     : { href: '#entradas' }
 
 const priceLabel = () => {
