@@ -18,8 +18,8 @@ const ElJuegoDeLasVentas = lazy(() => import('./pages/eljuegodelasventas/ElJuego
 const ElJuegoDeLasVentas2 = lazy(() => import('./pages/eljuegodelasventas2/ElJuegoDeLasVentas.jsx'))
 const EjdlvBroshure = lazy(() => import('./pages/EjdlvBroshure.jsx'))
 
-// Rutas de la landing de El Juego de las Ventas: usan SOLO su pixel propio
-// (2019601382311026), que se inicializa y dispara desde la propia página.
+// Rutas de la landing de El Juego de las Ventas: usan el pixel del workshop
+// (2204861446644503), que se inicializa y dispara desde la propia página con sus eventos específicos.
 const LANDING_PATH = /^\/(eljuegodelasventas\/?)?$/i
 const GENERAL_PIXEL_ID = '2204861446644503'
 // index.html solo inicializa el pixel general si la primera ruta NO es la landing.

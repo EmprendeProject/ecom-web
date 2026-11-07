@@ -6,7 +6,7 @@
  * numérica hasta que exista una fuente real.
  */
 
-export const META_PIXEL_ID = '2019601382311026'
+export const META_PIXEL_ID = '2204861446644503'
 
 export const OFFER = {
   // Precio numérico (ej. 107). Mientras sea null se muestra `pricePlaceholder`.
