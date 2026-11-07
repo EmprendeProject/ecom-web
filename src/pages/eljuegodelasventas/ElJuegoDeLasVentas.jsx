@@ -219,7 +219,7 @@ function Hero() {
 
         <div className="ejv-hero__body ejv-in" style={{ '--d': 4 }}>
           <p className="ejv-hero__sub">
-            El único taller presencial que te dará las herramientas para aumentar las ventas de tu negocio
+            El único <strong className="ejv-hero__highlight">taller presencial</strong> que te dará las herramientas para aumentar <strong className="ejv-hero__highlight">las ventas de tu negocio</strong>
           </p>
 
           <ul className="ejv-hero__info">
@@ -229,7 +229,18 @@ function Hero() {
           </ul>
 
           <div className="ejv-hero__ctas">
-            <Button variant="hero" size="lg" {...ctaProps()}>
+            <Button
+              variant="hero"
+              size="lg"
+              href="#entradas"
+              onClick={(e) => {
+                const el = document.getElementById('entradas')
+                if (el) {
+                  e.preventDefault()
+                  el.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
+            >
               QUIERO ASEGURAR MI CUPO
             </Button>
           </div>

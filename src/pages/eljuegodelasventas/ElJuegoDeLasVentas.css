@@ -406,6 +406,17 @@ html:has(.ejv) { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) 
 .ejv-in { animation: ejv-up 0.9s var(--ease) both; animation-delay: calc(var(--d, 0) * 110ms + 80ms); }
 
 .ejv-hero__sub { font-size: clamp(17px, 1.4vw, 21px); font-weight: 700; line-height: 1.35; max-width: 640px; margin-inline: auto; text-wrap: balance; color: rgba(255, 255, 255, 0.95); }
+.ejv-hero__highlight {
+  color: #ffffff;
+  font-weight: 800;
+  background: linear-gradient(180deg, transparent 58%, rgba(255, 202, 56, 0.32) 58%);
+  text-decoration: underline;
+  text-decoration-color: #ffca38;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+  padding-inline: 2px;
+  border-radius: 2px;
+}
 .ejv-hero__info { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px; }
 .ejv-hero__info li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; background: rgba(9, 10, 15, 0.32); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 10px; backdrop-filter: blur(8px); }
 .ejv-hero__ctas { display: flex; justify-content: center; align-items: center; margin-top: 18px; width: 100%; }
