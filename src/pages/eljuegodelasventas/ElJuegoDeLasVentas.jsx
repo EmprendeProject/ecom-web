@@ -20,37 +20,21 @@ let pixelStarted = false
 const initMetaPixel = () => {
   if (typeof window === 'undefined' || pixelStarted) return
   pixelStarted = true
-  if (!window.fbq) {
-    const n = function () {
-      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+  // Nota: fbq('init') y fbq('track', 'PageView') ya se disparan instantáneamente en index.html (<head>).
+  // Aquí solo enviamos el evento enriquecido ViewContent con el catálogo/producto.
+  if (typeof window.fbq === 'function') {
+    try {
+      window.fbq('trackSingle', META_PIXEL_ID, 'ViewContent', {
+        content_name: 'El Juego de las Ventas — Workshop Inmersivo',
+        content_category: 'Workshop',
+        content_ids: ['el-juego-de-las-ventas-2026'],
+        content_type: 'product',
+        value: OFFER.price || 107,
+        currency: 'USD',
+      })
+    } catch (err) {
+      console.warn('Meta Pixel tracking error:', err)
     }
-    window.fbq = n
-    if (!window._fbq) window._fbq = n
-    n.push = n
-    n.loaded = true
-    n.version = '2.0'
-    n.queue = []
-    const s = document.createElement('script')
-    s.async = true
-    s.src = 'https://connect.facebook.net/en_US/fbevents.js'
-    const first = document.getElementsByTagName('script')[0]
-    first?.parentNode?.insertBefore(s, first)
-  }
-
-  // Todo con trackSingle: los eventos van SOLO a este pixel, nunca a otros pixeles de la web.
-  try {
-    window.fbq('init', META_PIXEL_ID)
-    window.fbq('trackSingle', META_PIXEL_ID, 'PageView')
-    window.fbq('trackSingle', META_PIXEL_ID, 'ViewContent', {
-      content_name: 'El Juego de las Ventas — Workshop Inmersivo',
-      content_category: 'Workshop',
-      content_ids: ['el-juego-de-las-ventas-2026'],
-      content_type: 'product',
-      value: OFFER.price || 107,
-      currency: 'USD',
-    })
-  } catch (err) {
-    console.warn('Meta Pixel tracking error:', err)
   }
 }
 
@@ -120,7 +104,7 @@ function Wordmark({ className = '' }) {
 }
 
 // Foto recortada del ponente, o un placeholder editorial si aún no existe el archivo.
-function Cutout({ speaker, className = '', eager = false }) {
+function Cutout({ speaker, className = '', eager = false, priority = false }) {
   const src = photoOf(speaker)
   return (
     <div className={`ejv-cutout ${src ? 'has-photo' : 'is-placeholder'} ${className}`}>
@@ -129,7 +113,7 @@ function Cutout({ speaker, className = '', eager = false }) {
           src={src}
           alt={`${speaker.first} ${speaker.last}`}
           loading={eager ? 'eager' : 'lazy'}
-          fetchPriority={eager ? 'high' : 'auto'}
+          fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           width="800"
           height="1067"
@@ -207,6 +191,7 @@ function Hero() {
               className="ejv-hero__logo"
               width="150"
               height="29"
+              fetchPriority="high"
               decoding="async"
             />
           </div>
@@ -250,7 +235,7 @@ function Hero() {
           {SPEAKERS.map((s, i) => (
             <figure className="ejv-cast" key={s.id} style={{ '--i': i }}>
               <div className="ejv-cast__inner">
-                <Cutout speaker={s} eager />
+                <Cutout speaker={s} eager={i <= 2} priority={i === 2} />
                 <figcaption>
                   <b>{s.first}</b>
                   <span>{s.tag}</span>

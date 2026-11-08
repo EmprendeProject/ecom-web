@@ -3,7 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './index.css'
 
-// Lazy-loaded routes — each page is its own JS chunk, loaded on demand
+import ElJuegoDeLasVentas from './pages/eljuegodelasventas/ElJuegoDeLasVentas.jsx'
+
+// Lazy-loaded routes — each secondary page is its own JS chunk, loaded on demand
 const App         = lazy(() => import('./App.jsx'))
 const Formulario  = lazy(() => import('./pages/Formulario.jsx'))
 const Entradas    = lazy(() => import('./pages/Entradas.jsx'))
@@ -14,38 +16,23 @@ const ComunicadoModal = lazy(() => import('./components/ComunicadoModal.jsx'))
 const PdfEntradas = lazy(() => import('./pages/PdfEntradas.jsx'))
 const PdfStands   = lazy(() => import('./pages/PdfStands.jsx'))
 const Cronograma  = lazy(() => import('./pages/Cronograma.jsx'))
-const ElJuegoDeLasVentas = lazy(() => import('./pages/eljuegodelasventas/ElJuegoDeLasVentas.jsx'))
 const ElJuegoDeLasVentas2 = lazy(() => import('./pages/eljuegodelasventas2/ElJuegoDeLasVentas.jsx'))
 const EjdlvBroshure = lazy(() => import('./pages/EjdlvBroshure.jsx'))
 
-// Rutas de la landing de El Juego de las Ventas: usan el pixel del workshop
-// (2204861446644503), que se inicializa y dispara desde la propia página con sus eventos específicos.
-const LANDING_PATH = /^\/(eljuegodelasventas\/?)?$/i
-const GENERAL_PIXEL_ID = '2204861446644503'
-// index.html solo inicializa el pixel general si la primera ruta NO es la landing.
-let generalPixelReady = !LANDING_PATH.test(window.location.pathname)
-
-// Fires a Meta Pixel PageView on every SPA route change (skips the very first
-// render because index.html / la landing ya dispararon su PageView al cargar).
+// Fires a Meta Pixel PageView on subsequent SPA route changes (skips the very first
+// render because index.html already called fbq('track', 'PageView') on initial load).
 function PixelPageView() {
   const location = useLocation()
   const isFirstRender = useRef(true)
 
   useEffect(() => {
-    // Skip the initial mount — index.html (o la landing) ya disparó el primer PageView
+    // Skip initial mount — index.html already fired PageView immediately in <head>
     if (isFirstRender.current) {
       isFirstRender.current = false
       return
     }
-    // La landing dispara su propio PageView con su pixel; no duplicar.
-    if (LANDING_PATH.test(location.pathname)) return
     if (typeof window.fbq === 'function') {
-      if (!generalPixelReady) {
-        window.fbq('init', GENERAL_PIXEL_ID)
-        generalPixelReady = true
-      }
-      // trackSingle: el PageView va solo al pixel general, nunca al de la landing.
-      window.fbq('trackSingle', GENERAL_PIXEL_ID, 'PageView')
+      window.fbq('track', 'PageView')
     }
   }, [location.pathname])
   return null

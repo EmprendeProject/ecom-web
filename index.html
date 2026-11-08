@@ -7,18 +7,26 @@
     <title>ECOM 2026 — Entradas y Tickets | El Evento del eCommerce</title>
     <meta name="description" content="Consigue tus entradas para ECOM 2026, el evento más grande del eCommerce. +40 ponentes, 2 días de networking y las mejores marcas del comercio digital." />
 
+    <!-- Preconnect & DNS-Prefetch: Meta Pixel (acelera la conexión de Facebook Ads) -->
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+
     <!-- Preconnect: Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fuentes de /eljuegodelasventas (Anton + Manrope) -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Fuentes no bloqueantes con display=swap (evita retrasar el renderizado en móviles) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&family=Montserrat:wght@600;700;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&family=Montserrat:wght@600;700;900&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&family=Montserrat:wght@600;700;900&display=swap">
+    </noscript>
+
     <!-- Preconnect: plataforma de compra de tickets -->
     <link rel="preconnect" href="https://www.ticketshow.app">
 
-    <!-- Google Fonts con display=swap para evitar FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
-
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (disparo ultra-rápido de PageView para Facebook Ads) -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -28,13 +36,8 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      // La landing de El Juego de las Ventas ("/" y "/eljuegodelasventas") usa SOLO su pixel
-      // (2204861446644503, inicializado en la propia página). En esas rutas NO se
-      // inicializa aquí para que no se dupliquen los eventos de PageView.
-      if (!/^\/(eljuegodelasventas\/?)?$/i.test(location.pathname)) {
-        fbq('init', '2204861446644503');
-        fbq('track', 'PageView');
-      }
+      fbq('init', '2204861446644503');
+      fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
   </head>
