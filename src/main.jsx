@@ -18,6 +18,7 @@ const PdfStands   = lazy(() => import('./pages/PdfStands.jsx'))
 const Cronograma  = lazy(() => import('./pages/Cronograma.jsx'))
 const ElJuegoDeLasVentas2 = lazy(() => import('./pages/eljuegodelasventas2/ElJuegoDeLasVentas.jsx'))
 const EjdlvBroshure = lazy(() => import('./pages/EjdlvBroshure.jsx'))
+const Landing2027 = lazy(() => import('./pages/landing2027/Landing2027.jsx'))
 
 // Fires a Meta Pixel PageView on subsequent SPA route changes (skips the very first
 // render because index.html already called fbq('track', 'PageView') on initial load).
@@ -85,6 +86,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/eljuegodelasventas" element={<ElJuegoDeLasVentas />} />
           <Route path="/eljuegodelasventas2" element={<ElJuegoDeLasVentas2 />} />
           <Route path="/ejdlvbroshure" element={<EjdlvBroshure />} />
+          <Route path="/landing2027" element={<Landing2027 />} />
           <Route path="/programacion" element={<ExternalRedirect to="https://www.instagram.com/p/DduCfzAFOW4/?img_index=1" />} />
           <Route path="/ticketshow" element={<ExternalRedirect to="https://www.ticketshow.app/evento/e30f2d30-00c3-42ef-b07c-733d409b59ed/comprar" />} />
           <Route path="/pago10k" element={<ExternalRedirect to="https://www.ticketshow.app/evento/3a0926fa-0aa2-4c45-b85e-07d5a3ea4138/comprar" />} />
