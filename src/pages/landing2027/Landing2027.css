@@ -105,6 +105,22 @@
   display: block;
 }
 
+/* Vimeo en modo "cover": iframe 16:9 que siempre cubre todo el hero */
+.l27-hero__vimeo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, calc(var(--l27-vh) * 16 / 9));
+  height: max(100%, 56.25vw);
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.l27-hero__vimeo.is-ready { opacity: 1; }
+
 .l27-hero__poster {
   animation: l27-kenburns 22s ease-in-out infinite alternate;
 }

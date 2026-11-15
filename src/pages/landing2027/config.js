@@ -38,42 +38,46 @@ export const HERO = {
   // Video de fondo. Recomendado: MP4 (H.264) de 10-20 s, sin audio, ≤ 6 MB,
   // colocado en /public (ej. '/videos/hero-2027.mp4'). Mientras esté vacío
   // se muestra la imagen `poster` con un zoom lento.
+  // Video de Vimeo (tiene prioridad sobre videoSrc). De la URL
+  // vimeo.com/1246927283/cde4f5798c → id: '1246927283', hash: 'cde4f5798c'.
+  vimeo: { id: '1246927283', hash: 'cde4f5798c' },
   videoSrc: '',
   videoSrcWebm: '', // opcional, más liviano
   poster: foto1,
-  kicker: 'Caracas · Venezuela',
+  kicker: 'Tercera edición · Caracas, Venezuela',
   title: 'ECOM 2027',
-  subtitle: 'El evento de ecommerce más grande de Venezuela vuelve. Más grande, más marcas, más negocio.',
+  subtitle: 'El evento de ecommerce más grande de Venezuela vuelve. Todo para aumentar las ventas por internet, en un solo lugar.',
 }
 
-// ── Scrollytelling: edición pasada ──
+// ── Scrollytelling: edición pasada (ECOM 2026 — segunda edición) ──
+// Fuente: Tickets.jsx, Cronograma.jsx y material de ubicación de ECOM 2026.
 // Cada paso ocupa una "pantalla" de scroll. `stat` es opcional (cuenta hacia arriba).
 export const EDICION_PASADA = {
   year: '2026',
   steps: [
     {
       image: foto1,
-      kicker: 'Edición 2026',
+      kicker: 'ECOM 2026 · Segunda edición',
       title: 'Así se vivió la edición pasada',
-      text: 'Dos días donde el ecommerce venezolano se reunió en un solo lugar.',
+      text: '26 y 27 de septiembre en el CC Líder, Caracas. Dos días donde el ecommerce venezolano se reunió en un solo lugar.',
     },
     {
       image: foto2,
-      stat: { value: 1000, prefix: '+', suffix: '' },
-      title: 'asistentes',
-      text: 'Emprendedores, marcas y equipos de ventas buscando crecer.',
+      stat: { value: 40, prefix: '+', suffix: '' },
+      title: 'ponentes',
+      text: 'Expertos en ecommerce, IA, marketing, finanzas, importación y dropshipping.',
     },
     {
       image: foto3,
-      stat: { value: 15, prefix: '+', suffix: '' },
-      title: 'marcas expositoras',
-      text: 'Empresas que llevaron su stand y salieron con clientes nuevos.',
+      stat: { value: 45, prefix: '+', suffix: '' },
+      title: 'charlas, paneles y masterminds',
+      text: 'En dos salones en simultáneo: Salón Ecom y Salón Escala.',
     },
     {
       image: foto4,
-      stat: { value: 20, prefix: '+', suffix: '' },
-      title: 'ponentes nacionales e internacionales',
-      text: 'Los que están moviendo el ecommerce, compartiendo lo que funciona.',
+      stat: { value: 50, prefix: '+', suffix: '' },
+      title: 'marcas del ecommerce',
+      text: 'Proveedores, plataformas y empresas que están moviendo la venta online en Venezuela.',
     },
   ],
 }
@@ -104,7 +108,7 @@ export const MARCAS = {
 
 // ── Cierre ──
 export const CIERRE = {
-  title: 'La próxima edición ya se está armando.',
+  title: 'La tercera edición ya se está armando.',
   text: 'Asegura tu lugar en ECOM 2027 antes que nadie.',
 }
 
@@ -118,5 +122,40 @@ export const GALERIA = {
     { src: foto2, label: '01 Stands', alt: 'Stands de marcas en ECOM' },
     { src: foto3, label: '02 Conferencias', alt: 'Conferencias en el escenario de ECOM' },
     { src: foto4, label: '03 Networking', alt: 'Asistentes haciendo networking en ECOM' },
+  ],
+}
+
+// ── Anillo 3D ("Un año de construyendo") ──
+// Las tarjetas son cuadradas: la imagen se recorta con object-fit: cover.
+// `position` ajusta el recorte (ej. 'center 25%' para mostrar caras en flyers verticales).
+// En móvil se usan solo las primeras 12 tarjetas.
+import ponente1 from '../../assets/ponentes/1.webp'
+import ponente2 from '../../assets/ponentes/2.webp'
+import ponente3 from '../../assets/ponentes/3.webp'
+import ponente4 from '../../assets/ponentes/4.webp'
+import ponente5 from '../../assets/ponentes/5.webp'
+import ponente7 from '../../assets/ponentes/7.webp'
+import ponente8 from '../../assets/ponentes/8.webp'
+import ponente9 from '../../assets/ponentes/9.webp'
+import ponente10 from '../../assets/ponentes/10.webp'
+import ponente11 from '../../assets/ponentes/11.webp'
+import ponente12 from '../../assets/ponentes/12.webp'
+import ponente13 from '../../assets/ponentes/13.webp'
+
+const flyer = (img, n) => ({ img, alt: `Flyer de ponente confirmado ECOM 2026 (${n})`, position: 'center 22%' })
+const stand = (img, n) => ({ img, alt: `Stand de marca en ECOM 2026 (${n})` })
+
+export const ANILLO = {
+  line1: 'Un Año de',
+  line2: 'Construyendo',
+  accent: '¡Sí! Hicimos un gran trabajo.',
+  footerLeft: 'Diseñado y desarrollado por',
+  footerRight: 'ECOM Venezuela',
+  listTitle: 'Momentos de ECOM 2026',
+  cards: [
+    flyer(ponente1, 1), flyer(ponente2, 2), stand(foto1, 1), flyer(ponente3, 3),
+    flyer(ponente4, 4), stand(foto2, 2), flyer(ponente5, 5), flyer(ponente7, 6),
+    stand(foto3, 3), flyer(ponente8, 7), flyer(ponente9, 8), stand(foto4, 4),
+    flyer(ponente10, 9), flyer(ponente11, 10), flyer(ponente12, 11), flyer(ponente13, 12),
   ],
 }

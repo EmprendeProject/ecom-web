@@ -3,6 +3,7 @@ import logoEcom from '../../assets/Elementos graficos/LOGO ECOM.webp'
 import { CTA, HERO, EDICION_PASADA, MARCAS, CIERRE } from './config'
 import { useScrollProgress, clamp } from './useScrollProgress'
 import Galeria3D from './Galeria3D'
+import Anillo3D from './Anillo3D'
 import './Landing2027.css'
 
 const easeOut = (t) => 1 - Math.pow(1 - t, 3)
@@ -38,6 +39,20 @@ function CtaButton({ placement, className = '' }) {
 
 function Hero() {
   const hasVideo = Boolean(HERO.videoSrc || HERO.videoSrcWebm)
+  const [vimeoReady, setVimeoReady] = useState(false)
+
+  // Embed de Vimeo en modo fondo: sin controles, en silencio, autoplay y loop
+  const vimeoSrc = HERO.vimeo?.id
+    ? `https://player.vimeo.com/video/${HERO.vimeo.id}?${new URLSearchParams({
+        ...(HERO.vimeo.hash ? { h: HERO.vimeo.hash } : {}),
+        background: '1',
+        autoplay: '1',
+        loop: '1',
+        muted: '1',
+        autopause: '0',
+        dnt: '1',
+      })}`
+    : ''
 
   const scrollToStory = (e) => {
     e.preventDefault()
@@ -47,7 +62,27 @@ function Hero() {
   return (
     <header className="l27-hero">
       <div className="l27-hero__media">
-        {hasVideo ? (
+        {vimeoSrc ? (
+          <>
+            {/* Póster visible mientras carga el video */}
+            <img
+              className="l27-hero__video l27-hero__poster"
+              src={HERO.poster}
+              alt=""
+              fetchpriority="high"
+              decoding="async"
+            />
+            <iframe
+              className={`l27-hero__vimeo${vimeoReady ? ' is-ready' : ''}`}
+              src={vimeoSrc}
+              title="Video ECOM"
+              allow="autoplay; fullscreen; picture-in-picture"
+              tabIndex={-1}
+              aria-hidden="true"
+              onLoad={() => setTimeout(() => setVimeoReady(true), 600)}
+            />
+          </>
+        ) : hasVideo ? (
           <video
             className="l27-hero__video"
             autoPlay
@@ -283,6 +318,7 @@ export default function Landing2027() {
     <div className="l27">
       <Hero />
       <EdicionPasada />
+      <Anillo3D />
       <Marcas />
       <Galeria3D />
       <Cierre />
