@@ -400,6 +400,15 @@
 .ejf .ejv-btn:disabled { animation: none; filter: grayscale(0.5); }
 .ejf .ejv-btn:disabled::before { display: none; }
 
+.ejf-sending {
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #8fb0ff;
+  text-align: center;
+  animation: ejv-up 0.4s var(--ease) both;
+}
+
 .ejf-error {
   margin-top: 18px;
   padding: 12px 16px;

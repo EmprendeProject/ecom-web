@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import logoEcom from '../../assets/Elementos graficos/LOGO ECOM.webp'
 import { ChessPiece, PieceDefs } from '../eljuegodelasventas/ChessPiece'
 import { SPEAKERS, MODULES, photoOf } from '../eljuegodelasventas/data'
@@ -86,8 +86,9 @@ const hasAnswer = (a, key) => {
 }
 
 // Una fila plana: cada clave es una columna en Google Sheets.
-const buildRow = (a) => {
+const buildRow = (a, id) => {
   const row = {
+    ID: id,
     Nombre: a.nombre.trim(),
     'Experiencia (1-10)': a.experiencia,
     'Lo que más gustó': a.gusto.join(', '),
@@ -104,19 +105,59 @@ const buildRow = (a) => {
   return row
 }
 
+const newId = () =>
+  (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`
+
+const wait = (ms) => new Promise((r) => setTimeout(r, ms))
+
+const ATTEMPTS = 3
+const ATTEMPT_TIMEOUT_MS = 20000
+
+// Error que no se arregla reintentando (el script respondió, pero con ok:false).
+class ScriptError extends Error {}
+
+async function postOnce(row) {
+  const ctrl = new AbortController()
+  const timer = setTimeout(() => ctrl.abort(), ATTEMPT_TIMEOUT_MS)
+  try {
+    // text/plain = petición "simple" (sin preflight CORS); Apps Script responde con CORS abierto,
+    // así que podemos leer su respuesta y confirmar que la fila se guardó.
+    const res = await fetch(FEEDBACK_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(row),
+      keepalive: true, // si la persona cierra la pestaña mientras se envía, la petición igual termina
+      signal: ctrl.signal,
+    })
+    const data = await res.json().catch(() => null)
+    if (data && data.ok === false) throw new ScriptError(data.error || 'El Apps Script respondió ok:false')
+    if (!res.ok || !data?.ok) throw new Error(`Respuesta inesperada del Apps Script (HTTP ${res.status})`)
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+// Solo se considera enviado si Apps Script confirma { ok: true }.
+// La conexión con Google a veces se corta o tarda mucho: se reintenta automáticamente.
+// Cada respuesta lleva un ID único, así que un reintento nunca duplica la fila.
 async function sendFeedback(row) {
   if (!FEEDBACK_ENDPOINT) {
-    console.warn('[feedback] FEEDBACK_ENDPOINT está vacío: esta respuesta NO se guardó.', row)
-    await new Promise((r) => setTimeout(r, 700))
-    return
+    throw new Error('FEEDBACK_ENDPOINT está vacío: configura la URL del Apps Script en config.js')
   }
-  // Apps Script no devuelve CORS para preflight: se envía como text/plain en modo no-cors.
-  await fetch(FEEDBACK_ENDPOINT, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(row),
-  })
+  let lastErr
+  for (let i = 0; i < ATTEMPTS; i++) {
+    try {
+      return await postOnce(row)
+    } catch (err) {
+      lastErr = err
+      console.warn(`[feedback] intento ${i + 1}/${ATTEMPTS} falló:`, err)
+      if (err instanceof ScriptError) break
+      if (i < ATTEMPTS - 1) await wait(1500 * (i + 1))
+    }
+  }
+  throw lastErr
 }
 
 const wasSent = () => {
@@ -288,6 +329,7 @@ function TalkRating({ talk, value, onChange }) {
 export default function Feedback() {
   const [step, setStep] = useState(() => (wasSent() ? DONE : INTRO))
   const [a, setA] = useState(EMPTY)
+  const submissionId = useRef(null) // se conserva entre reintentos manuales para no duplicar
   const [status, setStatus] = useState('idle') // idle | sending | error
 
   useEffect(() => {
@@ -319,8 +361,9 @@ export default function Feedback() {
 
   const submit = async () => {
     setStatus('sending')
+    if (!submissionId.current) submissionId.current = newId()
     try {
-      await sendFeedback(buildRow(a))
+      await sendFeedback(buildRow(a, submissionId.current))
       try { localStorage.setItem(SENT_KEY, '1') } catch { /* almacenamiento bloqueado */ }
       go(DONE)
     } catch (err) {
@@ -332,6 +375,7 @@ export default function Feedback() {
   const restart = () => {
     try { localStorage.removeItem(SENT_KEY) } catch { /* almacenamiento bloqueado */ }
     setA(EMPTY)
+    submissionId.current = null
     go(INTRO)
   }
 
@@ -468,6 +512,12 @@ export default function Feedback() {
                       />
                     ))}
                   </ul>
+                )}
+
+                {status === 'sending' && (
+                  <p className="ejf-sending" role="status">
+                    Guardando tu respuesta… puede tardar unos segundos, no cierres esta página.
+                  </p>
                 )}
 
                 {status === 'error' && (

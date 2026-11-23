@@ -51,6 +51,13 @@ function doPost(e) {
       sheet.setFrozenRows(1)
     }
 
+    // La web reintenta si la conexión falla: si este ID ya está guardado, no se duplica la fila.
+    const idCol = headers.indexOf('ID')
+    if (data.ID && idCol !== -1 && sheet.getLastRow() > 1) {
+      const ids = sheet.getRange(2, idCol + 1, sheet.getLastRow() - 1, 1).getValues()
+      if (ids.some((r) => r[0] === data.ID)) return json_({ ok: true, duplicado: true })
+    }
+
     sheet.appendRow(headers.map((h) => (h in data ? data[h] : '')))
     return json_({ ok: true })
   } catch (err) {
