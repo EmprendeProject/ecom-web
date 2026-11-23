@@ -10,7 +10,7 @@
 
 // URL del Web App de Apps Script (termina en /exec).
 // Hoja destino: https://docs.google.com/spreadsheets/d/1V8HxEsGo-NBiH4OhiQskxSidfWel6AQFB91jVxCzr0Q/edit
-export const FEEDBACK_ENDPOINT = ''
+export const FEEDBACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzSJwTRs1NSPvm4vTyQADIuG-YwGUXxZXXVT9nCg2QDYAmgDP6oq8FmiSIRQSfSElAt7A/exec'
 
 // Paso 2 — ¿Qué fue lo que más te gustó?
 export const LIKED_OPTIONS = [
