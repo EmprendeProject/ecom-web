@@ -12,6 +12,9 @@
 // Hoja destino: https://docs.google.com/spreadsheets/d/1V8HxEsGo-NBiH4OhiQskxSidfWel6AQFB91jVxCzr0Q/edit
 export const FEEDBACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzSJwTRs1NSPvm4vTyQADIuG-YwGUXxZXXVT9nCg2QDYAmgDP6oq8FmiSIRQSfSElAt7A/exec'
 
+// Botón de la pantalla final: carpeta con diapositivas y material del taller.
+export const MATERIAL_URL = 'https://drive.google.com/drive/folders/1ZZ2ruoRY5frYl6_ggFZtW42CqkKJ8i5u'
+
 // Paso 2 — ¿Qué fue lo que más te gustó?
 export const LIKED_OPTIONS = [
   'Los ponentes',
