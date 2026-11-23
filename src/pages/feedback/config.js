@@ -25,20 +25,7 @@ export const LIKED_OPTIONS = [
   'El certificado',
 ]
 
-// Paso 3 — ¿Qué mejorarías?
-// IMPROVE_NONE es excluyente: al elegirla se desmarcan las demás.
-export const IMPROVE_NONE = 'Nada, ¡todo estuvo perfecto!'
-export const IMPROVE_OPTIONS = [
-  'Más tiempo de práctica',
-  'Puntualidad y horarios',
-  'Sonido y pantallas',
-  'Espacio y comodidad',
-  'Comida y café',
-  'Más networking',
-  'Más profundidad en los temas',
-  'Duración del evento',
-  IMPROVE_NONE,
-]
+// Paso 3 — ¿Qué mejorarías? es texto libre (sin opciones).
 
 // Paso 4 — ¿Qué tema te gustaría ver en la próxima edición?
 export const TOPIC_OPTIONS = [

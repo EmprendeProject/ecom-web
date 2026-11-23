@@ -4,7 +4,7 @@ import { ChessPiece, PieceDefs } from '../eljuegodelasventas/ChessPiece'
 import { SPEAKERS, MODULES, photoOf } from '../eljuegodelasventas/data'
 import { EVENT } from '../eljuegodelasventas/config'
 import {
-  FEEDBACK_ENDPOINT, LIKED_OPTIONS, IMPROVE_OPTIONS, IMPROVE_NONE, TOPIC_OPTIONS,
+  FEEDBACK_ENDPOINT, LIKED_OPTIONS, TOPIC_OPTIONS,
 } from './config'
 import '../eljuegodelasventas/ElJuegoDeLasVentas.css'
 import './Feedback.css'
@@ -21,8 +21,7 @@ const EMPTY = {
   experiencia: null,
   gusto: [],
   gustoOtro: '',
-  mejoras: [],
-  mejorasOtro: '',
+  mejoras: '',
   temas: [],
   temasOtro: '',
   conferencias: {}, // speakerId -> 1..5, o 0 = "No la vi"
@@ -78,7 +77,7 @@ const hasAnswer = (a, key) => {
   switch (key) {
     case 'experiencia': return a.experiencia !== null
     case 'gusto': return a.gusto.length > 0 || a.gustoOtro.trim() !== ''
-    case 'mejoras': return a.mejoras.length > 0 || a.mejorasOtro.trim() !== ''
+    case 'mejoras': return a.mejoras.trim() !== ''
     case 'temas': return a.temas.length > 0 || a.temasOtro.trim() !== ''
     case 'conferencias': return TALKS.every((t) => a.conferencias[t.speaker.id] !== undefined)
     default: return false
@@ -93,8 +92,7 @@ const buildRow = (a, id) => {
     'Experiencia (1-10)': a.experiencia,
     'Lo que más gustó': a.gusto.join(', '),
     'Lo que más gustó (comentario)': a.gustoOtro.trim(),
-    'Qué mejoraría': a.mejoras.join(', '),
-    'Qué mejoraría (comentario)': a.mejorasOtro.trim(),
+    'Qué mejoraría': a.mejoras.trim(),
     'Temas próxima edición': a.temas.join(', '),
     'Temas próxima edición (otro)': a.temasOtro.trim(),
   }
@@ -235,12 +233,9 @@ function Scale({ value, onChange }) {
   )
 }
 
-function Chips({ options, value, onChange, exclusive }) {
-  const toggle = (o) => {
-    if (value.includes(o)) return onChange(value.filter((v) => v !== o))
-    if (o === exclusive) return onChange([o])
-    return onChange([...value.filter((v) => v !== exclusive), o])
-  }
+function Chips({ options, value, onChange }) {
+  const toggle = (o) =>
+    onChange(value.includes(o) ? value.filter((v) => v !== o) : [...value, o])
   return (
     <div className="ejf-chips">
       {options.map((o) => {
@@ -477,13 +472,12 @@ export default function Feedback() {
 
                 {current.key === 'mejoras' && (
                   <div className="ejf-q">
-                    <Chips options={IMPROVE_OPTIONS} value={a.mejoras} onChange={(v) => set('mejoras', v)} exclusive={IMPROVE_NONE} />
                     <TextField
                       id="ejf-mejoras"
-                      label="Cuéntanos más (opcional)"
+                      label="Escribe lo que pienses"
                       placeholder="¿Qué cambiarías para que la experiencia fuera un 10?"
-                      value={a.mejorasOtro}
-                      onChange={(v) => set('mejorasOtro', v)}
+                      value={a.mejoras}
+                      onChange={(v) => set('mejoras', v)}
                     />
                   </div>
                 )}
