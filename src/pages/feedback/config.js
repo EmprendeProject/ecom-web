@@ -9,6 +9,7 @@
  */
 
 // URL del Web App de Apps Script (termina en /exec).
+// Hoja destino: https://docs.google.com/spreadsheets/d/1V8HxEsGo-NBiH4OhiQskxSidfWel6AQFB91jVxCzr0Q/edit
 export const FEEDBACK_ENDPOINT = ''
 
 // Paso 2 — ¿Qué fue lo que más te gustó?
