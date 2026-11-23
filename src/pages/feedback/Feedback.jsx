@@ -4,7 +4,7 @@ import { ChessPiece, PieceDefs } from '../eljuegodelasventas/ChessPiece'
 import { SPEAKERS, MODULES, photoOf } from '../eljuegodelasventas/data'
 import { EVENT } from '../eljuegodelasventas/config'
 import {
-  FEEDBACK_ENDPOINT, MATERIAL_URL, LIKED_OPTIONS, TOPIC_OPTIONS,
+  FEEDBACK_ENDPOINT, MATERIAL_URL, PHOTOS_URL, LIKED_OPTIONS, TOPIC_OPTIONS,
 } from './config'
 import '../eljuegodelasventas/ElJuegoDeLasVentas.css'
 import './Feedback.css'
@@ -574,7 +574,7 @@ export default function Feedback() {
                   edición de <strong>El Juego de las Ventas</strong> sea todavía mejor.
                 </p>
                 <div className="ejf-done__cta">
-                  <p className="ejf-done__gift">🎁 Como agradecimiento, aquí tienes las diapositivas y todo el material del taller:</p>
+                  <p className="ejf-done__gift">🎁 Como agradecimiento, aquí tienes las diapositivas, el material del taller y las fotos del evento:</p>
                   <a
                     className="ejv-btn ejv-btn--hero ejv-btn--lg ejv-btn--block"
                     href={MATERIAL_URL}
@@ -583,6 +583,15 @@ export default function Feedback() {
                   >
                     <span className="ejv-btn__text">VER MATERIAL</span>
                     <span className="ejv-btn__arrow-wrap"><Arrow /></span>
+                  </a>
+                  <a
+                    className="ejv-btn ejv-btn--white ejv-btn--lg ejv-btn--block ejf-done__photos"
+                    href={PHOTOS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="ejv-btn__text">📸 VER FOTOS</span>
+                    <Arrow />
                   </a>
                 </div>
                 <button type="button" className="ejf-again" onClick={restart}>

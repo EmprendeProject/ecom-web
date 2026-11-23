@@ -461,6 +461,7 @@
 .ejf-done .ejf-title { font-size: clamp(42px, 7vw, 76px); }
 .ejf-done__text { margin-top: 14px; max-width: 46ch; font-size: clamp(15px, 1.4vw, 18px); color: rgba(255, 255, 255, 0.82); text-wrap: balance; }
 .ejf-done__cta { width: 100%; max-width: 420px; margin-top: 26px; }
+.ejf-done__photos { margin-top: 12px; }
 .ejf-done__gift { margin-bottom: 14px; font-size: 14px; font-weight: 700; color: #ffca38; text-wrap: balance; }
 
 .ejf-again {

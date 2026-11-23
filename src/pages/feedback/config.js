@@ -15,6 +15,9 @@ export const FEEDBACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzSJwT
 // Botón de la pantalla final: carpeta con diapositivas y material del taller.
 export const MATERIAL_URL = 'https://drive.google.com/drive/folders/1ZZ2ruoRY5frYl6_ggFZtW42CqkKJ8i5u'
 
+// Botón de la pantalla final: galería de fotos del evento.
+export const PHOTOS_URL = 'https://miguel14.pixieset.com/eljuegodelasventas/'
+
 // Paso 2 — ¿Qué fue lo que más te gustó?
 export const LIKED_OPTIONS = [
   'Los ponentes',
